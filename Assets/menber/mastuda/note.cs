@@ -1,41 +1,37 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Gamemain : MonoBehaviour {
+public class note : MonoBehaviour {
     bool one;
     int random;
-    /*
-    float note1speed;
-    float note2speed;
-    float note3speed;
-    float note4speed;
-    */
-    //メニューを押したら(一応)スタートに戻る
-    public void menuButton()
-    {
-        SceneManager.LoadScene("start");
+    //ノーツのスピードを入れておく変数
+    public float note1speed;
+    public float note2speed;
+    public float note3speed;
+    public float note4speed;
+    // Use this for initialization
+    void Start () {
+        one = true;
+        
     }
-    void Start()
-    {
-        one = true; 
-    }
-    
-    void Update()
-    {
+	
+	// Update is called once per frame
+	void Update () {
+        //Update関数の中で一度だけ実行する条件
         if (one)
         {
-            /*
             note1speed = NoteSpeeds();
+            Debug.Log(note1speed);
             note2speed = NoteSpeeds();
+            Debug.Log(note2speed);
             note3speed = NoteSpeeds();
+            Debug.Log(note3speed);
             note4speed = NoteSpeeds();
-            */
+            Debug.Log(note4speed);
             one = false;
         }
-        /*
+        //noteを動かす処理
         GameObject note1 = GameObject.Find("note1");
         note1.transform.position += new Vector3(note1speed, 0, 0);
         GameObject note2 = GameObject.Find("note2");
@@ -44,16 +40,13 @@ public class Gamemain : MonoBehaviour {
         note3.transform.position += new Vector3(note3speed, 0, 0);
         GameObject note4 = GameObject.Find("note4");
         note4.transform.position += new Vector3(note4speed, 0, 0);
-        */
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousuPosition = Input.mousePosition;
-            Debug.Log("クリックした座標は" + mousuPosition);
-        }
-        /*
+
+        //画面外に出たnoteを止める条件
+        //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x >= 7.5f)
         {
             note1.transform.position = new Vector2(7.5f, 3);
+
         }
         if (note2.transform.position.x >= 7.5f)
         {
@@ -67,6 +60,7 @@ public class Gamemain : MonoBehaviour {
         {
             note4.transform.position = new Vector2(7.5f, -1.65f);
         }
+        //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (note1.transform.position.x == 7.5f)
         {
@@ -74,36 +68,39 @@ public class Gamemain : MonoBehaviour {
             {
                 note1.transform.position = new Vector2(-3, 3);
             }
-        } else if (note2.transform.position.x == 7.5f)
+        }
+        if (note2.transform.position.x == 7.5f)
         {
             if (random > 4750 && random <= 5000)
             {
                 note2.transform.position = new Vector2(-3, 1.46f);
             }
-        } else if (note3.transform.position.x == 7.5f)
+        }
+        if (note3.transform.position.x == 7.5f)
         {
             if (random > 5000 && random <= 5250)
             {
                 note3.transform.position = new Vector2(-3, 0);
             }
-        } else if (note4.transform.position.x == 7.5f)
+        }
+        if (note4.transform.position.x == 7.5f)
         {
             if (random > 5250 && random <= 5500)
             {
                 note4.transform.position = new Vector2(-3, -1.65f);
             }
-        }*/
+        }
     }
-    //ノーツの速度変更の関数
+    //noteのスピードを変える変数
     private float NoteSpeeds()
     {
-        float noteSpeed = Random.Range(0.05f, 0.1f);
+        float noteSpeed = Random.Range(0.05f, 0.15f);
         return noteSpeed;
     }
-
-    public int RandomRange()
+    //noteが戻るためのランダムな値を出す関数
+    private int RandomRange()
     {
-        int random = Random.Range(0,10000);
+        int random = Random.Range(0, 10000);
         return random;
     }
 }

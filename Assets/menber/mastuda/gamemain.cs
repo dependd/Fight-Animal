@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Gamemain : MonoBehaviour {
+public class gamemain : MonoBehaviour
+{
     bool one;
     int random;
+    Vector2 mouseClickPosition;
     /*
     float note1speed;
     float note2speed;
@@ -20,9 +22,9 @@ public class Gamemain : MonoBehaviour {
     }
     void Start()
     {
-        one = true; 
+        one = true;
     }
-    
+
     void Update()
     {
         if (one)
@@ -47,9 +49,45 @@ public class Gamemain : MonoBehaviour {
         */
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousuPosition = Input.mousePosition;
-            Debug.Log("クリックした座標は" + mousuPosition);
+            mouseClickPosition = Input.mousePosition;
+            Debug.Log("クリックした座標は" + mouseClickPosition);
+            if (mouseClickPosition.x >= 0.0 && mouseClickPosition.x <= 230.0f)
+            {
+                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 676.0)
+                {
+                    Debug.Log("敵の攻撃を防いだ");
+                }
+            }
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
+            {
+                if (mouseClickPosition.y >= 559.0 && mouseClickPosition.y <= 676.0)
+                {
+                    Debug.Log("勇者1攻撃");
+                }
+            }
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
+            {
+                if (mouseClickPosition.y >= 451.0 && mouseClickPosition.y < 559.0)
+                {
+                    Debug.Log("勇者2攻撃");
+                }
+            }
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
+            {
+                if (mouseClickPosition.y >= 322.0 && mouseClickPosition.y <= 451.0)
+                {
+                    Debug.Log("勇者3攻撃");
+                }
+            }
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
+            {
+                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 322.0)
+                {
+                    Debug.Log("勇者4攻撃");
+                }
+            }
         }
+        
         /*
         if (note1.transform.position.x >= 7.5f)
         {
@@ -94,6 +132,7 @@ public class Gamemain : MonoBehaviour {
             }
         }*/
     }
+    
     //ノーツの速度変更の関数
     private float NoteSpeeds()
     {
@@ -103,7 +142,7 @@ public class Gamemain : MonoBehaviour {
 
     public int RandomRange()
     {
-        int random = Random.Range(0,10000);
+        int random = Random.Range(0, 10000);
         return random;
     }
 }

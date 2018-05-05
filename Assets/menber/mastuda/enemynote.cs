@@ -25,13 +25,9 @@ public class enemynote : MonoBehaviour
         if (one)
         {
             note1speed = NoteSpeeds();
-            Debug.Log(note1speed);
             note2speed = NoteSpeeds();
-            Debug.Log(note2speed);
             note3speed = NoteSpeeds();
-            Debug.Log(note3speed);
             note4speed = NoteSpeeds();
-            Debug.Log(note4speed);
             one = false;
         }
         //noteを動かす処理
@@ -69,6 +65,7 @@ public class enemynote : MonoBehaviour
         {
             if (random >= 4500 && random <= 4750)
             {
+                note1speed = NoteSpeeds();
                 note1.transform.position = new Vector2(3, 3);
             }
         }
@@ -76,6 +73,7 @@ public class enemynote : MonoBehaviour
         {
             if (random > 4750 && random <= 5000)
             {
+                note2speed = NoteSpeeds();
                 note2.transform.position = new Vector2(3, 1.46f);
             }
         }
@@ -83,6 +81,7 @@ public class enemynote : MonoBehaviour
         {
             if (random > 5000 && random <= 5250)
             {
+                note3speed = NoteSpeeds();
                 note3.transform.position = new Vector2(3, 0);
             }
         }
@@ -90,6 +89,7 @@ public class enemynote : MonoBehaviour
         {
             if (random > 5250 && random <= 5500)
             {
+                note4speed = NoteSpeeds();
                 note4.transform.position = new Vector2(3, -1.65f);
             }
         }

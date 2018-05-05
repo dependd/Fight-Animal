@@ -6,7 +6,7 @@ public class note : MonoBehaviour {
     bool one;
     int random;
     GameObject notes;
-    Hp hp;
+    hp hp;
     //ノーツのスピードを入れておく変数
     public float note1speed;
     public float note2speed;
@@ -17,7 +17,7 @@ public class note : MonoBehaviour {
         one = true;
         notes = GameObject.Find("enemySlider");
 
-        hp = notes.GetComponent<Hp>();
+        hp = notes.GetComponent<hp>();
     }
 	
 	// Update is called once per frame
@@ -113,7 +113,7 @@ public class note : MonoBehaviour {
         return random;
     }
     public void PartyDamage()
-    {;
+    {
         
         hp.DownPartyHp();
     }

@@ -119,11 +119,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -238,11 +238,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -649,7 +649,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -947,11 +947,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.65
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1528,11 +1528,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.99
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1852,7 +1852,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1903,7 +1903,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2036,7 +2036,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2137,6 +2137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622716195}
   - component: {fileID: 1622716196}
+  - component: {fileID: 1622716197}
   m_Layer: 5
   m_Name: enemySlider
   m_TagString: Untagged
@@ -2212,6 +2213,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1622716197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622716194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cabfe34992568418e7378f1a982767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1629954426 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0,

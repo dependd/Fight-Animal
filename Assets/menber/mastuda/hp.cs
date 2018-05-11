@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class hp : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class hp : MonoBehaviour
         _enemyslider.value = enemyhp;
 
         _partyslider.value = partyhp;
-
+        if (partyhp <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
     public void DownPartyHp()
     {

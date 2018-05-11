@@ -63,7 +63,7 @@ public class enemynote : MonoBehaviour
         random = RandomRange();
         if (note1.transform.position.x == -7.5f)
         {
-            if (random >= 4500 && random <= 4750)
+            if (random >= 4800 && random <= 4900)
             {
                 note1speed = NoteSpeeds();
                 note1.transform.position = new Vector2(3, 3);
@@ -71,7 +71,7 @@ public class enemynote : MonoBehaviour
         }
         if (note2.transform.position.x == -7.5f)
         {
-            if (random > 4750 && random <= 5000)
+            if (random > 4900 && random <= 5000)
             {
                 note2speed = NoteSpeeds();
                 note2.transform.position = new Vector2(3, 1.46f);
@@ -79,7 +79,7 @@ public class enemynote : MonoBehaviour
         }
         if (note3.transform.position.x == -7.5f)
         {
-            if (random > 5000 && random <= 5250)
+            if (random > 5000 && random <= 5100)
             {
                 note3speed = NoteSpeeds();
                 note3.transform.position = new Vector2(3, 0);
@@ -87,7 +87,7 @@ public class enemynote : MonoBehaviour
         }
         if (note4.transform.position.x == -7.5f)
         {
-            if (random > 5250 && random <= 5500)
+            if (random > 5100 && random <= 5200)
             {
                 note4speed = NoteSpeeds();
                 note4.transform.position = new Vector2(3, -1.65f);

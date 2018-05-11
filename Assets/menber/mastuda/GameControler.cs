@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class gamemain : MonoBehaviour
+public class GameControler : MonoBehaviour
 {
     bool one;
     int random;
@@ -46,6 +46,7 @@ public class gamemain : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mouseClickPosition = Input.mousePosition;
+            //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + mouseClickPosition);
             if (mouseClickPosition.x >= 0.0 && mouseClickPosition.x <= 230.0f)
             {
@@ -73,6 +74,7 @@ public class gamemain : MonoBehaviour
                     }
                 }
             }
+            //1番目の勇者が攻撃する処理
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
             {
                 if (mouseClickPosition.y >= 559.0 && mouseClickPosition.y <= 676.0)
@@ -84,6 +86,7 @@ public class gamemain : MonoBehaviour
                     }
                 }
             }
+            //2番目の勇者が攻撃する時の処理
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
             {
                 if (mouseClickPosition.y >= 451.0 && mouseClickPosition.y < 559.0)
@@ -95,6 +98,7 @@ public class gamemain : MonoBehaviour
                     }
                 }
             }
+            //3番目の勇者が攻撃するときの処理
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
             {
                 if (mouseClickPosition.y >= 322.0 && mouseClickPosition.y <= 451.0)
@@ -106,6 +110,7 @@ public class gamemain : MonoBehaviour
                     }
                 }
             }
+            //4番目の勇者が攻撃するときの処理
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
             {
                 if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 322.0)
@@ -127,7 +132,7 @@ public class gamemain : MonoBehaviour
         float noteSpeed = Random.Range(0.05f, 0.1f);
         return noteSpeed;
     }
-
+    //ランダムな数値を出す関数
     public int RandomRange()
     {
         int random = Random.Range(0, 10000);

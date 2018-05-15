@@ -37,4 +37,7 @@ public class hp : MonoBehaviour
     {
         partyhp -= 1;
     }
+    public void DownEnemyHp(){
+        enemyhp -= 1;
+    }
 }

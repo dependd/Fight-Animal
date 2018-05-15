@@ -17,6 +17,8 @@ public class GameControler : MonoBehaviour
     GameObject enemynote2;
     GameObject enemynote3;
     GameObject enemynote4;
+    GameObject notes;
+    hp hp;
     //メニューを押したら(一応)スタートに戻る
     public void menuButton()
     {
@@ -33,6 +35,8 @@ public class GameControler : MonoBehaviour
         enemynote2 = GameObject.Find("enemynote2");
         enemynote3 = GameObject.Find("enemynote3");
         enemynote4 = GameObject.Find("enemynote4");
+        notes = GameObject.Find("enemySlider");
+        hp = notes.GetComponent<hp>();
     }
 
     void Update()
@@ -83,6 +87,7 @@ public class GameControler : MonoBehaviour
                     {
                         note1.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者１攻撃");
+                        hp.DownEnemyHp();
                     }
                 }
             }
@@ -95,6 +100,7 @@ public class GameControler : MonoBehaviour
                     {
                         note2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2攻撃");
+                        hp.DownEnemyHp();
                     }
                 }
             }
@@ -107,6 +113,7 @@ public class GameControler : MonoBehaviour
                     {
                         note3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3攻撃");
+                        hp.DownEnemyHp();
                     }
                 }
             }
@@ -119,6 +126,7 @@ public class GameControler : MonoBehaviour
                     {
                         note4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4攻撃");
+                        hp.DownEnemyHp();
                     }
                 }
             }

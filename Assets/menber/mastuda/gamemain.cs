@@ -134,7 +134,7 @@ public class gamemain : MonoBehaviour
     }
     
     //ノーツの速度変更の関数
-    private float NoteSpeeds()
+    public float NoteSpeeds()
     {
         float noteSpeed = Random.Range(0.05f, 0.1f);
         return noteSpeed;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class hp : MonoBehaviour
+public class Hp : MonoBehaviour
 {
     Slider _enemyslider;
     Slider _partyslider;
@@ -16,16 +16,21 @@ public class hp : MonoBehaviour
         _partyslider = GameObject.Find("partySlider").GetComponent<Slider>();
     }
     //HPの値
-    float Hp = 100;
+    float partyhp = 100;
+    float enemyhp = 100;
     //HPを減らす
     // Update is called once per frame
     void Update()
     {
-        Hp -= 1;
+        
         //HPゲージに値を設定
-        _enemyslider.value = Hp;
+        _enemyslider.value = enemyhp;
 
-        _partyslider.value = Hp;
+        _partyslider.value = partyhp;
 
+    }
+    public void DownPartyHp()
+    {
+        partyhp -= 1;
     }
 }

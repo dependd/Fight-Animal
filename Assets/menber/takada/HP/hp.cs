@@ -17,8 +17,8 @@ public class hp : MonoBehaviour
         _partyslider = GameObject.Find("partySlider").GetComponent<Slider>();
     }
     //HPの値
-    float partyhp = 100;
-    float enemyhp = 100;
+    public float partyhp = 100;
+    public float enemyhp = 100;
     //HPを減らす
     // Update is called once per frame
     void Update()

@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameControler : MonoBehaviour
 {
-    bool one;
     int random;
     Vector2 mouseClickPosition;
+    //GameObjectを格納する変数
     GameObject note1;
     GameObject note2;
     GameObject note3;
@@ -17,6 +17,7 @@ public class GameControler : MonoBehaviour
     GameObject enemynote2;
     GameObject enemynote3;
     GameObject enemynote4;
+    
     GameObject notes;
     hp hp;
     //メニューを押したら(一応)スタートに戻る
@@ -26,7 +27,7 @@ public class GameControler : MonoBehaviour
     }
     void Start()
     {
-        one = true;
+        //対応するObjectの取得
         note1 = GameObject.Find("note1");
         note2 = GameObject.Find("note2");
         note3 = GameObject.Find("note3");
@@ -34,28 +35,25 @@ public class GameControler : MonoBehaviour
         enemynote1 = GameObject.Find("enemynote1");
         enemynote2 = GameObject.Find("enemynote2");
         enemynote3 = GameObject.Find("enemynote3");
-        enemynote4 = GameObject.Find("enemynote4");
+        //enemySliderのhpスクリプトを参照
         notes = GameObject.Find("enemySlider");
         hp = notes.GetComponent<hp>();
     }
 
     void Update()
     {
-        //Update内で一度だけ行う処理
-        if (one)
-        {
-            
-            one = false;
-        }
+        
         if (Input.GetMouseButtonDown(0))
         {
             mouseClickPosition = Input.mousePosition;
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + mouseClickPosition);
+            //クリックした座標が一定域内かどうかの判別
             if (mouseClickPosition.x >= 0.0 && mouseClickPosition.x <= 230.0f)
             {
                 if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 676.0)
                 {
+                    //noteの位置が一定域内だったらnoteを消す処理
                     if (enemynote1.transform.position.x <= -3 && enemynote1.transform.position.x >= -5)
                     {
                         enemynote1.transform.position = new Vector2(-7.5f, 5);
@@ -71,11 +69,7 @@ public class GameControler : MonoBehaviour
                         enemynote3.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                     }
-                    if (enemynote4.transform.position.x <= -3 && enemynote4.transform.position.x >= -5)
-                    {
-                        enemynote4.transform.position = new Vector2(-7.5f, 5);
-                        Debug.Log("敵の攻撃を防いだ");
-                    }
+                    
                 }
             }
             //1番目の勇者が攻撃する処理
@@ -83,6 +77,7 @@ public class GameControler : MonoBehaviour
             {
                 if (mouseClickPosition.y >= 559.0 && mouseClickPosition.y <= 676.0)
                 {
+                    //noteの位置が一定域内だったらnoteを消して相手にダメージを与える処理
                     if (note1.transform.position.x >= 3 && note1.transform.position.x <= 5)
                     {
                         note1.transform.position = new Vector2(-10, 5);
@@ -98,6 +93,7 @@ public class GameControler : MonoBehaviour
                 {
                     if (note2.transform.position.x >= 3 && note2.transform.position.x <= 5)
                     {
+                        //noteの位置が一定域内だったらnoteを消して相手にダメージを与える処理
                         note2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2攻撃");
                         hp.DownEnemyHp();
@@ -111,6 +107,7 @@ public class GameControler : MonoBehaviour
                 {
                     if (note3.transform.position.x >= 3 && note3.transform.position.x <= 5)
                     {
+                        //noteの位置が一定域内だったらnoteを消して相手にダメージを与える処理
                         note3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3攻撃");
                         hp.DownEnemyHp();
@@ -124,6 +121,7 @@ public class GameControler : MonoBehaviour
                 {
                     if (note4.transform.position.x >= 3 && note4.transform.position.x <= 5)
                     {
+                        //noteの位置が一定域内だったらnoteを消して相手にダメージを与える処理
                         note4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4攻撃");
                         hp.DownEnemyHp();

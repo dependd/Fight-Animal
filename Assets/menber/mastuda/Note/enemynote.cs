@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class enemynote : MonoBehaviour
 {
-    bool one;
     int random;
+    GameObject notes;
+    hp hp;
     //ノーツのスピードを入れておく変数
     public float note1speed;
     public float note2speed;
@@ -13,21 +14,19 @@ public class enemynote : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        one = true;
-
+        //最初のenemynoteのスピードを決める変数
+        note1speed = NoteSpeeds();
+        note2speed = NoteSpeeds();
+        note3speed = NoteSpeeds();
+        //enemySliderのスクリプトを参照       
+        notes = GameObject.Find("enemySlider");
+        hp = notes.GetComponent<hp>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Update関数の中で一度だけ実行する条件
-        if (one)
-        {
-            note1speed = NoteSpeeds();
-            note2speed = NoteSpeeds();
-            note3speed = NoteSpeeds();
-            one = false;
-        }
+        
         //noteを動かす処理
         GameObject note1 = GameObject.Find("enemynote1");
         note1.transform.position += new Vector3(note1speed, 0, 0);
@@ -37,23 +36,25 @@ public class enemynote : MonoBehaviour
         note3.transform.position += new Vector3(note3speed, 0, 0);
 
         //画面外に出たnoteを止める条件
-        //画面外に出たら敵にダメージを与える処理
+        //画面外に出たら味方にダメージを与える処理
         if (note1.transform.position.x <= -7.5f)
         {
-            note1.transform.position = new Vector2(-7.5f, 3);
-
+            note1.transform.position = new Vector2(7.5f, 2.25f);
+            hp.DownPartyHp();
         }
         if (note2.transform.position.x <= -7.5f)
         {
-            note2.transform.position = new Vector2(-7.5f, 1.46f);
+            note2.transform.position = new Vector2(7.5f, 0.75f);
+            hp.DownPartyHp();
         }
         if (note3.transform.position.x <= -7.5f)
         {
-            note3.transform.position = new Vector2(-7.5f, 0);
+            note3.transform.position = new Vector2(7.5f, -0.75f);
+            hp.DownPartyHp();
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
-        if (note1.transform.position.x == -7.5f)
+        if (note1.transform.position.x == 7.5f)
         {
             if (random >= 4800 && random <= 4900)
             {
@@ -61,7 +62,7 @@ public class enemynote : MonoBehaviour
                 note1.transform.position = new Vector2(3, 2.25f);
             }
         }
-        if (note2.transform.position.x == -7.5f)
+        if (note2.transform.position.x == 7.5f)
         {
             if (random > 4900 && random <= 5000)
             {
@@ -69,7 +70,7 @@ public class enemynote : MonoBehaviour
                 note2.transform.position = new Vector2(3, 0.75f);
             }
         }
-        if (note3.transform.position.x == -7.5f)
+        if (note3.transform.position.x == 7.5f)
         {
             if (random > 5000 && random <= 5100)
             {

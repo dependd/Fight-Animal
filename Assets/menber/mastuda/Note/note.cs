@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class note : MonoBehaviour {
-    bool one;
+
     int random;
     GameObject notes;
     hp hp;
@@ -14,7 +14,7 @@ public class note : MonoBehaviour {
     public float note4speed;
     // Use this for initialization
     void Start () {
-        one = true;
+        //enemySliderのhpのスクリプトを参照
         notes = GameObject.Find("enemySlider");
 
         hp = notes.GetComponent<hp>();
@@ -99,6 +99,7 @@ public class note : MonoBehaviour {
         int random = Random.Range(0, 10000);
         return random;
     }
+    //Hpのスクリプトに飛んでpartyにダメージを与える関数
     public void PartyDamage()
     {
         

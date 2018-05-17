@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour {
 
-    
-
-    // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             TransitionToResult();
         }
-	}
+    }
     public void TransitionToResult()
     {
         SceneManager.LoadScene("Battle");
     }
+
+    
+
 }

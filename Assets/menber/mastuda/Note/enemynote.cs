@@ -40,17 +40,17 @@ public class enemynote : MonoBehaviour
         if (note1.transform.position.x <= -7.5f)
         {
             note1.transform.position = new Vector2(7.5f, 2.25f);
-            hp.DownPartyHp();
+            hp.DownpartyHp();
         }
         if (note2.transform.position.x <= -7.5f)
         {
             note2.transform.position = new Vector2(7.5f, 0.75f);
-            hp.DownPartyHp();
+            hp.DownpartyHp();
         }
         if (note3.transform.position.x <= -7.5f)
         {
             note3.transform.position = new Vector2(7.5f, -0.75f);
-            hp.DownPartyHp();
+            hp.DownpartyHp();
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();

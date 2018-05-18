@@ -33,7 +33,7 @@ public class hp : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
-    public void DownPartyHp()
+    public void DownpartyHp()
     {
         partyhp -= 1;
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Charastatus : MonoBehaviour {
 
     //キャラクターの変数に関するスクリプト
-    class Chara
+    public class Chara
     {
         //キャラごとのステータス
         public string Name; //名前
@@ -16,12 +16,12 @@ public class Charastatus : MonoBehaviour {
         public int OffensivePower; //攻撃力
     }
 
-    class Animal : Chara
+    public class Animal : Chara
     {
         public int AnimalHp; //勇者陣営のHP
     }
 
-    class Enemy : Chara
+    public class Enemy : Chara
     {
         public int EnemyHp; //敵陣営のHP
     }

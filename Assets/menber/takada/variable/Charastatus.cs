@@ -14,6 +14,7 @@ public class Charastatus : MonoBehaviour {
         public double NoteLength; //通常攻撃の長さ
         public double DeadlyNoteLength; //必殺技の長さ
         public int OffensivePower; //攻撃力
+        public double NoteFrequency; //ノーツの頻度
     }
 
     public class Animal : Chara

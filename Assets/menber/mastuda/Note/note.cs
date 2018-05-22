@@ -102,6 +102,6 @@ public class note : MonoBehaviour {
     public void PartyDamage()
     {
         
-        hp.DownPartyHp();
+        hp.DownPartyHp(false);
     }
 }

@@ -12,7 +12,7 @@ public class note : MonoBehaviour {
     public float note2speed;
     public float note3speed;
     public float note4speed;
-    public float derdlyNote1speed;
+    public float derdlynote1speed;
     public float deadlynote2speed;
     public float deadlynote3speed;
     public float deadlynote4speed;

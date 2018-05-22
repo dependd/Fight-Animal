@@ -18,10 +18,7 @@ public class GameControler : MonoBehaviour
     GameObject enemynote3;
     GameObject enemynote4;
     //メニューを押したら(一応)スタートに戻る
-    public void menuButton()
-    {
-        SceneManager.LoadScene("start");
-    }
+    
     void Start()
     {
         one = true;

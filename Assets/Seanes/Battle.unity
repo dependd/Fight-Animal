@@ -460,7 +460,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 405639594}
-        m_MethodName: menuButton
+        m_MethodName: MenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 405639589}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934be3bac79772d4682a85ec121931ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fcdce1de85b506e41af299019ba359d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &494803524

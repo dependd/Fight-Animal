@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class menu : MonoBehaviour {
-
+public class Menu : MonoBehaviour {
+    
 
     public void MenuButton() {
-        if (Input.GetButtonDown(buttonName: "Button")){
+        if (Input.GetButtonDown("Button")){
             if (Time.timeScale == 1.0F)
                 Time.timeScale = 0F;
             

@@ -17,8 +17,8 @@ public class hp : MonoBehaviour
         _partyslider = GameObject.Find("partySlider").GetComponent<Slider>();
     }
     //HPの値
-    public float partyhp = 200;
-    public float enemyhp = 800;
+    public  float partyhp = 200;
+    public  float enemyhp = 800;
     //HPを減らす
     // Update is called once per frame
     void Update()
@@ -33,9 +33,17 @@ public class hp : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
-    public void DownpartyHp()
+    public void DownPartyHp(bool i)
     {
-        partyhp -= 10;
+        //防御成功：味方のHPを敵の攻撃力の20％分減らす
+        if(i == true){
+            partyhp -= 10 * 0.2f;
+        }
+        else {
+            //防御失敗：味方のHPを敵の攻撃力分減らす
+            partyhp -= 10;
+        }
+
     }
     public void DownEnemyHp(){
         enemyhp -= 10;

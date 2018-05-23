@@ -8,12 +8,19 @@ public class enemynote : MonoBehaviour{
     public float note1speed;
     public float note2speed;
     public float note3speed;
+    //hpスクリプトに参照するための変数
+    GameObject GameControler;
+    GameControler GameControlers;
+
     // Use this for initialization
     void Start(){
 
         note1speed = NoteSpeeds();
         note2speed = NoteSpeeds();
         note3speed = NoteSpeeds();
+
+        GameControler = GameObject.Find("GameControler");
+        GameControlers = GameControler.GetComponent<GameControler>();
     }
 
     // Update is called once per frame
@@ -29,29 +36,32 @@ public class enemynote : MonoBehaviour{
         //画面外に出たnoteを止める条件
         //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x <= -7.5f){
-            note1.transform.position = new Vector2(-7.5f, 3);
+            note1.transform.position = new Vector2(10, 10.5f);
+            GameControlers.PartyDamage(false);
         }
         if (note2.transform.position.x <= -7.5f){
-            note2.transform.position = new Vector2(-7.5f, 1.46f);
+            note2.transform.position = new Vector2(10, 10.5f);
+            GameControlers.PartyDamage(false);
         }
         if (note3.transform.position.x <= -7.5f){
-            note3.transform.position = new Vector2(-7.5f, 0);
+            note3.transform.position = new Vector2(10, 10.5f);
+            GameControlers.PartyDamage(false);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
-        if (note1.transform.position.x == -7.5f){
+        if (note1.transform.position.y == 10.5f){
             if (random >= 4800 && random <= 4900){
                 note1speed = NoteSpeeds();
                 note1.transform.position = new Vector2(3, 2.25f);
             }
         }
-        if (note2.transform.position.x == -7.5f){
+        if (note2.transform.position.y == 10.5f){
             if (random > 4900 && random <= 5000){
                 note2speed = NoteSpeeds();
                 note2.transform.position = new Vector2(3, 0.75f);
             }
         }
-        if (note3.transform.position.x == -7.5f){
+        if (note3.transform.position.y == 10.5f){
             if (random > 5000 && random <= 5100)
             {
                 note3speed = NoteSpeeds();

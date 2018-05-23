@@ -10,4 +10,7 @@ EditorBuildSettings:
     guid: 501330e0d7ad26547879db62d1566cf6
   - enabled: 1
     path: Assets/Seanes/start.unity
-    guid: 00000000000000000000000000000000
+    guid: 054b6e5499c2f134fac0686e1ee7f23e
+  - enabled: 1
+    path: Assets/Seanes/GameOver.unity
+    guid: 4221579b597d18940834c594eb3b3323

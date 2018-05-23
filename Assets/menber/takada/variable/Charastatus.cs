@@ -16,7 +16,6 @@ public class Charastatus : MonoBehaviour {
         public int OffensivePower; //攻撃力
         public double NoteFrequency; //ノーツの頻度
     }
-
     public class Animal : Chara
     {
         public int AnimalHp; //勇者陣営のHP
@@ -26,7 +25,9 @@ public class Charastatus : MonoBehaviour {
     {
         public int EnemyHp; //敵陣営のHP
     }
-     public void Charactor(){
+
+
+    public void Charactor(){
 
         Animal tokage = new Animal();
         tokage.Name = "トカゲ";

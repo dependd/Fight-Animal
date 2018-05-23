@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameControler : MonoBehaviour
-{
-    bool one;
+public class GameControler : MonoBehaviour{
     int random;
     Vector2 mouseClickPosition;
     GameObject note1;
@@ -20,13 +18,10 @@ public class GameControler : MonoBehaviour
     GameObject notes;
     hp hp;
     //メニューを押したら(一応)スタートに戻る
-    public void menuButton()
-    {
+    public void menuButton(){
         SceneManager.LoadScene("start");
     }
-    void Start()
-    {
-        one = true;
+    void Start(){
         note1 = GameObject.Find("note1");
         note2 = GameObject.Find("note2");
         note3 = GameObject.Find("note3");
@@ -39,52 +34,37 @@ public class GameControler : MonoBehaviour
         hp = notes.GetComponent<hp>();
     }
 
-    void Update()
-    {
+    void Update(){
         //Update内で一度だけ行う処理
-        if (one)
-        {
-            
-            one = false;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
+        
+        if (Input.GetMouseButtonDown(0)){
             mouseClickPosition = Input.mousePosition;
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + mouseClickPosition);
-            if (mouseClickPosition.x >= 0.0 && mouseClickPosition.x <= 230.0f)
-            {
-                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 676.0)
-                {
-                    if (enemynote1.transform.position.x <= -3 && enemynote1.transform.position.x >= -5)
-                    {
+            if (mouseClickPosition.x >= 0.0 && mouseClickPosition.x <= 230.0f){
+                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 676.0){
+                    if (enemynote1.transform.position.x <= -3 && enemynote1.transform.position.x >= -5){
                         enemynote1.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                     }
-                    if (enemynote2.transform.position.x <= -3 && enemynote2.transform.position.x >= -5)
-                    {
+                    if (enemynote2.transform.position.x <= -3 && enemynote2.transform.position.x >= -5){
                         enemynote2.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                     }
-                    if (enemynote3.transform.position.x <= -3 && enemynote3.transform.position.x >= -5)
-                    {
+                    if (enemynote3.transform.position.x <= -3 && enemynote3.transform.position.x >= -5){
                         enemynote3.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                     }
-                    if (enemynote4.transform.position.x <= -3 && enemynote4.transform.position.x >= -5)
-                    {
+                    if (enemynote4.transform.position.x <= -3 && enemynote4.transform.position.x >= -5){
                         enemynote4.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                     }
                 }
             }
             //1番目の勇者が攻撃する処理
-            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
-            {
-                if (mouseClickPosition.y >= 559.0 && mouseClickPosition.y <= 676.0)
-                {
-                    if (note1.transform.position.x >= 3 && note1.transform.position.x <= 5)
-                    {
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
+                if (mouseClickPosition.y >= 559.0 && mouseClickPosition.y <= 676.0){
+                    if (note1.transform.position.x >= 3 && note1.transform.position.x <= 5){
                         note1.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者１攻撃");
                         hp.DownEnemyHp();
@@ -92,12 +72,9 @@ public class GameControler : MonoBehaviour
                 }
             }
             //2番目の勇者が攻撃する時の処理
-            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
-            {
-                if (mouseClickPosition.y >= 451.0 && mouseClickPosition.y < 559.0)
-                {
-                    if (note2.transform.position.x >= 3 && note2.transform.position.x <= 5)
-                    {
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
+                if (mouseClickPosition.y >= 451.0 && mouseClickPosition.y < 559.0){
+                    if (note2.transform.position.x >= 3 && note2.transform.position.x <= 5){
                         note2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2攻撃");
                         hp.DownEnemyHp();
@@ -105,12 +82,9 @@ public class GameControler : MonoBehaviour
                 }
             }
             //3番目の勇者が攻撃するときの処理
-            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
-            {
-                if (mouseClickPosition.y >= 322.0 && mouseClickPosition.y <= 451.0)
-                {
-                    if (note3.transform.position.x >= 3 && note3.transform.position.x <= 5)
-                    {
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
+                if (mouseClickPosition.y >= 322.0 && mouseClickPosition.y <= 451.0){
+                    if (note3.transform.position.x >= 3 && note3.transform.position.x <= 5){
                         note3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3攻撃");
                         hp.DownEnemyHp();
@@ -118,12 +92,9 @@ public class GameControler : MonoBehaviour
                 }
             }
             //4番目の勇者が攻撃するときの処理
-            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f)
-            {
-                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 322.0)
-                {
-                    if (note4.transform.position.x >= 3 && note4.transform.position.x <= 5)
-                    {
+            if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
+                if (mouseClickPosition.y >= 190.0 && mouseClickPosition.y <= 322.0){
+                    if (note4.transform.position.x >= 3 && note4.transform.position.x <= 5){
                         note4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4攻撃");
                         hp.DownEnemyHp();
@@ -131,18 +102,15 @@ public class GameControler : MonoBehaviour
                 }
             }
         }
-        
     }
     
     //ノーツの速度変更の関数
-    public float NoteSpeeds()
-    {
+    public float NoteSpeeds(){
         float noteSpeed = Random.Range(0.05f, 0.1f);
         return noteSpeed;
     }
     //ランダムな数値を出す関数
-    public int RandomRange()
-    {
+    public int RandomRange(){
         int random = Random.Range(0, 10000);
         return random;
     }

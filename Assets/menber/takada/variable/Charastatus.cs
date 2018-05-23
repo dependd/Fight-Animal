@@ -72,7 +72,7 @@ public class Charastatus : MonoBehaviour {
         tinpan.DeadlyNoteLength = 0;
         tinpan.OffensivePower = 10;
         tinpan.EnemyHp = 800;
-        tokage.NoteFrequency = 1;
+        tinpan.NoteFrequency = 1;
 
         Enemy encho = new Enemy();
         encho.Name = "園長";
@@ -82,6 +82,6 @@ public class Charastatus : MonoBehaviour {
         encho.DeadlyNoteLength = 0;
         encho.OffensivePower = 10;
         encho.EnemyHp = 800;
-
+        encho.NoteFrequency = 1;
      }
 }

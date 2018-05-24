@@ -35,6 +35,7 @@ public class Charastatus : MonoBehaviour {
         tokage.NoteLength = 1;
         tokage.DeadlyNoteLength = 0.5;
         tokage.OffensivePower = 10;
+        tokage.NoteFrequency = Random.Range(0.5f, 1f);
 
         Animal kame = new Animal();
         kame.Name = "カメ";
@@ -43,6 +44,7 @@ public class Charastatus : MonoBehaviour {
         kame.NoteLength = 1;
         kame.DeadlyNoteLength = 0.5;
         kame.OffensivePower = 10;
+        kame.NoteFrequency = Random.Range(0.5f, 1f);
 
         Animal datyo = new Animal();
         datyo.Name = "ダチョウ";
@@ -51,6 +53,7 @@ public class Charastatus : MonoBehaviour {
         datyo.NoteLength = 1;
         datyo.DeadlyNoteLength = 0.5;
         datyo.OffensivePower = 10;
+        datyo.NoteFrequency = Random.Range(0.5f, 1f);
 
         Animal momonga = new Animal();
         momonga.Name = "モモンガ";
@@ -59,6 +62,7 @@ public class Charastatus : MonoBehaviour {
         momonga.NoteLength = 1;
         momonga.DeadlyNoteLength = 0.5;
         momonga.OffensivePower = 10;
+        momonga.NoteFrequency = Random.Range(0.5f, 1f);
 
         Enemy tinpan = new Enemy();
         tinpan.Name = "チンパンジー";
@@ -68,6 +72,7 @@ public class Charastatus : MonoBehaviour {
         tinpan.DeadlyNoteLength = 0;
         tinpan.OffensivePower = 10;
         tinpan.EnemyHp = 800;
+        tokage.NoteFrequency = 1;
 
         Enemy encho = new Enemy();
         encho.Name = "園長";

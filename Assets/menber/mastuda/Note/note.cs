@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class note : MonoBehaviour {
     int random;
-    GameObject GameControler;
-    GameControler GameControlers;
     //ノーツのスピードを入れておく変数
     public float note1speed;
     public float note2speed;
@@ -22,8 +20,6 @@ public class note : MonoBehaviour {
     GameObject deadlyNote4;
     // Use this for initialization
     void Start () {
-        GameControler = GameObject.Find("GameControler");
-        GameControlers = GameControler.GetComponent<GameControler>();
 
         note1 = GameObject.Find("note1");
         note2 = GameObject.Find("note2");

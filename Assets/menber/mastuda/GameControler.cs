@@ -96,16 +96,16 @@ public class GameControler : MonoBehaviour{
                         note1.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者１攻撃");
                         int tokageAttack = CharaStatus.tokage.OffensivePower;
-                        Debug.Log(tokageAttack);
-                        hp.DownEnemyHp();
+                        hp.DownEnemyHp(tokageAttack);
                     } else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
                         note1.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }
                     if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                         deadlyNote1.transform.position = new Vector2(-10, 5);
+                        int tokageDeadlyAttack = CharaStatus.tokage.OffensivePower * 3;
                         Debug.Log("勇者１必殺技");
-                        hp.DownEnemyHp();
+                        hp.DownEnemyHp(tokageDeadlyAttack);
                     }　else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                         deadlyNote1.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
@@ -118,7 +118,8 @@ public class GameControler : MonoBehaviour{
                     if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
                         note2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2攻撃");
-                        hp.DownEnemyHp();
+                        int kameAttack = CharaStatus.kame.OffensivePower;
+                        hp.DownEnemyHp(kameAttack);
                     } else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
                         note2.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
@@ -126,7 +127,8 @@ public class GameControler : MonoBehaviour{
                     if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
                         deadlyNote2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2必殺技");
-                        hp.DownEnemyHp();
+                        int kameDeadlyAttack = CharaStatus.kame.OffensivePower * 3;
+                        hp.DownEnemyHp(kameDeadlyAttack);
                     }else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
                         deadlyNote2.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
@@ -139,7 +141,8 @@ public class GameControler : MonoBehaviour{
                     if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
                         note3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3攻撃");
-                        hp.DownEnemyHp();
+                        int datyoAttack = CharaStatus.datyo.OffensivePower;
+                        hp.DownEnemyHp(datyoAttack);
                     }else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
                         note3.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
@@ -147,7 +150,8 @@ public class GameControler : MonoBehaviour{
                     if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
                         deadlyNote3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3必殺技");
-                        hp.DownEnemyHp();
+                        int datyoDeadlyAttack = CharaStatus.datyo.OffensivePower * 3;
+                        hp.DownEnemyHp(datyoDeadlyAttack);
                     }else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
                         deadlyNote3.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
@@ -160,7 +164,8 @@ public class GameControler : MonoBehaviour{
                     if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
                         note4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4攻撃");
-                        hp.DownEnemyHp();
+                        int momongaAttack = CharaStatus.momonga.OffensivePower;
+                        hp.DownEnemyHp(momongaAttack);
                     }else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
                         note4.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
@@ -168,7 +173,8 @@ public class GameControler : MonoBehaviour{
                     if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
                         deadlyNote4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4必殺技");
-                        hp.DownEnemyHp();
+                        int momongaDeadlyAttack = CharaStatus.momonga.OffensivePower * 3;
+                        hp.DownEnemyHp(momongaDeadlyAttack);
                     }else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
                         deadlyNote4.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
@@ -186,7 +192,7 @@ public class GameControler : MonoBehaviour{
     //hpスクリプトのDownPartyHpに参照して味方のHpを減らす関数
     public void PartyDamage(bool i)
     {
-        hp.DownPartyHp(i);
+        hp.DownPartyHp(i,10);
     }
 
 }

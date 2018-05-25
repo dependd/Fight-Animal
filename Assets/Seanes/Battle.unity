@@ -472,7 +472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 405639594}
-        m_MethodName: MenuButton
+        m_MethodName: menuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -778,6 +778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796247597}
   - component: {fileID: 796247599}
+  - component: {fileID: 796247598}
   m_Layer: 0
   m_Name: GameControler
   m_TagString: Untagged
@@ -798,6 +799,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796247598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796247596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca9a1da3b8933a43bb66e50ee90f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tokage:
+    Name: tokage
+    HP: 0
+    NoteSpeed: 0.1
+    DeadlyNoteSpeed: 0.12
+    NoteLength: 1
+    DeadlyNoteLength: 0.5
+    OffensivePower: 10
+    MinNoteFrequency: 0.5
+    MaxNoteFrequency: 1
+  kame:
+    Name: kame
+    HP: 0
+    NoteSpeed: 0.05
+    DeadlyNoteSpeed: 0.1
+    NoteLength: 1
+    DeadlyNoteLength: 0.5
+    OffensivePower: 10
+    MinNoteFrequency: 0.5
+    MaxNoteFrequency: 1
+  datyo:
+    Name: Dstyo
+    HP: 0
+    NoteSpeed: 0.12
+    DeadlyNoteSpeed: 0.15
+    NoteLength: 1
+    DeadlyNoteLength: 0.5
+    OffensivePower: 10
+    MinNoteFrequency: 0.5
+    MaxNoteFrequency: 1
+  momonga:
+    Name: Momonga
+    HP: 0
+    NoteSpeed: 0.1
+    DeadlyNoteSpeed: 0.12
+    NoteLength: 1
+    DeadlyNoteLength: 0.5
+    OffensivePower: 10
+    MinNoteFrequency: 0.5
+    MaxNoteFrequency: 1
+  tinpan:
+    Name: Tinpan
+    HP: 0
+    NoteSpeed: 0.1
+    DeadlyNoteSpeed: 0
+    NoteLength: 1
+    DeadlyNoteLength: 0
+    OffensivePower: 10
+    MinNoteFrequency: 0.5
+    MaxNoteFrequency: 1
+  encho:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
 --- !u!114 &796247599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,6 +1067,7 @@ Transform:
   - {fileID: 1567000421}
   - {fileID: 1403898668}
   - {fileID: 1502588549}
+  - {fileID: 1087799798}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1374,7 +1447,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1087799797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.006000042, y: -0.010000229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1967040863}
@@ -1385,8 +1458,8 @@ Transform:
   - {fileID: 1057916777}
   - {fileID: 1652203355}
   - {fileID: 712024767}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 904619091}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1087799800
 MonoBehaviour:
@@ -1700,11 +1773,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.82
+      value: -7.92
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1818,11 +1891,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1850,7 +1923,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1719570520105552, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_Name
-      value: enemynote2
+      value: enemyNote2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
@@ -1869,11 +1942,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1901,7 +1974,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1719570520105552, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_Name
-      value: enemynote3
+      value: enemyNote3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
@@ -2002,11 +2075,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2034,7 +2107,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1719570520105552, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_Name
-      value: enemynote1
+      value: enemyNote1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
@@ -2053,11 +2126,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.07
+      value: -7.88
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.51
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2213,6 +2286,7 @@ GameObject:
   - component: {fileID: 1660356241}
   - component: {fileID: 1660356240}
   - component: {fileID: 1660356239}
+  - component: {fileID: 1660356243}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2304,6 +2378,77 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1660356243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1660356238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca9a1da3b8933a43bb66e50ee90f5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tokage:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
+  kame:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
+  datyo:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
+  momonga:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
+  tinpan:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
+  encho:
+    Name: 
+    HP: 0
+    NoteSpeed: 0
+    DeadlyNoteSpeed: 0
+    NoteLength: 0
+    DeadlyNoteLength: 0
+    OffensivePower: 0
+    MinNoteFrequency: 0
+    MaxNoteFrequency: 0
 --- !u!1 &1762603583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,11 +2540,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.86
+      value: -7.96
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.71
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2527,11 +2672,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.47
+      value: -7.76
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.19
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4910472887926460, guid: 24af115237cf318428ad1486f668fbf0, type: 2}
       propertyPath: m_LocalPosition.z

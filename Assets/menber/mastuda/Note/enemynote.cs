@@ -8,6 +8,10 @@ public class enemynote : MonoBehaviour{
     public float note1speed;
     public float note2speed;
     public float note3speed;
+    //
+    GameObject note1;
+    GameObject note2;
+    GameObject note3;
     //hpスクリプトに参照するための変数
     GameObject GameControler;
     GameControler GameControlers;
@@ -19,6 +23,10 @@ public class enemynote : MonoBehaviour{
         note2speed = NoteSpeeds();
         note3speed = NoteSpeeds();
 
+        note1 = GameObject.Find("enemynote1");
+        note2 = GameObject.Find("enemynote2");
+        note3 = GameObject.Find("enemynote3");
+
         GameControler = GameObject.Find("GameControler");
         GameControlers = GameControler.GetComponent<GameControler>();
     }
@@ -26,11 +34,8 @@ public class enemynote : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         //noteを動かす処理
-        GameObject note1 = GameObject.Find("enemynote1");
         note1.transform.position += new Vector3(note1speed, 0, 0);
-        GameObject note2 = GameObject.Find("enemynote2");
         note2.transform.position += new Vector3(note2speed, 0, 0);
-        GameObject note3 = GameObject.Find("enemynote3");
         note3.transform.position += new Vector3(note3speed, 0, 0);
 
         //画面外に出たnoteを止める条件
@@ -62,8 +67,7 @@ public class enemynote : MonoBehaviour{
             }
         }
         if (note3.transform.position.y == 10.5f){
-            if (random > 5000 && random <= 5100)
-            {
+            if (random > 5000 && random <= 5100){
                 note3speed = NoteSpeeds();
                 note3.transform.position = new Vector2(3, -0.75f);
             }

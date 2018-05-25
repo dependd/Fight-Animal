@@ -25,7 +25,7 @@ public class GameControler : MonoBehaviour{
     GameObject notes;
     hp hp;
     //Charastatusスクリプトに参照するための変数
-    Charastatus Charastatus;
+    Charastatus CharaStatus;
     //メニューを押したら(一応)スタートに戻る
     public void MenuButton(){
         SceneManager.LoadScene("start");
@@ -46,8 +46,7 @@ public class GameControler : MonoBehaviour{
         notes = GameObject.Find("enemySlider");
         hp = notes.GetComponent<hp>();
 
-        Charastatus = GetComponent<Charastatus>();
-        Charastatus.Charactor();
+        CharaStatus = GetComponent<Charastatus>();
     }
 
     void Update(){
@@ -74,7 +73,7 @@ public class GameControler : MonoBehaviour{
                         Debug.Log("敵の攻撃を防いだ");
                         PartyDamage(true);
                     }
-                    else if (enemynote2.transform.position.x > -4 && enemynote1.transform.position.x < -5 || enemynote2.transform.position.x < -3 && enemynote1.transform.position.x > -2){
+                    else if (enemynote2.transform.position.x > -4 && enemynote2.transform.position.x < -5 || enemynote2.transform.position.x < -3 && enemynote2.transform.position.x > -2){
                         enemynote2.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("防御失敗");
                         PartyDamage(false);
@@ -83,7 +82,7 @@ public class GameControler : MonoBehaviour{
                         enemynote3.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("敵の攻撃を防いだ");
                         PartyDamage(true);
-                    } else if (enemynote3.transform.position.x > -4 && enemynote1.transform.position.x < -5 || enemynote3.transform.position.x < -3 && enemynote1.transform.position.x > -2){
+                    } else if (enemynote3.transform.position.x > -4 && enemynote3.transform.position.x < -5 || enemynote3.transform.position.x < -3 && enemynote3.transform.position.x > -2){
                         enemynote3.transform.position = new Vector2(-7.5f, 5);
                         Debug.Log("防御失敗");
                         PartyDamage(false);
@@ -96,11 +95,10 @@ public class GameControler : MonoBehaviour{
                     if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                         note1.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者１攻撃");
-                        Charastatus.Animal tokage = new Charastatus.Animal();
-                        int tokageAttack = tokage.OffensivePower;
+                        int tokageAttack = CharaStatus.tokage.OffensivePower;
                         Debug.Log(tokageAttack);
                         hp.DownEnemyHp();
-                    } else if (note1.transform.position.x > 4 && enemynote1.transform.position.x < 5 || note1.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    } else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
                         note1.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -108,7 +106,7 @@ public class GameControler : MonoBehaviour{
                         deadlyNote1.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者１必殺技");
                         hp.DownEnemyHp();
-                    }　else if (deadlyNote1.transform.position.x > 3.8f && enemynote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && enemynote1.transform.position.x > 2){
+                    }　else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                         deadlyNote1.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -121,7 +119,7 @@ public class GameControler : MonoBehaviour{
                         note2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2攻撃");
                         hp.DownEnemyHp();
-                    } else if (note2.transform.position.x > 4 && enemynote1.transform.position.x < 5 || note2.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    } else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
                         note2.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -129,7 +127,7 @@ public class GameControler : MonoBehaviour{
                         deadlyNote2.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者2必殺技");
                         hp.DownEnemyHp();
-                    }else if (deadlyNote2.transform.position.x > 4 && enemynote1.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    }else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
                         deadlyNote2.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -142,7 +140,7 @@ public class GameControler : MonoBehaviour{
                         note3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3攻撃");
                         hp.DownEnemyHp();
-                    }else if (note3.transform.position.x > 4 && enemynote1.transform.position.x < 5 || note3.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    }else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
                         note3.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -150,7 +148,7 @@ public class GameControler : MonoBehaviour{
                         deadlyNote3.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者3必殺技");
                         hp.DownEnemyHp();
-                    }else if (deadlyNote3.transform.position.x > 4 && enemynote1.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    }else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
                         deadlyNote3.transform.position = new Vector2(-10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -163,7 +161,7 @@ public class GameControler : MonoBehaviour{
                         note4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4攻撃");
                         hp.DownEnemyHp();
-                    }else if (note4.transform.position.x > 4 && enemynote1.transform.position.x < 5 || note4.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    }else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
                         note4.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }
@@ -171,7 +169,7 @@ public class GameControler : MonoBehaviour{
                         deadlyNote4.transform.position = new Vector2(-10, 5);
                         Debug.Log("勇者4必殺技");
                         hp.DownEnemyHp();
-                    }else if (deadlyNote4.transform.position.x > 4 && enemynote1.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && enemynote1.transform.position.x > 2){
+                    }else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
                         deadlyNote4.transform.position = new Vector2(10, 5);
                         Debug.Log("攻撃失敗");
                     }

@@ -33,7 +33,6 @@ public class note : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Update関数の中で一度だけ実行する条件
         
         //noteを動かす処理
         note1.transform.position += new Vector3(0.1f, 0, 0);
@@ -48,70 +47,71 @@ public class note : MonoBehaviour {
         //画面外に出たnoteを止める条件
         //画面外に出たら味方にダメージを与える処理
         if (note1.transform.position.x >= 7.5f){
-            note1.transform.position = new Vector2(-10, 5);
+            note1.transform.position = new Vector2(-10, 7);
         }
         if (note2.transform.position.x >= 7.5f){
-            note2.transform.position = new Vector2(-10, 5);
+            note2.transform.position = new Vector2(-10, 7);
         }
         if (note3.transform.position.x >= 7.5f){
-            note3.transform.position = new Vector2(-10, 5);
+            note3.transform.position = new Vector2(-10, 7);
         }
         if (note4.transform.position.x >= 7.5f){
-            note4.transform.position = new Vector2(-10, 5);
+            note4.transform.position = new Vector2(-10, 7);
         }
         if (deadlyNote1.transform.position.x >= 7.5f){
-            deadlyNote1.transform.position = new Vector2(-10, 5);
+            deadlyNote1.transform.position = new Vector2(-10, 7);
         }
         if (deadlyNote2.transform.position.x >= 7.5f){
-            deadlyNote2.transform.position = new Vector2(-10, 5);
+            deadlyNote2.transform.position = new Vector2(-10, 7);
         }
         if (deadlyNote3.transform.position.x >= 7.5f){
-            deadlyNote3.transform.position = new Vector2(-10, 5);
+            deadlyNote3.transform.position = new Vector2(-10, 7);
         }
         if (deadlyNote4.transform.position.x >= 7.5f){
-            deadlyNote4.transform.position = new Vector2(-10, 5);
+            deadlyNote4.transform.position = new Vector2(-10, 7);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
-        if (note1.transform.position.y == 5){
+        if (note1.transform.position.y == 7){
             if (random > 4500 && random <= 4750){
                 note1.transform.position = new Vector2(-3, 3);
             }
         }
-        if (note2.transform.position.y == 5){
+        if (note2.transform.position.y == 7){
             if (random > 4750 && random <= 5000){
                 note2.transform.position = new Vector2(-3, 1.46f);
             }
         }
-        if (note3.transform.position.y == 5){
+        if (note3.transform.position.y == 7){
             if (random > 5000 && random <= 5250){
                 note3.transform.position = new Vector2(-3, 0);
             }
         }
-        if (note4.transform.position.y == 5){
+        if (note4.transform.position.y == 7){
             if (random > 5250 && random <= 5500){
                 note4.transform.position = new Vector2(-3, -1.65f);
             }
         }
-        if (deadlyNote1.transform.position.y == 5){
+        if (deadlyNote1.transform.position.y == 7){
             if (random >= 4400 && random <= 4450)
             {
                 deadlyNote1.transform.position = new Vector2(-3, 3);
             }
         }
-        if (deadlyNote2.transform.position.y == 5){
+        if (deadlyNote2.transform.position.y == 7){
             if (random >= 4450 && random <= 4500)
             {
                 deadlyNote1.transform.position = new Vector2(-3, 1.46f);
             }
         }
-        if (deadlyNote3.transform.position.y == 5){
+        if (deadlyNote3.transform.position.y == 7){
             if (random >= 5500 && random <= 5550)
             {
                 deadlyNote1.transform.position = new Vector2(-3, 0);
             }
         }
-        if (deadlyNote4.transform.position.y == 5){
+        if (deadlyNote4.transform.position.y == 7
+            ){
             if (random >= 5550 && random <= 5600)
             {
                 deadlyNote4.transform.position = new Vector2(-3, -1.65f);

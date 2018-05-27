@@ -32,6 +32,10 @@ public class hp : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        if (enemyhp <= 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
     public void DownPartyHp(bool i,int j)
     {

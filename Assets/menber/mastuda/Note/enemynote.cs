@@ -42,37 +42,34 @@ public class enemynote : MonoBehaviour{
         //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x <= -7.5f){
             note1speed = 0;
-            note1.transform.position = new Vector2(10, 5);
-            GameControlers.PartyDamage(false);
+            StopNote(note1);
         }
         if (note2.transform.position.x <= -7.5f){
             note2speed = 0;
-            note2.transform.position = new Vector2(10, 5);
-            GameControlers.PartyDamage(false);
+            StopNote(note2);
         }
         if (note3.transform.position.x <= -7.5f){
             note3speed = 0;
-            note3.transform.position = new Vector2(10, 5);
-            GameControlers.PartyDamage(false);
+            StopNote(note3);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (note1.transform.position.y >= 5){
             if (random >= 4800 && random <= 4900){
                 note1speed = NoteSpeeds();
-                note1.transform.position = new Vector2(3, 2.25f);
+                RetrunNote(note1);
             }
         }
         if (note2.transform.position.y >= 5){
             if (random > 4900 && random <= 5000){
                 note2speed = NoteSpeeds();
-                note2.transform.position = new Vector2(3, 0.75f);
+                RetrunNote(note2);
             }
         }
         if (note3.transform.position.y >= 5){
             if (random > 5000 && random <= 5100){
                 note3speed = NoteSpeeds();
-                note3.transform.position = new Vector2(3, -0.75f);
+                RetrunNote(note3);
             }
         }
     }
@@ -85,5 +82,15 @@ public class enemynote : MonoBehaviour{
     private int RandomRange(){
         int random = Random.Range(0, 10000);
         return random;
+    }
+    //noteを止める関数
+    private void StopNote(GameObject notes){
+        note1speed = 0;
+        notes.transform.position = new Vector2(10, 5);
+        GameControlers.PartyDamage(false);
+    }
+    //noteを出現させる関数
+    private void RetrunNote(GameObject notes){
+        notes.transform.position = new Vector2(3, 2.25f);
     }
 }

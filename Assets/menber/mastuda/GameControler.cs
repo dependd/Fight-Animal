@@ -42,10 +42,10 @@ public class GameControler : MonoBehaviour{
         deadlyNote2 = GameObject.Find("deadlyNote2");
         deadlyNote3 = GameObject.Find("deadlyNote3");
         deadlyNote4 = GameObject.Find("deadlyNote4");
-
+        //enemySliderのhpスクリプトを取得
         notes = GameObject.Find("enemySlider");
         hp = notes.GetComponent<hp>();
-
+        //CharaStatusスクリプトを取得
         CharaStatus = GetComponent<Charastatus>();
     }
 
@@ -59,33 +59,22 @@ public class GameControler : MonoBehaviour{
             if (mouseClickPosition.x >= 35.0 && mouseClickPosition.x <= 190.0f){
                 if (mouseClickPosition.y >= 250.0 && mouseClickPosition.y <= 640.0){
                     if (enemynote1.transform.position.x <= -3 && enemynote1.transform.position.x >= -4){
-                        enemynote1.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("敵の攻撃を防いだ");
-                        PartyDamage(true);
+                        DamageCut(enemynote1,true);
                     }
                     else if (enemynote1.transform.position.x > -4 && enemynote1.transform.position.x < -5 || enemynote1.transform.position.x < -3 && enemynote1.transform.position.x > -2){
-                        enemynote1.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("防御失敗");
-                        PartyDamage(false);
+                        DamageCut(enemynote1,false);
                     }
                     if (enemynote2.transform.position.x <= -3 && enemynote2.transform.position.x >= -4){
-                        enemynote2.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("敵の攻撃を防いだ");
-                        PartyDamage(true);
+                        DamageCut(enemynote2,true);
                     }
                     else if (enemynote2.transform.position.x > -4 && enemynote2.transform.position.x < -5 || enemynote2.transform.position.x < -3 && enemynote2.transform.position.x > -2){
-                        enemynote2.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("防御失敗");
-                        PartyDamage(false);
+                        DamageCut(enemynote2,false);
                     }
                     if (enemynote3.transform.position.x <= -3 && enemynote3.transform.position.x >= -4){
-                        enemynote3.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("敵の攻撃を防いだ");
-                        PartyDamage(true);
-                    } else if (enemynote3.transform.position.x > -4 && enemynote3.transform.position.x < -5 || enemynote3.transform.position.x < -3 && enemynote3.transform.position.x > -2){
-                        enemynote3.transform.position = new Vector2(-7.5f, 7);
-                        Debug.Log("防御失敗");
-                        PartyDamage(false);
+                        DamageCut(enemynote3, true);
+                    }
+                    else if (enemynote3.transform.position.x > -4 && enemynote3.transform.position.x < -5 || enemynote3.transform.position.x < -3 && enemynote3.transform.position.x > -2){
+                        DamageCut(enemynote3, false);
                     }
                 }
             }
@@ -101,6 +90,7 @@ public class GameControler : MonoBehaviour{
                         note1.transform.position = new Vector2(10, 7);
                         Debug.Log("攻撃失敗");
                     }
+
                     if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                         deadlyNote1.transform.position = new Vector2(-10, 7);
                         int tokageDeadlyAttack = CharaStatus.tokage.OffensivePower * 3;
@@ -190,9 +180,14 @@ public class GameControler : MonoBehaviour{
         return noteSpeed;
     }
     //hpスクリプトのDownPartyHpに参照して味方のHpを減らす関数
-    public void PartyDamage(bool i)
-    {
+    public void PartyDamage(bool i){
         hp.DownPartyHp(i,10);
     }
+    private void DamageCut(GameObject notes,bool i){
+        notes.transform.position = new Vector2(-7.5f, 7);
+        PartyDamage(i);
+    }
+    private void PartyAttack(){
 
+    }
 }

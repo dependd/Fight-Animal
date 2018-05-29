@@ -42,34 +42,34 @@ public class enemynote : MonoBehaviour{
         //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x <= -7.5f){
             note1speed = 0;
-            StopNote(note1);
+            MoveNote(note1,10,5);
         }
         if (note2.transform.position.x <= -7.5f){
             note2speed = 0;
-            StopNote(note2);
+            MoveNote(note2,10,5);
         }
         if (note3.transform.position.x <= -7.5f){
             note3speed = 0;
-            StopNote(note3);
+            MoveNote(note3,10,5);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (note1.transform.position.y >= 5){
             if (random >= 4800 && random <= 4900){
                 note1speed = NoteSpeeds();
-                RetrunNote(note1);
+                MoveNote(note1,3,2.11f);
             }
         }
         if (note2.transform.position.y >= 5){
             if (random > 4900 && random <= 5000){
                 note2speed = NoteSpeeds();
-                RetrunNote(note2);
+                MoveNote(note2,3,0.66f);
             }
         }
         if (note3.transform.position.y >= 5){
             if (random > 5000 && random <= 5100){
                 note3speed = NoteSpeeds();
-                RetrunNote(note3);
+                MoveNote(note3,3,-0.9f);
             }
         }
     }
@@ -83,14 +83,9 @@ public class enemynote : MonoBehaviour{
         int random = Random.Range(0, 10000);
         return random;
     }
-    //noteを止める関数
-    private void StopNote(GameObject notes){
-        note1speed = 0;
-        notes.transform.position = new Vector2(10, 5);
+    //noteを止めたり出現させる関数
+    private void MoveNote(GameObject notes,int i ,float j){
+        notes.transform.position = new Vector2(i, j);
         GameControlers.PartyDamage(false);
-    }
-    //noteを出現させる関数
-    private void RetrunNote(GameObject notes){
-        notes.transform.position = new Vector2(3, 2.25f);
     }
 }

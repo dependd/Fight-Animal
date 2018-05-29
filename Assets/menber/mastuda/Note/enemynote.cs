@@ -42,34 +42,34 @@ public class enemynote : MonoBehaviour{
         //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x <= -7.5f){
             note1speed = 0;
-            MoveNote(note1,10,5);
+            MoveNote(note1,10,5,true);
         }
         if (note2.transform.position.x <= -7.5f){
             note2speed = 0;
-            MoveNote(note2,10,5);
+            MoveNote(note2,10,5,true);
         }
         if (note3.transform.position.x <= -7.5f){
             note3speed = 0;
-            MoveNote(note3,10,5);
+            MoveNote(note3,10,5,true);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (note1.transform.position.y >= 5){
             if (random >= 4800 && random <= 4900){
                 note1speed = NoteSpeeds();
-                MoveNote(note1,3,2.11f);
+                MoveNote(note1,3,2.11f,false);
             }
         }
         if (note2.transform.position.y >= 5){
             if (random > 4900 && random <= 5000){
                 note2speed = NoteSpeeds();
-                MoveNote(note2,3,0.66f);
+                MoveNote(note2,3,0.66f,false);
             }
         }
         if (note3.transform.position.y >= 5){
             if (random > 5000 && random <= 5100){
                 note3speed = NoteSpeeds();
-                MoveNote(note3,3,-0.9f);
+                MoveNote(note3,3,-0.9f,false);
             }
         }
     }
@@ -84,8 +84,11 @@ public class enemynote : MonoBehaviour{
         return random;
     }
     //noteを止めたり出現させる関数
-    private void MoveNote(GameObject notes,int i ,float j){
+    private void MoveNote(GameObject notes,int i ,float j,bool hantei){
         notes.transform.position = new Vector2(i, j);
-        GameControlers.PartyDamage(false);
+        //ノーツが移動しきったかどうか
+        if (hantei == true){
+            GameControlers.PartyDamage(false);
+        }
     }
 }

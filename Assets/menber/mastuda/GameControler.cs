@@ -50,7 +50,6 @@ public class GameControler : MonoBehaviour{
     }
 
     void Update(){
-        //Update内で一度だけ行う処理
         
         if (Input.GetMouseButtonDown(0)){
             mouseClickPosition = Input.mousePosition;
@@ -82,22 +81,18 @@ public class GameControler : MonoBehaviour{
             if (mouseClickPosition.x >= 839.0 && mouseClickPosition.x <= 1024.0f){
                 if (mouseClickPosition.y >= 580.0 && mouseClickPosition.y <= 660.0){
                     if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
-                        note1.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者１攻撃");
-                        int tokageAttack = CharaStatus.tokage.OffensivePower;
-                        hp.DownEnemyHp(tokageAttack);
+                        AttackAnimal(note1, true, CharaStatus.datyo.OffensivePower, false);
+                        Debug.Log("ダチョウ攻撃");
                     } else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
-                        note1.transform.position = new Vector2(10, 7);
+                        AttackAnimal(note1, false, CharaStatus.datyo.OffensivePower, false);
                         Debug.Log("攻撃失敗");
                     }
 
                     if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
-                        deadlyNote1.transform.position = new Vector2(-10, 7);
-                        int tokageDeadlyAttack = CharaStatus.tokage.OffensivePower * 3;
-                        Debug.Log("勇者１必殺技");
-                        hp.DownEnemyHp(tokageDeadlyAttack);
+                        AttackAnimal(deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
+                        Debug.Log("ダチョウ必殺技");
                     }　else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
-                        deadlyNote1.transform.position = new Vector2(-10, 7);
+                        AttackAnimal(deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
                         Debug.Log("攻撃失敗");
                     }
                 }
@@ -106,21 +101,17 @@ public class GameControler : MonoBehaviour{
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
                 if (mouseClickPosition.y >= 460.0 && mouseClickPosition.y < 540.0){
                     if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
-                        note2.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者2攻撃");
-                        int kameAttack = CharaStatus.kame.OffensivePower;
-                        hp.DownEnemyHp(kameAttack);
+                        AttackAnimal(note2, true, CharaStatus.tokage.OffensivePower, false);
+                        Debug.Log("トカゲ攻撃");
                     } else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
-                        note2.transform.position = new Vector2(10, 7);
+                        AttackAnimal(note2, false, CharaStatus.tokage.OffensivePower, false);
                         Debug.Log("攻撃失敗");
                     }
                     if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
-                        deadlyNote2.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者2必殺技");
-                        int kameDeadlyAttack = CharaStatus.kame.OffensivePower * 3;
-                        hp.DownEnemyHp(kameDeadlyAttack);
+                        AttackAnimal(deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
+                        Debug.Log("トカゲ必殺技");
                     }else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
-                        deadlyNote2.transform.position = new Vector2(-10, 7);
+                        AttackAnimal(deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
                         Debug.Log("攻撃失敗");
                     }
                 }
@@ -129,21 +120,17 @@ public class GameControler : MonoBehaviour{
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
                 if (mouseClickPosition.y >= 340.0 && mouseClickPosition.y <= 420.0){
                     if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
-                        note3.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者3攻撃");
-                        int datyoAttack = CharaStatus.datyo.OffensivePower;
-                        hp.DownEnemyHp(datyoAttack);
+                        AttackAnimal(note3, true, CharaStatus.momonga.OffensivePower, false);
+                        Debug.Log("モモンガ攻撃");
                     }else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
-                        note3.transform.position = new Vector2(10, 7);
+                        AttackAnimal(note3, false, CharaStatus.momonga.OffensivePower, false);
                         Debug.Log("攻撃失敗");
                     }
                     if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
-                        deadlyNote3.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者3必殺技");
-                        int datyoDeadlyAttack = CharaStatus.datyo.OffensivePower * 3;
-                        hp.DownEnemyHp(datyoDeadlyAttack);
+                        AttackAnimal(deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
+                        Debug.Log("モモンガ必殺技");
                     }else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
-                        deadlyNote3.transform.position = new Vector2(-10, 7);
+                        AttackAnimal(deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
                         Debug.Log("攻撃失敗");
                     }
                 }
@@ -152,21 +139,17 @@ public class GameControler : MonoBehaviour{
             if (mouseClickPosition.x >= 780.0 && mouseClickPosition.x <= 1024.0f){
                 if (mouseClickPosition.y >= 220.0 && mouseClickPosition.y <= 300.0){
                     if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
-                        note4.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者4攻撃");
-                        int momongaAttack = CharaStatus.momonga.OffensivePower;
-                        hp.DownEnemyHp(momongaAttack);
+                        AttackAnimal(note4, true, CharaStatus.kame.OffensivePower, false);
+                        Debug.Log("カメ攻撃");
                     }else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
-                        note4.transform.position = new Vector2(10, 7);
+                        AttackAnimal(note4, false, CharaStatus.kame.OffensivePower, false);
                         Debug.Log("攻撃失敗");
                     }
                     if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
-                        deadlyNote4.transform.position = new Vector2(-10, 7);
-                        Debug.Log("勇者4必殺技");
-                        int momongaDeadlyAttack = CharaStatus.momonga.OffensivePower * 3;
-                        hp.DownEnemyHp(momongaDeadlyAttack);
+                        AttackAnimal(deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
+                        Debug.Log("カメ必殺技");
                     }else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
-                        deadlyNote4.transform.position = new Vector2(10, 7);
+                        AttackAnimal(deadlyNote4, false, CharaStatus.kame.OffensivePower, true);
                         Debug.Log("攻撃失敗");
                     }
                 }
@@ -181,13 +164,23 @@ public class GameControler : MonoBehaviour{
     }
     //hpスクリプトのDownPartyHpに参照して味方のHpを減らす関数
     public void PartyDamage(bool i){
-        hp.DownPartyHp(i,10);
+        hp.DownPartyHp(i,CharaStatus.tinpan.OffensivePower);
     }
+    //ダメージの軽減があるかどうかの判定をする関数
     private void DamageCut(GameObject notes,bool i){
         notes.transform.position = new Vector2(-7.5f, 7);
         PartyDamage(i);
     }
-    private void PartyAttack(){
-
+    //勇者が攻撃する関数
+    private void AttackAnimal(GameObject notes,bool hantei,int power,bool deadly){
+        notes.transform.position = new Vector2(-10, 7);
+        //攻撃成功かどうかの判定
+        if(hantei == true){
+            //必殺ノーツかどうかの判定
+            if(deadly == true){
+                power = power * 2;
+            }
+            hp.DownEnemyHp(power);
+        }
     }
 }

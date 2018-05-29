@@ -19,13 +19,13 @@ public class enemynote : MonoBehaviour{
     // Use this for initialization
     void Start(){
 
-        note1speed = NoteSpeeds();
-        note2speed = NoteSpeeds();
-        note3speed = NoteSpeeds();
+        note1speed = 0;
+        note2speed = 0;
+        note3speed = 0;
 
-        note1 = GameObject.Find("enemynote1");
-        note2 = GameObject.Find("enemynote2");
-        note3 = GameObject.Find("enemynote3");
+        note1 = GameObject.Find("enemyNote1");
+        note2 = GameObject.Find("enemyNote2");
+        note3 = GameObject.Find("enemyNote3");
 
         GameControler = GameObject.Find("GameControler");
         GameControlers = GameControler.GetComponent<GameControler>();
@@ -41,35 +41,35 @@ public class enemynote : MonoBehaviour{
         //画面外に出たnoteを止める条件
         //画面外に出たら敵にダメージを与える処理
         if (note1.transform.position.x <= -7.5f){
-            note1.transform.position = new Vector2(10, 10.5f);
-            GameControlers.PartyDamage(false);
+            note1speed = 0;
+            MoveNote(note1,10,5,true);
         }
         if (note2.transform.position.x <= -7.5f){
-            note2.transform.position = new Vector2(10, 10.5f);
-            GameControlers.PartyDamage(false);
+            note2speed = 0;
+            MoveNote(note2,10,5,true);
         }
         if (note3.transform.position.x <= -7.5f){
-            note3.transform.position = new Vector2(10, 10.5f);
-            GameControlers.PartyDamage(false);
+            note3speed = 0;
+            MoveNote(note3,10,5,true);
         }
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
-        if (note1.transform.position.y == 10.5f){
+        if (note1.transform.position.y >= 5){
             if (random >= 4800 && random <= 4900){
                 note1speed = NoteSpeeds();
-                note1.transform.position = new Vector2(3, 2.25f);
+                MoveNote(note1,3,2.11f,false);
             }
         }
-        if (note2.transform.position.y == 10.5f){
+        if (note2.transform.position.y >= 5){
             if (random > 4900 && random <= 5000){
                 note2speed = NoteSpeeds();
-                note2.transform.position = new Vector2(3, 0.75f);
+                MoveNote(note2,3,0.66f,false);
             }
         }
-        if (note3.transform.position.y == 10.5f){
+        if (note3.transform.position.y >= 5){
             if (random > 5000 && random <= 5100){
                 note3speed = NoteSpeeds();
-                note3.transform.position = new Vector2(3, -0.75f);
+                MoveNote(note3,3,-0.9f,false);
             }
         }
     }
@@ -82,5 +82,13 @@ public class enemynote : MonoBehaviour{
     private int RandomRange(){
         int random = Random.Range(0, 10000);
         return random;
+    }
+    //noteを止めたり出現させる関数
+    private void MoveNote(GameObject notes,int i ,float j,bool hantei){
+        notes.transform.position = new Vector2(i, j);
+        //ノーツが移動しきったかどうか
+        if (hantei == true){
+            GameControlers.PartyDamage(false);
+        }
     }
 }

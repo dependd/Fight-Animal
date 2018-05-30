@@ -85,10 +85,10 @@ public class enemynote : MonoBehaviour{
     }
     //noteを止めたり出現させる関数
     private void MoveNote(GameObject notes,int i ,float j,bool hantei){
-        notes.transform.position = new Vector2(i, j);
         //ノーツが移動しきったかどうか
         if (hantei == true){
-            GameControlers.PartyDamage(false);
+            GameControlers.DamageCut(notes,false);
         }
+        notes.transform.position = new Vector2(i, j);
     }
 }

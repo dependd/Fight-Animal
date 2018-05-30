@@ -162,14 +162,11 @@ public class GameControler : MonoBehaviour{
         float noteSpeed = Random.Range(0.05f, 0.1f);
         return noteSpeed;
     }
-    //hpスクリプトのDownPartyHpに参照して味方のHpを減らす関数
-    public void PartyDamage(bool i){
-        hp.DownPartyHp(i,CharaStatus.tinpan.OffensivePower);
-    }
     //ダメージの軽減があるかどうかの判定をする関数
-    private void DamageCut(GameObject notes,bool i){
-        notes.transform.position = new Vector2(-7.5f, 7);
-        PartyDamage(i);
+    public void DamageCut(GameObject notes,bool i){
+        notes.transform.position = new Vector2(10, 5);
+        //HPを減らす関数
+        hp.DownPartyHp(i, CharaStatus.tinpan.OffensivePower);
     }
     //勇者が攻撃する関数
     private void AttackAnimal(GameObject notes,bool hantei,int power,bool deadly){

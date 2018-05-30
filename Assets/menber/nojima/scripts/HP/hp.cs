@@ -41,7 +41,8 @@ public class hp : MonoBehaviour
     {
         //防御成功：味方のHPを敵の攻撃力の20％分減らす
         if(i == true){
-            partyhp -= j * 0.2f;
+            float k = j * 0.2f;
+            partyhp -= k;
         }
         else {
             //防御失敗：味方のHPを敵の攻撃力分減らす

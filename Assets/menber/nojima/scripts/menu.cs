@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class menu : MonoBehaviour {
-    
-
+    //Time.timescaleはUpdateは動いてFixedUpdateは動かない。
+    //Updateで動いているものをFixedUpdateに変えてもらう
     public void MenuButton() {
-        if (Input.GetButtonDown("Button")){
-            if (Time.timeScale == 1.0F)
-                Time.timeScale = 0F;
-            
+            if (Time.timeScale == 1){
+                Time.timeScale = 0;
+            }
         }
-        Debug.Log("click");
+        
        
-    }
+    
 
 }

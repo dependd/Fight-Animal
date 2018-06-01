@@ -1,0 +1,12 @@
+﻿;チュートリアル用スクリプトファイル
+
+;メッセージ表示
+[showmessage]
+
+;ゲーム作成で便利なマクロ集
+[call file=wide/libs/utils]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+[wait time=2]
+

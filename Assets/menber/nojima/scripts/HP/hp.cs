@@ -32,20 +32,25 @@ public class hp : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        if (enemyhp <= 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
-    public void DownPartyHp(bool i)
+    public void DownPartyHp(bool i,int j)
     {
         //防御成功：味方のHPを敵の攻撃力の20％分減らす
         if(i == true){
-            partyhp -= 10 * 0.2f;
+            float k = j * 0.2f;
+            partyhp -= k;
         }
         else {
             //防御失敗：味方のHPを敵の攻撃力分減らす
-            partyhp -= 10;
+            partyhp -= j;
         }
 
     }
-    public void DownEnemyHp(){
-        enemyhp -= 10;
+    public void DownEnemyHp(int i){
+        enemyhp -= i;
     }
 }

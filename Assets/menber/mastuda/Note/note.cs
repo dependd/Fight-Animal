@@ -49,7 +49,7 @@ public class note : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (GameObject.Find("note1") == false){

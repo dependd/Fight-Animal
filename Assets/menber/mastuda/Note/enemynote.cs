@@ -34,7 +34,7 @@ public class enemynote : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //noteを動かす処理
         //note1.transform.position += new Vector3(note1speed, 0, 0);

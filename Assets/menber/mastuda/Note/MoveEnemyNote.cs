@@ -10,7 +10,7 @@ public class MoveEnemyNote : MonoBehaviour {
         noteSpeed = NoteSpeeds();
     }
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         this.transform.position += new Vector3(noteSpeed,0,0);
 	}
 

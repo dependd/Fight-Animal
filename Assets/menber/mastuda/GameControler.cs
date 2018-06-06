@@ -52,9 +52,9 @@ public class GameControler : MonoBehaviour{
     void Update(){
         
         if (Input.GetMouseButtonDown(0)){
-            mouseClickPosition = Input.mousePosition;
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //敵の攻撃を防ぐ処理
-            Debug.Log("クリックした座標は" + mouseClickPosition);
+            Debug.Log("クリックした座標は" + ray);
             if (mouseClickPosition.x >= 35.0 && mouseClickPosition.x <= 190.0f){
                 if (mouseClickPosition.y >= 250.0 && mouseClickPosition.y <= 640.0){
                     if (enemynote1.transform.position.x <= -3 && enemynote1.transform.position.x >= -4){

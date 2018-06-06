@@ -2,93 +2,139 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemynote : MonoBehaviour{
+public class enemynote : MonoBehaviour
+{
     int random;
-    //ノーツのスピードを入れておく変数
-    public float note1speed;
-    public float note2speed;
-    public float note3speed;
-    //
+    //各noteを格納する変数
     GameObject note1;
     GameObject note2;
     GameObject note3;
-    //hpスクリプトに参照するための変数
+    GameObject note;
+    GameObject enemyNote;
+    Transform parent;
+    //どのnoteかを判定するための変数
+    bool note1st = false;
+    bool note2nd = false;
+    bool note3rd = false;
+    //GameControlerスクリプトに参照するための変数
     GameObject GameControler;
     GameControler GameControlers;
-
     // Use this for initialization
-    void Start(){
-
-        note1speed = 0;
-        note2speed = 0;
-        note3speed = 0;
-
-        note1 = GameObject.Find("enemyNote1");
-        note2 = GameObject.Find("enemyNote2");
-        note3 = GameObject.Find("enemyNote3");
+    void Start()
+    {
+        
+        enemyNote = GameObject.Find("enemyNote");
+        parent = GameObject.Find("enemyNote").transform;
+        note1 = null;//GameObject.Find("enemyNote1");
+        note2 = null;//GameObject.Find("enemyNote2");
+        note3 = null;//GameObject.Find("enemyNote3");
 
         GameControler = GameObject.Find("GameControler");
         GameControlers = GameControler.GetComponent<GameControler>();
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
         //noteを動かす処理
-        note1.transform.position += new Vector3(note1speed, 0, 0);
-        note2.transform.position += new Vector3(note2speed, 0, 0);
-        note3.transform.position += new Vector3(note3speed, 0, 0);
+        //note1.transform.position += new Vector3(note1speed, 0, 0);
+        //note2.transform.position += new Vector3(note2speed, 0, 0);
+        //note3.transform.position += new Vector3(note3speed, 0, 0);
 
-        //画面外に出たnoteを止める条件
-        //画面外に出たら敵にダメージを与える処理
-        if (note1.transform.position.x <= -7.5f){
-            note1speed = 0;
-            MoveNote(note1,10,5,true);
-        }
-        if (note2.transform.position.x <= -7.5f){
-            note2speed = 0;
-            MoveNote(note2,10,5,true);
-        }
-        if (note3.transform.position.x <= -7.5f){
-            note3speed = 0;
-            MoveNote(note3,10,5,true);
-        }
+
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
-        if (note1.transform.position.y >= 5){
-            if (random >= 4800 && random <= 4900){
-                note1speed = NoteSpeeds();
-                MoveNote(note1,3,2.11f,false);
+        if (GameObject.Find("enemyNote1") == false)
+        {
+            if (random >= 4800 && random <= 4900)
+            {
+                note1 = GameObject.Find(CloneEnemyNote("1", 3, 2.2f));
+                note1st = true;
             }
         }
-        if (note2.transform.position.y >= 5){
-            if (random > 4900 && random <= 5000){
-                note2speed = NoteSpeeds();
-                MoveNote(note2,3,0.66f,false);
+        if (GameObject.Find("enemyNote2") == false)
+        {
+            if (random > 4900 && random <= 5000)
+            {
+                note2 = GameObject.Find(CloneEnemyNote("2",3,0.68f));
+                note2nd = true;
             }
         }
-        if (note3.transform.position.y >= 5){
-            if (random > 5000 && random <= 5100){
-                note3speed = NoteSpeeds();
-                MoveNote(note3,3,-0.9f,false);
+        if (GameObject.Find("enemyNote3") == false)
+        {
+            if (random > 5000 && random <= 5100)
+            {
+                note3 = GameObject.Find(CloneEnemyNote("3",3,-0.85f));
+                note3rd = true;
             }
+        }
+        if (parent.childCount > 0)
+        {
+            OverNote();
         }
     }
     //noteのスピードを変える変数
-    private float NoteSpeeds(){
+    private float NoteSpeeds()
+    {
         float noteSpeed = Random.Range(-0.05f, -0.15f);
         return noteSpeed;
     }
     //noteが戻るためのランダムな値を出す関数
-    private int RandomRange(){
+    private int RandomRange()
+    {
         int random = Random.Range(0, 10000);
         return random;
     }
     //noteを止めたり出現させる関数
-    private void MoveNote(GameObject notes,int i ,float j,bool hantei){
+    private void MoveNotes(GameObject notes, bool hantei)
+    {
         //ノーツが移動しきったかどうか
-        if (hantei == true){
-            GameControlers.DamageCut(notes,false);
+        if (hantei == true)
+        {
+            GameControlers.DamageCut(notes, false);
         }
-        notes.transform.position = new Vector2(i, j);
+        Destroy(notes);
+    }
+    //PrefabのenemyNoteをゲーム画面に表示させる関数
+    private string CloneEnemyNote(string name,float i,float j)
+    {
+        note = (GameObject)Resources.Load("Prefabs/enemyNote");
+        note = Instantiate(note, new Vector3(i,j,0), Quaternion.identity);
+        //MoveNoteのスクリプトを持たせる
+        note.AddComponent<MoveEnemyNote>();
+        note.transform.parent = enemyNote.transform;
+        //名前をenemyNote"数字"に変更する
+        var noteName = "enemyNote" + name;
+        note.name = noteName;
+        return noteName;
+    }
+    private void OverNote()
+    {
+        //画面外に出たnoteを止める条件
+        //画面外に出たら敵にダメージを与える処理
+        if (note1st)
+        {
+            if (note1.transform.position.x <= -7.5f)
+            {
+                MoveNotes(note1, true);
+                note1st = false;
+            }
+        }
+        if (note2nd)
+        {
+            if (note2.transform.position.x <= -7.5f)
+            {
+                MoveNotes(note2, true);
+                note2nd = false;
+            }
+        }
+        if (note3rd)
+        {
+            if (note3.transform.position.x <= -7.5f)
+            {
+                MoveNotes(note3, true);
+                note3rd = false;
+            }
+        }
     }
 }

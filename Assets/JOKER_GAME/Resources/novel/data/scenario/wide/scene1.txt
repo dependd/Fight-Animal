@@ -1,0 +1,43 @@
+﻿;メッセージ表示
+[showmessage]
+
+;ゲーム作成で便利なマクロ集
+[call file=wide/libs/utils]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;背景の新規定義
+[bg_new storage="zoo"]
+
+;背景の表示
+[bg_show ]
+
+;2秒後にテキスト表示開始
+[wait time=2]
+
+時は8012年[l][r]
+世界で一番人気がある動物園があった。[l][r]
+その動物園は動物たちが全員女の子の姿をしているのだ！。[l][p]
+そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
+彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[l][p]
+
+;背景移動
+[bg_mod storage="forest" time=0.5]
+ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
+しばらくすると園長がけがをして帰ってきた。[l][r]
+園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][p]
+[bg_mod storage="zoo" time=2]
+そして、ウサギ姫を取り戻すために４人の勇者（アニマル）が集められた。[l][p]
+
+園長「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[l][p]
+
+園長の言葉を胸に、[l][r]
+カメ、[l]
+トカゲ、[l]
+ダチョウ、[l]
+モモンガの４人は森へと向かうのであった・・・。
+
+
+;2秒後にバトルシーンへ移行
+[wait time=2]
+[scene file="Battle"]

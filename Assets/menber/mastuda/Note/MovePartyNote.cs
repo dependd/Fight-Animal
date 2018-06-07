@@ -10,8 +10,7 @@ public class MovePartyNote : MonoBehaviour {
     GameObject Gamecontroler;
     Charastatus charastatus;
     
-    private void Start()
-    {
+    private void Start(){
         objectName = this.gameObject.name;
         Gamecontroler = GameObject.Find("GameControler");
         charastatus = Gamecontroler.GetComponent<Charastatus>();
@@ -19,49 +18,37 @@ public class MovePartyNote : MonoBehaviour {
         
     }
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         this.transform.position += new Vector3(noteSpeed, 0, 0);
     }
 
     //noteのスピードを変える変数
-    private float NoteSpeeds()
-    {
-        if(objectName == "note1")
-        {
+    private float NoteSpeeds(){
+        if(objectName == "note1"){
             return (float)charastatus.momonga.NoteSpeed;
         }
-        else if(objectName == "note2")
-        {
+        else if(objectName == "note2"){
             return (float)charastatus.tokage.NoteSpeed;
         }
-        else if (objectName == "note3")
-        {
+        else if (objectName == "note3"){
             return (float)charastatus.datyo.NoteSpeed;
         }
-        else if (objectName == "note4")
-        {
+        else if (objectName == "note4"){
             return (float)charastatus.kame.NoteSpeed;
         }
-        else if (objectName == "deadlyNote1")
-        {
+        else if (objectName == "deadlyNote1"){
             return (float)charastatus.momonga.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote2")
-        {
+        else if (objectName == "deadlyNote2"){
             return (float)charastatus.tokage.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote3")
-        {
+        else if (objectName == "deadlyNote3"){
             return (float)charastatus.datyo.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote4")
-        {
+        else if (objectName == "deadlyNote4"){
             return (float)charastatus.kame.DeadlyNoteSpeed;
-        } else
-        {
+        } else{
             return 0;
         }
-
     }
 }

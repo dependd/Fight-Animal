@@ -12,9 +12,9 @@ public class enemynote : MonoBehaviour{
     GameObject enemyNote;
     Transform parent;
     //どのnoteかを判定するための変数
-    bool note1st = false;
-    bool note2nd = false;
-    bool note3rd = false;
+    public bool note1st = false;
+    public bool note2nd = false;
+    public bool note3rd = false;
     //GameControlerスクリプトに参照するための変数
     GameObject GameControler;
     GameControler GameControlers;

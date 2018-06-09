@@ -67,7 +67,7 @@ public class GameControler : MonoBehaviour{
         enemyNote = GameObject.Find("enemyNote");
         enemynote = enemyNote.GetComponent<enemynote>();
         //textのScenarioTextスクリプトを取得
-        text = GameObject.Find("Text");
+        text = GameObject.Find("ScenarioText");
         scenarioText = text.GetComponent<ScenarioText>();
     }
 
@@ -267,11 +267,12 @@ public class GameControler : MonoBehaviour{
             if(deadly == true){
                 power = power * 2;
                 scenarioText.ChengeScenarioText(animalName + "必殺技\n" + power + "ダメージを与えた");
-            } else
-            {
+            } else　{
                 scenarioText.ChengeScenarioText(animalName + "攻撃\n" + power + "ダメージを与えた");
             }
             hp.DownEnemyHp(power);
+        } else {
+            scenarioText.ChengeScenarioText(animalName + "攻撃失敗\n");
         }
     }
     private void InputNoteObject(){

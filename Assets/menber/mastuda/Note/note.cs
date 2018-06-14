@@ -27,14 +27,14 @@ public class note : MonoBehaviour {
     GameObject deadlyNote3;
     GameObject deadlyNote4;
     //ノーツの判定をする変数
-    bool note1st = false;
-    bool note2nd = false;
-    bool note3rd = false;
-    bool note4th = false;
-    bool deadlyNote1st = false;
-    bool deadlyNote2nd = false;
-    bool deadlyNote3rd = false;
-    bool deadlyNote4th = false;
+    public bool note1st = false;
+    public bool note2nd = false;
+    public bool note3rd = false;
+    public bool note4th = false;
+    public bool deadlyNote1st = false;
+    public bool deadlyNote2nd = false;
+    public bool deadlyNote3rd = false;
+    public bool deadlyNote4th = false;
     //CharaStatusスクリプトに参照するための変数
     GameObject GameControler;
     Charastatus CharaStatus;

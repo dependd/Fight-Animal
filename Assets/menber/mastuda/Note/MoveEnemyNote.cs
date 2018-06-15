@@ -15,7 +15,11 @@ public class MoveEnemyNote : MonoBehaviour {
 
     //noteのスピードを変える変数
     private float NoteSpeeds(){
-        float noteSpeed = Random.Range(-0.05f, -0.15f);
+        float noteSpeed = Random.Range(-0.075f, -0.15f);
         return noteSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(this);
     }
 }

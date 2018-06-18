@@ -263,15 +263,17 @@ public class GameControler : MonoBehaviour{
             if(deadly == true){
                 power = power * 2;
                 scenarioText.ChengeScenarioText(animalName + "必殺技\n" + power + "ダメージを与えた");
+                scinarioChara.PopUpChara(animalName);
             } else　{
                 scenarioText.ChengeScenarioText(animalName + "攻撃\n" + power + "ダメージを与えた");
-                scinarioChara.PopUpChara("tokage");
             }
             hp.DownEnemyHp(power);
         } else {
             scenarioText.ChengeScenarioText(animalName + "攻撃失敗\n");
         }
     }
+
+
     private void InputNoteObject(){
         if (GameObject.Find("note1") == true){
             note1 = GameObject.Find("note1");

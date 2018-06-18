@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ScinarioChara : MonoBehaviour {
-
-    enum ScenarioCharas {
-        datyo,
-        tokage,
-        momonga,
-        kame
-    }
+    
     SpriteRenderer mainSpriteRenderer;
     public Sprite datyo;
     public Sprite tokage;
@@ -22,7 +16,8 @@ public class ScinarioChara : MonoBehaviour {
 
     public void PopUpChara(string name)
     {
-        switch (name)
+        string charaName = CharaName(name);
+        switch (charaName)
         {
             case "datyo":
                 mainSpriteRenderer.sprite = datyo;
@@ -37,6 +32,26 @@ public class ScinarioChara : MonoBehaviour {
                 mainSpriteRenderer.sprite = kame;
                 break;
         }
+    }
+    private string CharaName(string name)
+    {
+
+        switch (name)
+        {
+            case "トカゲ":
+                name = "tokage";
+                break;
+            case "ダチョウ":
+                name = "datyo";
+                break;
+            case "モモンガ":
+                name = "momonga";
+                break;
+            case "カメ":
+                name = "kame";
+                break;
+        }
+        return name;
     }
 }
 

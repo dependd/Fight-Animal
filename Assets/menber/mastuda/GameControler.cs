@@ -36,6 +36,9 @@ public class GameControler : MonoBehaviour{
     //ScenarioTextスクリプトに参照するための変数
     GameObject text;
     ScenarioText scenarioText;
+    //
+    GameObject chara;
+    ScinarioChara scenarioChara;
     //メニューを押したら(一応)スタートに戻る
     public void MenuButton(){
         SceneManager.LoadScene("start");
@@ -69,6 +72,9 @@ public class GameControler : MonoBehaviour{
         //textのScenarioTextスクリプトを取得
         text = GameObject.Find("ScenarioText");
         scenarioText = text.GetComponent<ScenarioText>();
+        //
+        chara = GameObject.Find("ScinarioChara");
+        scenarioChara = chara.GetComponent<ScinarioChara>();
     }
 
     void Update(){
@@ -267,7 +273,7 @@ public class GameControler : MonoBehaviour{
             if(deadly == true){
                 power = power * 2;
                 scenarioText.ChengeScenarioText(animalName + "必殺技\n" + power + "ダメージを与えた");
-                scinarioChara.PopUpChara(animalName);
+                scenarioChara.PopUpChara(animalName);
             } else　{
                 scenarioText.ChengeScenarioText(animalName + "攻撃\n" + power + "ダメージを与えた");
             }

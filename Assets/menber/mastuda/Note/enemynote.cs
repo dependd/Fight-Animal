@@ -86,13 +86,10 @@ public class enemynote : MonoBehaviour{
         note = Instantiate(note, new Vector3(i,j,0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
         note.AddComponent<MoveEnemyNote>();
-<<<<<<< HEAD
-=======
         /*
         note.AddComponent<BoxCollider2D>();
         var collider = note.GetComponent<BoxCollider2D>();
         collider.size = new Vector2(1, 1);*/
->>>>>>> origin/matsuda
         note.transform.parent = enemyNote.transform;
         //名前をenemyNote"数字"に変更する
         var noteName = "enemyNote" + name;

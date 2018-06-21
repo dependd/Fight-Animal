@@ -33,7 +33,7 @@ public class menu : MonoBehaviour {
             menuScreen.SetActive(false);
         }
     }
-    public void retrun() {
+    public void Retrun() {
         SceneManager.LoadScene("start");
     }
 

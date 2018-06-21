@@ -45,8 +45,8 @@ public class GameControler : MonoBehaviour{
     }
     void Start(){
         //それぞれの変数にオブジェクトを格納する
-        partyNoteParent = GameObject.Find("partyNote").transform;
-        enemyNoteParent = GameObject.Find("enemyNote").transform;
+        partyNoteParent = GameObject.Find("PartyNote").transform;
+        enemyNoteParent = GameObject.Find("EnemyNote").transform;
         note1 = GameObject.Find("note1");
         note2 = GameObject.Find("note2");
         note3 = GameObject.Find("note3");
@@ -64,10 +64,10 @@ public class GameControler : MonoBehaviour{
         //CharaStatusスクリプトを取得
         CharaStatus = GetComponent<Charastatus>();
         //partyNoteのnoteスクリプトを取得
-        partyNote = GameObject.Find("partyNote");
+        partyNote = GameObject.Find("PartyNote");
         note = partyNote.GetComponent<note>();
         //enemyNoteのenemynoteスクリプトを取得
-        enemyNote = GameObject.Find("enemyNote");
+        enemyNote = GameObject.Find("EnemyNote");
         enemynote = enemyNote.GetComponent<enemynote>();
         //textのScenarioTextスクリプトを取得
         text = GameObject.Find("ScenarioText");

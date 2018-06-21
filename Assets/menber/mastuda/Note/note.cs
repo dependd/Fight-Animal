@@ -41,8 +41,8 @@ public class note : MonoBehaviour {
     MovePartyNote MovePartyNote;
     // Use this for initialization
     void Start () {
-        partyNote = GameObject.Find("partyNote");
-        parent = GameObject.Find("partyNote").transform;
+        partyNote = GameObject.Find("PartyNote");
+        parent = GameObject.Find("PartyNote").transform;
         //GameControlerのCharaStatusスクリプトを取得
         GameControler = GameObject.Find("GameControler");
         CharaStatus = GameControler.GetComponent<Charastatus>();

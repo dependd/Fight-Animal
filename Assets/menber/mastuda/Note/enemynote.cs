@@ -20,8 +20,8 @@ public class enemynote : MonoBehaviour{
     GameControler GameControlers;
     // Use this for initialization
     void Start(){
-        enemyNote = GameObject.Find("enemyNote");
-        parent = GameObject.Find("enemyNote").transform;
+        enemyNote = GameObject.Find("EnemyNote");
+        parent = GameObject.Find("EnemyNote").transform;
         note1 = null;//GameObject.Find("enemyNote1");
         note2 = null;//GameObject.Find("enemyNote2");
         note3 = null;//GameObject.Find("enemyNote3");

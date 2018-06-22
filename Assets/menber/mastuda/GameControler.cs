@@ -39,6 +39,23 @@ public class GameControler : MonoBehaviour{
     //
     GameObject chara;
     ScinarioChara scenarioChara;
+    //
+    [SerializeField]
+    CharaAnimation datyoAnimation;
+    [SerializeField]
+    GameObject datyo;
+    [SerializeField]
+    CharaAnimation tokageAnimation;
+    [SerializeField]
+    GameObject tokage;
+    [SerializeField]
+    CharaAnimation momongaAnimation;
+    [SerializeField]
+    GameObject momonga;
+    [SerializeField]
+    CharaAnimation kameAnimation;
+    [SerializeField]
+    GameObject kame;
     //メニューを押したら(一応)スタートに戻る
     public void MenuButton(){
         SceneManager.LoadScene("start");
@@ -75,6 +92,7 @@ public class GameControler : MonoBehaviour{
         //
         chara = GameObject.Find("ScinarioChara");
         scenarioChara = chara.GetComponent<ScinarioChara>();
+        //
     }
 
     void Update(){
@@ -127,11 +145,10 @@ public class GameControler : MonoBehaviour{
                     if (GameObject.Find("note1") == true){
                         if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
-                            Debug.Log("ダチョウ攻撃");
+                            datyoAnimation.AttackAnimation();
                         }
                         else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",note1, false, CharaStatus.datyo.OffensivePower, false);
-                            Debug.Log("攻撃失敗");
                         }
                         note.note1st = false;
                     }
@@ -142,11 +159,10 @@ public class GameControler : MonoBehaviour{
                     if(GameObject.Find("deadlyNote1") == true){
                         if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
-                            Debug.Log("ダチョウ必殺技");
+                            datyoAnimation.AttackAnimation();
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
-                            Debug.Log("攻撃失敗");
                         }
                         note.deadlyNote1st = false;
                     }
@@ -158,11 +174,10 @@ public class GameControler : MonoBehaviour{
                     if (GameObject.Find("note2") == true){
                         if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
-                            Debug.Log("トカゲ攻撃");
+                            tokageAnimation.AttackAnimation();
                         }
                         else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
                             AttackAnimal("トカゲ",note2, false, CharaStatus.tokage.OffensivePower, false);
-                            Debug.Log("攻撃失敗");
                         }
                         note.note2nd = false;
                     }
@@ -173,11 +188,10 @@ public class GameControler : MonoBehaviour{
                     if (GameObject.Find("deadlyNote2") == true){
                         if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
-                            Debug.Log("トカゲ必殺技");
+                            tokageAnimation.AttackAnimation();
                         }
                         else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
                             AttackAnimal("トカゲ",deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
-                            Debug.Log("攻撃失敗");
                         }
                         note.deadlyNote2nd = false;
                     }
@@ -189,11 +203,10 @@ public class GameControler : MonoBehaviour{
                     if(GameObject.Find("note3") == true){
                         if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
-                            Debug.Log("モモンガ攻撃");
+                            momongaAnimation.AttackAnimation();
                         }
                         else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
                             AttackAnimal("モモンガ",note3, false, CharaStatus.momonga.OffensivePower, false);
-                            Debug.Log("攻撃失敗");
                         }
                         note.note3rd = false;
                     }
@@ -204,11 +217,10 @@ public class GameControler : MonoBehaviour{
                     if(GameObject.Find("deadlyNote3") == true){
                         if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
-                            Debug.Log("モモンガ必殺技");
+                            momongaAnimation.AttackAnimation();
                         }
                         else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
                             AttackAnimal("モモンガ",deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
-                            Debug.Log("攻撃失敗");
                         }
                         note.deadlyNote3rd = false;
                     }
@@ -220,11 +232,10 @@ public class GameControler : MonoBehaviour{
                     if (GameObject.Find("note4") == true){
                         if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
-                            Debug.Log("カメ攻撃");
+                            kameAnimation.AttackAnimation();
                         }
                         else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
                             AttackAnimal("カメ",note4, false, CharaStatus.kame.OffensivePower, false);
-                            Debug.Log("攻撃失敗");
                         }
                         note.note4th = false;
                     }
@@ -235,11 +246,11 @@ public class GameControler : MonoBehaviour{
                     if(GameObject.Find("deadlyNote4") == true){
                         if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
-                            Debug.Log("カメ必殺技");
+                            kameAnimation.AttackAnimation();
                         }
                         else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
                             AttackAnimal("カメ",deadlyNote4, false, CharaStatus.kame.OffensivePower, true);
-                            Debug.Log("攻撃失敗");
+                            
                         }
                         note.deadlyNote4th = false;
                     }

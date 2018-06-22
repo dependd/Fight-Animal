@@ -39,7 +39,7 @@ public class GameControler : MonoBehaviour{
     //
     GameObject chara;
     ScinarioChara scenarioChara;
-    //
+    //各キャラのCharaAnimationスクリプトに参照するための変数
     [SerializeField]
     CharaAnimation datyoAnimation;
     [SerializeField]
@@ -86,10 +86,10 @@ public class GameControler : MonoBehaviour{
         //enemyNoteのenemynoteスクリプトを取得
         enemyNote = GameObject.Find("EnemyNote");
         enemynote = enemyNote.GetComponent<enemynote>();
-        //textのScenarioTextスクリプトを取得
+        //ScenairoTextのScenarioTextスクリプトを取得
         text = GameObject.Find("ScenarioText");
         scenarioText = text.GetComponent<ScenarioText>();
-        //
+        //ScenarioCharaのScenarioCharaスクリプトを取得
         chara = GameObject.Find("ScinarioChara");
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //

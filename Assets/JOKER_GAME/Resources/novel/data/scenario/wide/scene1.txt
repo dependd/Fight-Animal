@@ -52,6 +52,6 @@
 モモンガの４人は森へと向かうのであった・・・。
 
 
-;2秒後にバトルシーンへ移行
-[wait time=2]
-[scene file="Battle"]
+;2秒後にステージセレクトへ移行
+[wait time=1]
+[scene file="StageSerect"]

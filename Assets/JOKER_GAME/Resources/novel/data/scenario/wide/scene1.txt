@@ -1,15 +1,19 @@
-﻿;メッセージ表示
+﻿
+;メッセージ表示
 [showmessage]
 
-;wideのlibのutilsを呼び出す
+;wideの中にあるlibファイルからutilsを呼び出す。
 [call file=wide/libs/utils]
 
 ;キャラネームの表示位置、色のデフォルトを決める。
 [text_new name=_sp_chara_name layer=ui x="-159" y=-162 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
-;キャラクターの定義
+;登場キャラクターの定義（キャラを追加する場合は登場させる直前に追加で書く）
 [chara_new name=encho storage=Encyou1 scale="0.5"  jname=園長 jcolor="#249390" ] 
+
+;メニューボタンの定義
+[button_new name=Menu storage="menu" x="-336" y="236" z="1"]
 
 ;背景の新規定義
 [bg_new storage="zoo"]

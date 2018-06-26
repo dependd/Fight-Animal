@@ -12,8 +12,14 @@
 ;登場キャラクターの定義（キャラを追加する場合は登場させる直前に追加で書く）
 [chara_new name=encho storage=Encyou1 scale="0.5"  jname=園長 jcolor="#249390" ] 
 
-;メニューボタンの定義
-[button_new name=Menu storage="menu" x="-336" y="236" z="1"]
+;メニューボタンと各機能の定義
+[button_new name=Menu  x="-367.7" y="268.4" z="1" scale="0.5" storage="menu"]
+[button_new name=Title  x="-367.7" y="268.4" z="1" scale="0.5" storage="title"]
+[button_new name=Skip  x="-367.7" y="268.4" z="1" scale="0.5" storage="skip"]
+[button_new name=Close  x="-367.7" y="268.4" z="1" scale="0.5" storage="close"]
+
+;メニューボタンの表示
+[button_show name=Menu]
 
 ;背景の新規定義
 [bg_new storage="zoo"]

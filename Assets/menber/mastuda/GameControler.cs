@@ -56,6 +56,14 @@ public class GameControler : MonoBehaviour{
     CharaAnimation kameAnimation;
     [SerializeField]
     GameObject kame;
+    [SerializeField]
+    CharaAnimation tinpanAnimation;
+    [SerializeField]
+    GameObject tinpan;
+    [SerializeField]
+    GameObject light_Bool;
+    [SerializeField]
+    CharaAnimation light_BoolAnimator;
     //メニューを押したら(一応)スタートに戻る
     public void MenuButton(){
         SceneManager.LoadScene("start");
@@ -146,6 +154,7 @@ public class GameControler : MonoBehaviour{
                         if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
                             datyoAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("datyo");
                         }
                         else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",note1, false, CharaStatus.datyo.OffensivePower, false);
@@ -160,6 +169,7 @@ public class GameControler : MonoBehaviour{
                         if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
                             datyoAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("datyo");
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
@@ -175,6 +185,7 @@ public class GameControler : MonoBehaviour{
                         if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
                             tokageAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("tokage");
                         }
                         else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
                             AttackAnimal("トカゲ",note2, false, CharaStatus.tokage.OffensivePower, false);
@@ -189,6 +200,7 @@ public class GameControler : MonoBehaviour{
                         if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
                             tokageAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("tokage");
                         }
                         else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
                             AttackAnimal("トカゲ",deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
@@ -204,6 +216,7 @@ public class GameControler : MonoBehaviour{
                         if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
                             momongaAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("momonga");
                         }
                         else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
                             AttackAnimal("モモンガ",note3, false, CharaStatus.momonga.OffensivePower, false);
@@ -218,6 +231,7 @@ public class GameControler : MonoBehaviour{
                         if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
                             momongaAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("momonga");
                         }
                         else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
                             AttackAnimal("モモンガ",deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
@@ -233,6 +247,7 @@ public class GameControler : MonoBehaviour{
                         if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
                             kameAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("kame");
                         }
                         else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
                             AttackAnimal("カメ",note4, false, CharaStatus.kame.OffensivePower, false);
@@ -247,6 +262,7 @@ public class GameControler : MonoBehaviour{
                         if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
                             kameAnimation.AttackAnimation();
+                            light_BoolAnimator.AttackEffect("kame");
                         }
                         else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
                             AttackAnimal("カメ",deadlyNote4, false, CharaStatus.kame.OffensivePower, true);
@@ -289,11 +305,47 @@ public class GameControler : MonoBehaviour{
                 scenarioText.ChengeScenarioText(animalName + "攻撃\n" + power + "ダメージを与えた");
             }
             hp.DownEnemyHp(power);
+            tinpanAnimation.DamegeAnimation();
         } else {
             scenarioText.ChengeScenarioText(animalName + "攻撃失敗\n");
         }
     }
 
+    private void AttackEffect(string name)
+    {
+        var obj = (GameObject)Resources.Load("Prefabs/Light_bool");
+        obj.name = "Light_Bool";
+        /*
+        switch (name)
+        {
+            case "datyo":
+                obj = Instantiate(obj, new Vector2(4,3), Quaternion.identity);
+                var datyo = obj.GetComponent<Animator>();
+                datyo.SetBool("datyo", true);
+                break;
+            case "tokage":
+                obj = Instantiate(obj, new Vector2(5.05f, 1.47f), Quaternion.identity);
+                var tokage = obj.GetComponent<Animator>();
+                tokage.SetBool("tokage", true);
+                break;
+            case "momonga":
+                obj = Instantiate(obj, new Vector2(3.72f, -0.44f), Quaternion.identity);
+                var momonga = obj.GetComponent<Animator>();
+                momonga.SetBool("momonga", true);
+                break;
+            case "kame":
+                obj = Instantiate(obj, new Vector2(5.19f, -1.6f), Quaternion.identity);
+                var kame = obj.GetComponent<Animator>();
+                kame.SetBool("kame", true);
+                break;
+            case "tinpan":
+                obj = Instantiate(obj, new Vector2(-5, 1), Quaternion.identity);
+                var tinpan = obj.GetComponent<Animator>();
+                tinpan.SetBool("tinpan", true);
+                break;
+        }*/
+        
+    }
 
     private void InputNoteObject(){
         if (GameObject.Find("note1") == true){

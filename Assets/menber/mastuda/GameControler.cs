@@ -41,29 +41,29 @@ public class GameControler : MonoBehaviour{
     ScinarioChara scenarioChara;
     //各キャラのCharaAnimationスクリプトに参照するための変数
     [SerializeField]
-    CharaAnimation datyoAnimation;
+    CharaAnimations datyoAnimation;
     [SerializeField]
     GameObject datyo;
     [SerializeField]
-    CharaAnimation tokageAnimation;
+    CharaAnimations tokageAnimation;
     [SerializeField]
     GameObject tokage;
     [SerializeField]
-    CharaAnimation momongaAnimation;
+    CharaAnimations momongaAnimation;
     [SerializeField]
     GameObject momonga;
     [SerializeField]
-    CharaAnimation kameAnimation;
+    CharaAnimations kameAnimation;
     [SerializeField]
     GameObject kame;
     [SerializeField]
-    CharaAnimation tinpanAnimation;
+    CharaAnimations tinpanAnimation;
     [SerializeField]
     GameObject tinpan;
     [SerializeField]
     GameObject light_Bool;
     [SerializeField]
-    CharaAnimation light_BoolAnimator;
+    CharaAnimations light_BoolAnimator;
     //メニューを押したら(一応)スタートに戻る
     public void MenuButton(){
         SceneManager.LoadScene("start");

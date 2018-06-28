@@ -42,19 +42,19 @@ public class Tutorial : MonoBehaviour {
     ScinarioChara scenarioChara;
     //各キャラのCharaAnimationスクリプトに参照するための変数
     [SerializeField]
-    CharaAnimation datyoAnimation;
+    CharaAnimations datyoAnimation;
     [SerializeField]
     GameObject datyo;
     [SerializeField]
-    CharaAnimation tokageAnimation;
+    CharaAnimations tokageAnimation;
     [SerializeField]
     GameObject tokage;
     [SerializeField]
-    CharaAnimation momongaAnimation;
+    CharaAnimations momongaAnimation;
     [SerializeField]
     GameObject momonga;
     [SerializeField]
-    CharaAnimation kameAnimation;
+    CharaAnimations kameAnimation;
     [SerializeField]
     GameObject kame;
     void Start()

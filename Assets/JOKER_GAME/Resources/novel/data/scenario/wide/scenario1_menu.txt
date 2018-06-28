@@ -1,0 +1,34 @@
+*click_Menu_button
+
+;背景の定義
+[bg_new storage="zoo" time=0]
+
+;背景の表示
+[bg_show ]
+
+;close，skip，titleボタンの定義
+[button_new name=Close tag="menu_button"  x="140" y="194" z="1" scale="1" storage="close"]
+[button_new name=Skip tag="menu_button"  x="0" y="117" z="1" scale="2" storage="skip"]
+[button_new name=Title tag="menu_button"  x="0" y="15" z="1" scale="2" storage="title"]
+
+;イベントの登録
+[evt tag="menu_button" act="click" target="*click_Menu_button" ]
+
+;close，skip，titleボタンを表示
+[button_show name=Close time=0]
+[button_show name=Skip time=0]
+[button_show name=Title time=0]
+
+
+[if exp="{evt.caller_name}==Close"]
+[button_remove name=Close time=0]
+[button_remove name=Skip time=0]
+[button_remove name=Title time=0]
+[awakegame]
+[elsif exp="{evt.caller_name}==Skip"]
+[scene file="StageSerect"]
+[elsif exp="{evt.caller_name}==Title"]
+[scene file="start"]
+[evt_stop]
+[endif]
+[evt_resume]

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharaAnimations : MonoBehaviour
+public class CharaAnimation : MonoBehaviour
 {
     
+    Animator animator;
     // Use this for initialization
     void Start()
     {

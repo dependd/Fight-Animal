@@ -1,18 +1,16 @@
-﻿title=“タイトルです”
-
+title=“タイトルです”
 
 ;最初に読み込まれるシナリオファイル
-
 first_scenario = "first"
 
 ;セーブできるスロット数の上限を設定できます
 saveslot_max = 5
 
 ;デフォルトのメッセージスピードを指定します
-messageSpeed = 0.001
+messageSpeed = 0.02
 
 ;デフォルトのメッセージフォントサイズを指定します
-messageFontSize=20
+messageFontSize=16
 messageFontColor=FFFFFF
 
 ;デバッグメッセージを表示するかどうか

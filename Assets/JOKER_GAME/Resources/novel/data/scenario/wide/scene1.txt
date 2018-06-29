@@ -2,10 +2,7 @@
 ;メッセージ表示
 [showmessage]
 
-;wideの中にあるlibファイルからutilsを呼び出す。
-[call file=wide/libs/utils]
-
-;キャラネームの表示位置、色のデフォルトを決める。
+;キャラクターのjnameの表示位置、色のデフォルトを決める。
 [text_new name=_sp_chara_name layer=ui x="-159" y=-162 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
@@ -24,19 +21,17 @@
 
 *click_Menu
 [if exp="{evt.caller_name}==Menu"]
+
 [button_new name=Close tag="menu_button"  x="140" y="194" z="1" scale="1" storage="close"]
 [button_new name=Skip tag="menu_button"  x="0" y="117" z="1" scale="2" storage="skip"]
 [button_new name=Title tag="menu_button"  x="0" y="15" z="1" scale="2" storage="title"]
-
 [button_show name=Close time=0]
 [button_show name=Skip time=0]
 [button_show name=Title time=0]
-
 [evt tag="menu_button" act="click" target="*click_Menu_button" ]
 [s]
 [evt_stop]
 [endif]
-
 
 *click_Menu_button
 [if exp="{evt.caller_name}==Close"]
@@ -54,7 +49,7 @@
 [bg_new storage="zoo"]
 
 ;背景の表示
-[bg_show ]
+[bg_show]
 
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]
@@ -73,7 +68,6 @@
 #encho
 「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[l][p]
 
-#
 園長の言葉を胸に、[l][r]
 
 ;キャラクターの追加定義(showで立ち絵表示)

@@ -1,0 +1,28 @@
+﻿title=“タイトルです”
+
+
+
+;最初に読み込まれるシナリオファイル
+first_scenario = "first"
+
+;デフォルトのメッセージスピードを指定します
+messageSpeed = 0.01
+
+
+
+;デフォルトのメッセージフォントサイズを指定します
+messageFontSize=19
+messageFontColor=FFFFFF
+
+
+
+;デバッグメッセージを表示するかどうか
+
+showLog=true
+
+
+
+;バックログの最大保持数
+backlogNum=100
+
+

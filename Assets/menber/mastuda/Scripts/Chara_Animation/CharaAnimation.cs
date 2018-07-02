@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,12 +74,14 @@ public class CharaAnimation : MonoBehaviour
                 break;
             case "tinpan":
                 //InstantEffect("Tinpan", tinpan);
-                
-                tinpan = (GameObject)Resources.Load("Prefabs/Tinpan_Effect");
-                tinpan = Instantiate(tinpan, new Vector2(-5, 1), Quaternion.identity);
-                animator = GetComponent<Animator>();
-                Invoke("DelayDestroyTinpan", 0.5f);
-                
+
+                if (GameObject.Find("Tinpan_Effect(Clone)") == false)
+                {
+                    tinpan = (GameObject)Resources.Load("Prefabs/Tinpan_Effect");
+                    tinpan = Instantiate(tinpan, new Vector2(-5, 1), Quaternion.identity);
+                    animator = GetComponent<Animator>();
+                    Invoke("DelayDestroyTinpan", 0.5f);
+                }
                 break;
         }
         

@@ -88,17 +88,17 @@ public class GameControler : MonoBehaviour{
         //それぞれの変数にオブジェクトを格納する
         partyNoteParent = GameObject.Find("PartyNote").transform;
         enemyNoteParent = GameObject.Find("EnemyNote").transform;
-        note1 = GameObject.Find("note1");
-        note2 = GameObject.Find("note2");
-        note3 = GameObject.Find("note3");
-        note4 = GameObject.Find("note4");
+        note1 = GameObject.Find("datyonote");
+        note2 = GameObject.Find("tokagenote");
+        note3 = GameObject.Find("momonganote");
+        note4 = GameObject.Find("kamenote");
         enemyNote1 = GameObject.Find("enemyNote1");
         enemyNote2 = GameObject.Find("enemyNote2");
         enemyNote3 = GameObject.Find("enemyNote3");
-        deadlyNote1 = GameObject.Find("deadlyNote1");
-        deadlyNote2 = GameObject.Find("deadlyNote2");
-        deadlyNote3 = GameObject.Find("deadlyNote3");
-        deadlyNote4 = GameObject.Find("deadlyNote4");
+        deadlyNote1 = GameObject.Find("datyodeadlyNote");
+        deadlyNote2 = GameObject.Find("tokagedeadlyNote");
+        deadlyNote3 = GameObject.Find("momongadeadlyNote");
+        deadlyNote4 = GameObject.Find("kamedeadlyNote");
         //enemySliderのhpスクリプトを取得
         notes = GameObject.Find("enemySlider");
         hp = notes.GetComponent<hp>();
@@ -142,6 +142,7 @@ public class GameControler : MonoBehaviour{
                         enemynote.note1st = false;
                     }
 
+
                     if(GameObject.Find("enemyNote2") == true){
                         if (enemyNote2.transform.position.x <= -3 && enemyNote2.transform.position.x >= -4){
                             DamageCut(enemyNote2, true);
@@ -172,7 +173,7 @@ public class GameControler : MonoBehaviour{
             //1番目の勇者が攻撃する処理
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
-                    if (GameObject.Find("note1") == true){
+                    if (GameObject.Find("datyonote") == true){
                         if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
                             datyoAnimation.AttackAnimation();
@@ -187,7 +188,7 @@ public class GameControler : MonoBehaviour{
             }
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
-                    if(GameObject.Find("deadlyNote1") == true){
+                    if(GameObject.Find("datyodeadlyNote") == true){
                         if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
                             datyoAnimation.AttackAnimation();
@@ -203,7 +204,7 @@ public class GameControler : MonoBehaviour{
             //2番目の勇者が攻撃する時の処理
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 1 && ray.y < 2.2){
-                    if (GameObject.Find("note2") == true){
+                    if (GameObject.Find("tokagenote") == true){
                         if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
                             tokageAnimation.AttackAnimation();
@@ -218,7 +219,7 @@ public class GameControler : MonoBehaviour{
             }
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 1 && ray.y < 2.2){
-                    if (GameObject.Find("deadlyNote2") == true){
+                    if (GameObject.Find("tokagedeadlyNote") == true){
                         if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
                             tokageAnimation.AttackAnimation();
@@ -234,7 +235,7 @@ public class GameControler : MonoBehaviour{
             //3番目の勇者が攻撃するときの処理
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -0.4 && ray.y <= 0.6){
-                    if(GameObject.Find("note3") == true){
+                    if(GameObject.Find("momonganote") == true){
                         if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
                             momongaAnimation.AttackAnimation();
@@ -249,7 +250,7 @@ public class GameControler : MonoBehaviour{
             }
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -0.4 && ray.y <= 0.6){
-                    if(GameObject.Find("deadlyNote3") == true){
+                    if(GameObject.Find("momongadeadlyNote") == true){
                         if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
                             momongaAnimation.AttackAnimation();
@@ -265,7 +266,7 @@ public class GameControler : MonoBehaviour{
             //4番目の勇者が攻撃するときの処理
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -2.3 && ray.y <= -1.0){
-                    if (GameObject.Find("note4") == true){
+                    if (GameObject.Find("kamenote") == true){
                         if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
                             kameAnimation.AttackAnimation();
@@ -280,7 +281,7 @@ public class GameControler : MonoBehaviour{
             }
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -2.3 && ray.y <= -1.0){
-                    if(GameObject.Find("deadlyNote4") == true){
+                    if(GameObject.Find("kamedeadlyNote") == true){
                         if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
                             kameAnimation.AttackAnimation();
@@ -335,17 +336,17 @@ public class GameControler : MonoBehaviour{
     
 
     private void InputNoteObject(){
-        if (GameObject.Find("note1") == true){
-            note1 = GameObject.Find("note1");
+        if (GameObject.Find("datyonote") == true){
+            note1 = GameObject.Find("datyonote");
         }
-        if (GameObject.Find("note2") == true){
-            note2 = GameObject.Find("note2");
+        if (GameObject.Find("tokagenote") == true){
+            note2 = GameObject.Find("tokagenote");
         }
-        if (GameObject.Find("note3") == true){
-            note3 = GameObject.Find("note3");
+        if (GameObject.Find("momonganote") == true){
+            note3 = GameObject.Find("momonganote");
         }
-        if (GameObject.Find("note4") == true){
-            note4 = GameObject.Find("note4");
+        if (GameObject.Find("kamenote") == true){
+            note4 = GameObject.Find("kamenote");
         }
         if (GameObject.Find("enemyNote1") == true){
             enemyNote1 = GameObject.Find("enemyNote1");
@@ -356,17 +357,17 @@ public class GameControler : MonoBehaviour{
         if (GameObject.Find("enemyNote3") == true){
             enemyNote3 = GameObject.Find("enemyNote3");
         }
-        if (GameObject.Find("deadlyNote1") == true){
-            deadlyNote1 = GameObject.Find("deadlyNote1");
+        if (GameObject.Find("datyodeadlyNote") == true){
+            deadlyNote1 = GameObject.Find("datyodeadlyNote");
         }
-        if (GameObject.Find("deadlyNote2") == true){
-            deadlyNote2 = GameObject.Find("deadlyNote2");
+        if (GameObject.Find("tokagedeadlyNote") == true){
+            deadlyNote2 = GameObject.Find("tokagedeadlyNote");
         }
-        if (GameObject.Find("deadlyNote3") == true){
-            deadlyNote3 = GameObject.Find("deadlyNote3");
+        if (GameObject.Find("momongadeadlyNote") == true){
+            deadlyNote3 = GameObject.Find("momongadeadlyNote");
         }
-        if (GameObject.Find("deadlyNote4") == true){
-            deadlyNote4 = GameObject.Find("deadlyNote4");
+        if (GameObject.Find("kamedeadlyNote") == true){
+            deadlyNote4 = GameObject.Find("kamedeadlyNote");
         }
     }
 }

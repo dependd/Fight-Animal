@@ -11,6 +11,10 @@ public class enemynote : MonoBehaviour{
     GameObject note;
     GameObject enemyNote;
     Transform parent;
+    [SerializeField]
+    GameObject tinpanAttack;
+    [SerializeField]
+    CharaAnimation tinpanAttackScript;
     //どのnoteかを判定するための変数
     public bool note1st = false;
     public bool note2nd = false;
@@ -103,12 +107,14 @@ public class enemynote : MonoBehaviour{
             if (note1.transform.position.x <= -7.5f){
                 MoveNotes(note1, true);
                 note1st = false;
+                tinpanAttackScript.AttackEffect("tinpan");
             }
         }
         if (note2nd){
             if (note2.transform.position.x <= -7.5f){
                 MoveNotes(note2, true);
                 note2nd = false;
+                tinpanAttackScript.AttackEffect("tinpan");
             }
         }
 
@@ -116,6 +122,7 @@ public class enemynote : MonoBehaviour{
             if (note3.transform.position.x <= -7.5f){
                 MoveNotes(note3, true);
                 note3rd = false;
+                tinpanAttackScript.AttackEffect("tinpan");
             }
         }
     }

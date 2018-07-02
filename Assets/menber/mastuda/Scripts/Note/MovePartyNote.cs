@@ -24,28 +24,28 @@ public class MovePartyNote : MonoBehaviour {
 
     //noteのスピードを変える変数
     private float NoteSpeeds(){
-        if(objectName == "note1"){
+        if(objectName == "datyonote"){
             return (float)charastatus.momonga.NoteSpeed;
         }
-        else if(objectName == "note2"){
+        else if(objectName == "tokagenote"){
             return (float)charastatus.tokage.NoteSpeed;
         }
-        else if (objectName == "note3"){
+        else if (objectName == "momonganote"){
             return (float)charastatus.datyo.NoteSpeed;
         }
-        else if (objectName == "note4"){
+        else if (objectName == "kamenote"){
             return (float)charastatus.kame.NoteSpeed;
         }
-        else if (objectName == "deadlyNote1"){
+        else if (objectName == "datyodeadlyNote"){
             return (float)charastatus.momonga.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote2"){
+        else if (objectName == "tokagedeadlyNote"){
             return (float)charastatus.tokage.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote3"){
+        else if (objectName == "momongadeadlyNote"){
             return (float)charastatus.datyo.DeadlyNoteSpeed;
         }
-        else if (objectName == "deadlyNote4"){
+        else if (objectName == "kamedeadlyNote"){
             return (float)charastatus.kame.DeadlyNoteSpeed;
         } else{
             return 0;

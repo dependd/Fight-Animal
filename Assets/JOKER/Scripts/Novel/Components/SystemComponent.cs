@@ -318,7 +318,7 @@ scene=new を指定すると、新しくシーンを作成した上でジャン�
 				StatusManager.nextTargetName = target;
 				StatusManager.currentScenario = "";
 				//jumpから来たことを通知するためのパラメータが必要
-				Application.LoadLevel("Player");
+				Application.LoadLevel("scenario");
 
 			}
 

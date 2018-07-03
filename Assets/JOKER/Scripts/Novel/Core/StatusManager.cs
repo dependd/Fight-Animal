@@ -468,7 +468,7 @@ namespace Novel{
 			StatusManager.nextTargetName = target_name;
 			StatusManager.currentScenario = "";
 			//jumpから来たことを通知するためのパラメータが必要
-			Application.LoadLevel("Player");
+			Application.LoadLevel("scenario");
 
 		
 		}

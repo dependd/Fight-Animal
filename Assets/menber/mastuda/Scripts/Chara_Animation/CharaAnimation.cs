@@ -29,6 +29,11 @@ public class CharaAnimation : MonoBehaviour
     {
         animator.SetBool("Damage", true);
     }
+
+    public void DefenceAnimation()
+    {
+        animator.SetBool("Defence", true);
+    }
     public void AttackEffect(string name)
     {
         switch (name)

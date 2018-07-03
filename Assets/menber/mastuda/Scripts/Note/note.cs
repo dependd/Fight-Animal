@@ -133,11 +133,8 @@ public class note : MonoBehaviour {
         Destroy(notes);
     }
     private string ClonePartyNote(string name, float i, float j){
-        notes = (GameObject)Resources.Load("Prefabs/partyNote");
+        notes = (GameObject)Resources.Load("Prefabs/Note/" + name + "Note");
         notes = Instantiate(notes, new Vector3(i, j, 0), Quaternion.identity);
-        //noteのimageを変更する
-        var sprite = notes.GetComponent<Sprite>();
-        sprite = ChangeSprite(name);
         //MoveNoteのスクリプトを持たせる
         notes.AddComponent<MovePartyNote>();
         notes.transform.parent = partyNote.transform;
@@ -147,7 +144,7 @@ public class note : MonoBehaviour {
         return noteName;
     }
     private string CloneDeadlyPartyNote(string name,float i, float j){
-        deadlyNote = (GameObject)Resources.Load("Prefabs/deadlyNote");
+        deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
         deadlyNote.AddComponent<MovePartyNote>();

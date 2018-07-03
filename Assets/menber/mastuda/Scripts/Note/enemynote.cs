@@ -86,7 +86,7 @@ public class enemynote : MonoBehaviour{
     }
     //PrefabのenemyNoteをゲーム画面に表示させる関数
     private string CloneEnemyNote(string name,float i,float j){
-        note = (GameObject)Resources.Load("Prefabs/enemyNote");
+        note = (GameObject)Resources.Load("Prefabs/Note/enemyNote");
         note = Instantiate(note, new Vector3(i,j,0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
         note.AddComponent<MoveEnemyNote>();

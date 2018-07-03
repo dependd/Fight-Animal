@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 790f64f53c7e84689961cef071955918
 folderAsset: yes
 timeCreated: 1446093591
 licenseType: Free
+=======
+guid: 126f4cfad7780554d8f06cf6d71e7c04
+folderAsset: yes
+timeCreated: 1530580331
+licenseType: Pro
+>>>>>>> origin/nojima
 DefaultImporter:
   userData: 
   assetBundleName: 

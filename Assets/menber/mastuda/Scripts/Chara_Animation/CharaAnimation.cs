@@ -27,9 +27,7 @@ public class CharaAnimation : MonoBehaviour
 
     public void DamegeAnimation()
     {
-        animator.SetFloat("MoveSpeed", 0.0f);
         animator.SetBool("Damage", true);
-        animator.SetFloat("MoveSpeed", 1.0f);
     }
     public void AttackEffect(string name)
     {

@@ -134,12 +134,14 @@ public class GameControler : MonoBehaviour{
                         if (enemyNote1.transform.position.x <= -3 && enemyNote1.transform.position.x >= -4){
                             DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note1st = false;
                         }
                         else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2){
                             DamageCut(enemyNote1, false);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note1st = false;
+                            AllCharaPartyDamage();
                         }
-                        enemynote.note1st = false;
                     }
 
 
@@ -147,23 +149,27 @@ public class GameControler : MonoBehaviour{
                         if (enemyNote2.transform.position.x <= -3 && enemyNote2.transform.position.x >= -4){
                             DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note2nd = false;
                         }
                         else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2){
                             DamageCut(enemyNote2, false);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note2nd = false;
+                            AllCharaPartyDamage();
                         }
-                        enemynote.note2nd = false;
                     }
                     if(GameObject.Find("enemyNote3") == true){
                         if (enemyNote3.transform.position.x <= -3 && enemyNote3.transform.position.x >= -4){
                             DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note3rd = false;
                         }
                         else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2){
                             DamageCut(enemyNote3, false);
                             tinpanAttackScript.AttackEffect("tinpan");
+                            enemynote.note3rd = false;
+                            AllCharaPartyDamage();
                         }
-                        enemynote.note3rd = false;
                     }
                 }
             }
@@ -333,7 +339,13 @@ public class GameControler : MonoBehaviour{
             scenarioText.ChengeScenarioText(animalName + "攻撃失敗\n");
         }
     }
-    
+    public void AllCharaPartyDamage()
+    {
+        datyoAnimation.DamegeAnimation();
+        tokageAnimation.DamegeAnimation();
+        momongaAnimation.DamegeAnimation();
+        kameAnimation.DamegeAnimation();
+    }
 
     private void InputNoteObject(){
         if (GameObject.Find("datyonote") == true){

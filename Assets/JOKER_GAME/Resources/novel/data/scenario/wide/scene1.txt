@@ -22,8 +22,6 @@
 ;イベントの定義
 [evt tag="button" act="click" target="*click_system_button" ]
 
-[return]
-
 *click_system_button
 [if exp="{evt.caller_name}==button_skip"]
 [wait time=2]
@@ -49,7 +47,7 @@
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]
 
-その動物園は動物たちが全員女の子の姿をしているのだ！。[l][p]
+その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
 
 そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
 
@@ -77,6 +75,8 @@
 [show name="tokage"]
 トカゲ、[l]
 
+[chara_new name="dacyou" storage="dacyou1" scale="0.3" x=-2 z=1] 
+[show name="dacyou"]
 ダチョウ、[l]
 
 [chara_new name="momonga" storage="momonga1" scale="0.3" x=-5 z=1] 

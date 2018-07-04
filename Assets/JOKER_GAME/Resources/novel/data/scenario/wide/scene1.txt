@@ -14,7 +14,6 @@
 
 ;ボタンの定義
 [button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
-[button_new name="button_title" tag="button" x=338.1 y=-135 scale=0.7 sort=5 layer=ui storage="title" ]
 
 ;ボタンの表示
 [button_show tag="button" time=0]
@@ -22,27 +21,18 @@
 ;イベントの定義
 [evt tag="button" act="click" target="*click_system_button" ]
 
-*click_system_button
-[if exp="{evt.caller_name}==button_skip"]
-[wait time=2]
-[scene file="Battle" ]
-
-[elsif exp="{evt.caller_name}==button_title"]
-[wait time=2]
-[scene file="start" ]
-
-[evt_stop]
-[endif]
-[evt_resume]
-
 ;背景の定義
 [bg_new storage="bg"]
 ;背景の表示
 [bg_show ]
 
-
-;2秒間処理を止める
+*click_system_button
+[if exp="{evt.caller_name}==button_skip"]
 [wait time=2]
+[scene file="Battle" ]
+[evt_stop]
+[endif]
+
 
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]

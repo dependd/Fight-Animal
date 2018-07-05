@@ -28,7 +28,8 @@ public class hp : MonoBehaviour
     }
     //HPの値
     public float partyhp = 200;
-    public float enemyhp = 800;
+    //試遊会はHPでいきます。一応800が最終予定
+    public float enemyhp = 200;
     //HPを減らす
     // Update is called once per frame
     void Update()

@@ -128,8 +128,12 @@ public class GameControler : MonoBehaviour{
             Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
+            /*
             if (ray.x >= -6.3 && ray.x <= -4.1){
                 if (ray.y >= -1.5 && ray.y <= 2.7){
+             */
+            if (ray.x >= -6.5 && ray.x <= -3.4){
+                if (ray.y >= -2.4 && ray.y <= 3.8){
                     if(GameObject.Find("enemyNote1") == true){
                         if (enemyNote1.transform.position.x <= -3 && enemyNote1.transform.position.x >= -4){
                             DamageCut(enemyNote1, true);
@@ -177,8 +181,12 @@ public class GameControler : MonoBehaviour{
                 InputNoteObject();
             }
             //1番目の勇者が攻撃する処理
+            /*
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
+            */
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= 2.3 && ray.y <= 3.9){
                     if (GameObject.Find("datyonote") == true){
                         if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
@@ -193,8 +201,8 @@ public class GameControler : MonoBehaviour{
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1){
-                if (ray.y >= 2.4 && ray.y <= 3.6){
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= 2.3 && ray.y <= 3.9){
                     if(GameObject.Find("datyodeadlyNote") == true){
                         if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
@@ -204,13 +212,18 @@ public class GameControler : MonoBehaviour{
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
+                            note.deadlyNote1st = false;
                         }
                     }
                 }
             }
             //2番目の勇者が攻撃する時の処理
+            /*
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 1 && ray.y < 2.2){
+                */
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= 0.9 && ray.y < 2.2){
                     if (GameObject.Find("tokagenote") == true){
                         if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
@@ -225,8 +238,8 @@ public class GameControler : MonoBehaviour{
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1){
-                if (ray.y >= 1 && ray.y < 2.2){
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= 0.9 && ray.y < 2.2){
                     if (GameObject.Find("tokagedeadlyNote") == true){
                         if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
@@ -242,8 +255,12 @@ public class GameControler : MonoBehaviour{
                 }
             }
             //3番目の勇者が攻撃するときの処理
+            /*
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -0.4 && ray.y <= 0.6){
+             */
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= -0.8 && ray.y <= 0.8){
                     if(GameObject.Find("momonganote") == true){
                         if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
@@ -258,8 +275,8 @@ public class GameControler : MonoBehaviour{
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1){
-                if (ray.y >= -0.4 && ray.y <= 0.6){
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= -0.8 && ray.y <= 0.8){
                     if(GameObject.Find("momongadeadlyNote") == true){
                         if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
@@ -275,8 +292,12 @@ public class GameControler : MonoBehaviour{
                 }
             }
             //4番目の勇者が攻撃するときの処理
+            /*
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -2.3 && ray.y <= -1.0){
+             */
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= -2.5 && ray.y <= -0.9){
                     if (GameObject.Find("kamenote") == true){
                         if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
@@ -291,8 +312,8 @@ public class GameControler : MonoBehaviour{
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1){
-                if (ray.y >= -2.3 && ray.y <= -1.0){
+            if (ray.x >= 3.2 && ray.x <= 6.6){
+                if (ray.y >= -2.5 && ray.y <= -0.9){
                     if(GameObject.Find("kamedeadlyNote") == true){
                         if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);

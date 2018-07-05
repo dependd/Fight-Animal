@@ -43,10 +43,11 @@ public class HPcolor : MonoBehaviour {
     public void ColorChange(){
         
         //エネミーHP
+        //試遊会は160,80以下に
         //HPが640以下ならオレンジに。320以下なら赤に
-        if (EnemyHp <= 640){
+        if (EnemyHp <= 160){
             FillColor1.GetComponent<Image>().color = Orange;
-        }if (EnemyHp <= 320) {
+        }if (EnemyHp <= 80) {
             FillColor1.GetComponent<Image>().color = Red;
         }
 

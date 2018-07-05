@@ -180,7 +180,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
                     if (GameObject.Find("datyonote") == true){
-                        if (note1.transform.position.x >= 2.9 && note1.transform.position.x <= 4.1){
+                        if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
                             datyoAnimation.AttackAnimation();
                             datyoAttackScript.AttackEffect("datyo");
@@ -204,7 +204,6 @@ public class GameControler : MonoBehaviour{
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
-                            note.deadlyNote1st = false;
                         }
                     }
                 }

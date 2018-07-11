@@ -46,19 +46,19 @@ public class enemynote : MonoBehaviour{
         random = RandomRange();
         if (GameObject.Find("enemyNote1") == false){
             if (random >= 4800 && random <= 4900){
-                note1 = GameObject.Find(CloneEnemyNote("1", 3, 2.2f));
+                note1 = GameObject.Find(CloneEnemyNote("1", 2.8f, 2.2f));
                 note1st = true;
             }
         }
         if (GameObject.Find("enemyNote2") == false){
             if (random > 4900 && random <= 5000){
-                note2 = GameObject.Find(CloneEnemyNote("2",3,0.68f));
+                note2 = GameObject.Find(CloneEnemyNote("2",2.8f,0.68f));
                 note2nd = true;
             }
         }
         if (GameObject.Find("enemyNote3") == false){
             if (random > 5000 && random <= 5100){
-                note3 = GameObject.Find(CloneEnemyNote("3",3,-0.85f));
+                note3 = GameObject.Find(CloneEnemyNote("3",2.8f,-0.85f));
                 note3rd = true;
             }
         }

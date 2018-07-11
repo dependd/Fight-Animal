@@ -65,56 +65,56 @@ public class note : MonoBehaviour {
         random = RandomRange();
         if (GameObject.Find("datyonote") == false){
             if (random > 46000 && random <= 48000 && deadlyNote1 == null){
-                note1 = GameObject.Find(ClonePartyNote("datyo", -3, 3));
+                note1 = GameObject.Find(ClonePartyNote("datyo", -2.8f, 3));
                 note1Speed = (float)CharaStatus.momonga.NoteSpeed;
                 note1st = true;
             }
         }
         if (GameObject.Find("tokagenote") == false){
             if (random > 48000 && random <= 50000 && deadlyNote2 == null){
-                note2 = GameObject.Find(ClonePartyNote("tokage",-3, 1.46f));
+                note2 = GameObject.Find(ClonePartyNote("tokage",-2.8f, 1.46f));
                 note2Speed = (float)CharaStatus.tokage.NoteSpeed;
                 note2nd = true;
             }
         }
         if (GameObject.Find("momonganote") == false){
             if (random > 50000 && random <= 52000 && deadlyNote3 == null){
-                note3 = GameObject.Find(ClonePartyNote("momonga", -3, 0));
+                note3 = GameObject.Find(ClonePartyNote("momonga", -2.8f, 0));
                 note3Speed = (float)CharaStatus.datyo.NoteSpeed;
                 note3rd = true;
             }
         }
         if (GameObject.Find("kamenote") == false){
             if (random > 52000 && random <= 54000 && deadlyNote4 == null){
-                note4 = GameObject.Find(ClonePartyNote("kame", -3, -1.65f));
+                note4 = GameObject.Find(ClonePartyNote("kame", -2.8f, -1.65f));
                 note4Speed = (float)CharaStatus.kame.NoteSpeed;
                 note4th = true;
             }
         }
         if (GameObject.Find("datyodeadlyNote") == false){
             if (random >= 44000 && random <= 44500 && note1 == null){
-                deadlyNote1 = GameObject.Find(CloneDeadlyPartyNote("datyo", -3, 3));
+                deadlyNote1 = GameObject.Find(CloneDeadlyPartyNote("datyo", -2.8f, 3));
                 deadlyNote1Speed = (float)CharaStatus.momonga.DeadlyNoteSpeed;
                 deadlyNote1st = true;
             }
         }
         if (GameObject.Find("tokagedeadlyNote") == false){
             if (random >= 44500 && random <= 45000 && note2 == null){
-                deadlyNote2 = GameObject.Find(CloneDeadlyPartyNote("tokage", -3, 1.46f));
+                deadlyNote2 = GameObject.Find(CloneDeadlyPartyNote("tokage", -2.8f, 1.46f));
                 deadlyNote2Speed = (float)CharaStatus.tokage.DeadlyNoteSpeed;
                 deadlyNote2nd = true;
             }
         }
         if (GameObject.Find("momongadeadlyNote") == false){
             if (random >= 55000 && random <= 55500 && note3 == null){
-                deadlyNote3 = GameObject.Find(CloneDeadlyPartyNote("momonga", -3, 0));
+                deadlyNote3 = GameObject.Find(CloneDeadlyPartyNote("momonga", -2.8f, 0));
                 deadlyNote3Speed = (float)CharaStatus.datyo.DeadlyNoteSpeed;
                 deadlyNote3rd = true;
             }
         }
         if (GameObject.Find("kamedeadlyNote") == false){
             if (random >= 55500 && random <= 56000 && note4 == null){
-                deadlyNote4 = GameObject.Find(CloneDeadlyPartyNote("kame", -3, -1.65f));
+                deadlyNote4 = GameObject.Find(CloneDeadlyPartyNote("kame", -2.8f, -1.65f));
                 deadlyNote4Speed = (float)CharaStatus.kame.DeadlyNoteSpeed;
                 deadlyNote4th = true;
             }

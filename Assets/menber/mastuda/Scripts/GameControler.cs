@@ -80,10 +80,16 @@ public class GameControler : MonoBehaviour{
     GameObject tinpanAttack;
     [SerializeField]
     CharaAnimation tinpanAttackScript;
-    //メニューを押したら(一応)スタートに戻る
-    public void MenuButton(){
-        SceneManager.LoadScene("start");
-    }
+    //判定ラインにオブジェクトが乗っているかの判定をする
+    public bool enemyLine1 = false;
+    public bool enemyLine2 = false;
+    public bool enemyLine3 = false;
+    public bool datyoLine = false;
+    public bool tokageLine = false;
+    public bool momongaLine = false ;
+    public bool kameLine = false;
+
+
     void Start(){
         //それぞれの変数にオブジェクトを格納する
         partyNoteParent = GameObject.Find("PartyNote").transform;
@@ -131,7 +137,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= -6.3 && ray.x <= -4.1){
                 if (ray.y >= -1.5 && ray.y <= 2.7){
                     if(GameObject.Find("enemyNote1") == true){
-                        if (enemyNote1.transform.position.x <= -3 && enemyNote1.transform.position.x >= -4){
+                        if (enemyLine1){
                             DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             enemynote.note1st = false;
@@ -146,7 +152,7 @@ public class GameControler : MonoBehaviour{
 
 
                     if(GameObject.Find("enemyNote2") == true){
-                        if (enemyNote2.transform.position.x <= -3 && enemyNote2.transform.position.x >= -4){
+                        if (enemyLine2){
                             DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             enemynote.note2nd = false;
@@ -159,7 +165,7 @@ public class GameControler : MonoBehaviour{
                         }
                     }
                     if(GameObject.Find("enemyNote3") == true){
-                        if (enemyNote3.transform.position.x <= -3 && enemyNote3.transform.position.x >= -4){
+                        if (enemyLine3){
                             DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             enemynote.note3rd = false;
@@ -180,7 +186,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
                     if (GameObject.Find("datyonote") == true){
-                        if (note1.transform.position.x >= 3 && note1.transform.position.x <= 4){
+                        if (datyoLine){
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
                             datyoAnimation.AttackAnimation();
                             datyoAttackScript.AttackEffect("datyo");
@@ -196,7 +202,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 2.4 && ray.y <= 3.6){
                     if(GameObject.Find("datyodeadlyNote") == true){
-                        if (deadlyNote1.transform.position.x >= 3.2f && deadlyNote1.transform.position.x <= 3.8f){
+                        if (datyoLine){
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
                             datyoAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("datyo");
@@ -212,7 +218,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 1 && ray.y < 2.2){
                     if (GameObject.Find("tokagenote") == true){
-                        if (note2.transform.position.x >= 3 && note2.transform.position.x <= 4){
+                        if (tokageLine){
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
                             tokageAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("tokage");
@@ -228,7 +234,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= 1 && ray.y < 2.2){
                     if (GameObject.Find("tokagedeadlyNote") == true){
-                        if (deadlyNote2.transform.position.x >= 3.2 && deadlyNote2.transform.position.x <= 3.8){
+                        if (tokageLine){
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
                             tokageAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("tokage");
@@ -245,7 +251,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -0.4 && ray.y <= 0.6){
                     if(GameObject.Find("momonganote") == true){
-                        if (note3.transform.position.x >= 3 && note3.transform.position.x <= 4){
+                        if (momongaLine){
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
                             momongaAnimation.AttackAnimation();
                             momongaAttackScript.AttackEffect("momonga");
@@ -261,7 +267,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -0.4 && ray.y <= 0.6){
                     if(GameObject.Find("momongadeadlyNote") == true){
-                        if (deadlyNote3.transform.position.x >= 3.2f && deadlyNote3.transform.position.x <= 3.8f){
+                        if (momongaLine){
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
                             momongaAnimation.AttackAnimation();
                             momongaAttackScript.AttackEffect("momonga");
@@ -278,7 +284,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -2.3 && ray.y <= -1.0){
                     if (GameObject.Find("kamenote") == true){
-                        if (note4.transform.position.x >= 3 && note4.transform.position.x <= 4){
+                        if (kameLine){
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
                             kameAnimation.AttackAnimation();
                             kameAttackScript.AttackEffect("kame");
@@ -294,7 +300,7 @@ public class GameControler : MonoBehaviour{
             if (ray.x >= 4.1 && ray.x <= 6.1){
                 if (ray.y >= -2.3 && ray.y <= -1.0){
                     if(GameObject.Find("kamedeadlyNote") == true){
-                        if (deadlyNote4.transform.position.x >= 3.2f && deadlyNote4.transform.position.x <= 3.8){
+                        if (kameLine){
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
                             kameAnimation.AttackAnimation();
                             kameAttackScript.AttackEffect("kame");

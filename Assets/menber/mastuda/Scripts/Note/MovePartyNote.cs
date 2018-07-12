@@ -27,14 +27,13 @@ public class MovePartyNote : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")return;
-        Debug.Log("PartyNoteOnTrigger");
-        CheckLine(objectName,false);
+        CheckLine(objectName,true);
         
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy") return;
-        Debug.Log("PartyNoteExitTrigger");
         CheckLine(objectName, false);
     }
 
@@ -83,16 +82,16 @@ public class MovePartyNote : MonoBehaviour {
             case "kamenote":
                 gameControler.kameLine = line;
                 break;
-            case "datyodeadlynote":
+            case "datyodeadlyNote":
                 gameControler.datyoLine = line;
                 break;
-            case "tokagedeadlynote":
+            case "tokagedeadlyNote":
                 gameControler.tokageLine = line;
                 break;
-            case "momongadeadlynote":
+            case "momongadeadlyNote":
                 gameControler.momongaLine = line;
                 break;
-            case "kamedeadlynote":
+            case "kamedeadlyNote":
                 gameControler.kameLine = line;
                 break;
             default:

@@ -28,13 +28,11 @@ public class MoveEnemyNote : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Party") return;
-        Debug.Log("EnemyNoteOnTrigger");
         CheckEnemyLine(objName, true);
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Party") return;
-        Debug.Log("EnemyNoteExitTrigger");
         CheckEnemyLine(objName, false);
     }
     private void CheckEnemyLine(string line,bool check)

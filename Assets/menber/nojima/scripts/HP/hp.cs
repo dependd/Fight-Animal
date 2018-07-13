@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class hp : MonoBehaviour
 {
-
     public GameObject PartyDamage;
     public GameObject EnemyDamage;
 
@@ -57,6 +56,7 @@ public class hp : MonoBehaviour
             EnemyDamage.SetActive(true);
             string X = k.ToString();
             ED.text = X;
+            Invoke("DelayEnemyDamage", 1);
         }
         else
         {
@@ -65,14 +65,27 @@ public class hp : MonoBehaviour
             EnemyDamage.SetActive(true);
             string Y = j.ToString();
             ED.text = Y;
+            Invoke("DelayEnemyDamage", 1);
         }
 
     }
     public void DownEnemyHp(int i)
     {
+       
         enemyhp -= i;
         PartyDamage.SetActive(true);
         string Z = i.ToString();
         PD.text = Z;
+
+        Invoke("DelayPartyDamage", 0.3f);
+     
+    }
+
+    void DelayPartyDamage() {
+        PartyDamage.SetActive(false);
+    }
+
+    void DelayEnemyDamage() {
+        EnemyDamage.SetActive(false);
     }
 }

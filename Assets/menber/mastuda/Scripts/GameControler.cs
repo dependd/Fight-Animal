@@ -126,12 +126,16 @@ public class GameControler : MonoBehaviour{
     }
 
     void Update(){
-        
-        if (Input.GetMouseButtonDown(0)) {
+
+        //Touch myTouch = Input.GetTouch(0);
+
+        Touch[] myTouches = Input.touches;
+        //マルチタッチに対応する処理
+        for (int i = 0; i < Input.touchCount; i++){
             if (enemyNoteParent.childCount > 0){
                 InputNoteObject();
             }
-            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 ray = Input.touches[i].position;
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1){
@@ -359,7 +363,26 @@ public class GameControler : MonoBehaviour{
         momongaAnimation.DefenceAnimation();
         kameAnimation.DefenceAnimation();
     }
-
+    //スマホ向け そのオブジェクトがタッチされていたらtrue（マルチタップ対応）
+    bool OnTouchDown()
+    {
+        // タッチされているとき
+        if (0 < Input.touchCount)
+        {
+            // タッチされている指の数だけ処理
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                // タッチ情報をコピー
+                Touch t = Input.GetTouch(i);
+                // タッチしたときかどうか
+                if (t.phase == TouchPhase.Began)
+                {
+                    return true;
+                }
+            }
+        }
+        return false; //タッチされてなかったらfalse
+    }
     private void InputNoteObject(){
         if (GameObject.Find("datyonote") == true){
             note1 = GameObject.Find("datyonote");

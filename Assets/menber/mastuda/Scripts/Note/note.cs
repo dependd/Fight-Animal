@@ -64,28 +64,28 @@ public class note : MonoBehaviour {
         //値によってランダムなnoteを戻らせる条件
         random = RandomRange();
         if (GameObject.Find("datyonote") == false){
-            if (random > 46000 && random <= 48000 && deadlyNote1 == null){
+            if (random > 28000 && random <= 29000 && deadlyNote1 == null){
                 note1 = GameObject.Find(ClonePartyNote("datyo", -2.8f, 3));
                 note1Speed = (float)CharaStatus.momonga.NoteSpeed;
                 note1st = true;
             }
         }
         if (GameObject.Find("tokagenote") == false){
-            if (random > 48000 && random <= 50000 && deadlyNote2 == null){
+            if (random > 49000 && random <= 50000 && deadlyNote2 == null){
                 note2 = GameObject.Find(ClonePartyNote("tokage",-2.8f, 1.46f));
                 note2Speed = (float)CharaStatus.tokage.NoteSpeed;
                 note2nd = true;
             }
         }
         if (GameObject.Find("momonganote") == false){
-            if (random > 50000 && random <= 52000 && deadlyNote3 == null){
+            if (random > 70000 && random <= 71000 && deadlyNote3 == null){
                 note3 = GameObject.Find(ClonePartyNote("momonga", -2.8f, 0));
                 note3Speed = (float)CharaStatus.datyo.NoteSpeed;
                 note3rd = true;
             }
         }
         if (GameObject.Find("kamenote") == false){
-            if (random > 52000 && random <= 54000 && deadlyNote4 == null){
+            if (random > 91000 && random <= 93000 && deadlyNote4 == null){
                 note4 = GameObject.Find(ClonePartyNote("kame", -2.8f, -1.65f));
                 note4Speed = (float)CharaStatus.kame.NoteSpeed;
                 note4th = true;
@@ -125,6 +125,7 @@ public class note : MonoBehaviour {
     }
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){
+        
         int random = Random.Range(0, 100000);
         return random;
     }

@@ -89,7 +89,6 @@ public class GameControler : MonoBehaviour{
     public bool momongaLine = false ;
     public bool kameLine = false;
 
-
     void Start(){
         //それぞれの変数にオブジェクトを格納する
         partyNoteParent = GameObject.Find("PartyNote").transform;
@@ -134,21 +133,23 @@ public class GameControler : MonoBehaviour{
         for (int i = 0; i < Input.touchCount; i++){
             if (enemyNoteParent.childCount > 0){
                 InputNoteObject();
-            }*/
-        if (Input.GetMouseButtonDown(0)) {
-           
+            }
             
-           //Vector2 ray = Input.touches[i].position;
-           Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 ray = Input.touches[i].position;*/
+            //クリックの取得
+        if (Input.GetMouseButtonDown(0)) {
+            //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
             if (enemyNoteParent.childCount > 0)
             {
                 InputNoteObject();
             }
+            //クリック位置をワールド座標に変換
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1){
                 if (ray.y >= -1.5 && ray.y <= 2.7){
-                    if(GameObject.Find("enemyNote1") == true){
+                    if(GameObject.Find("enemyNote1") == true ){
                         if (enemyLine1){
                             DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
@@ -163,7 +164,8 @@ public class GameControler : MonoBehaviour{
                     }
 
 
-                    if(GameObject.Find("enemyNote2") == true){
+                    if(GameObject.Find("enemyNote2") == true)
+                    {
                         if (enemyLine2){
                             DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
@@ -176,7 +178,8 @@ public class GameControler : MonoBehaviour{
                             //enemynote.note2nd = false;
                         }
                     }
-                    if(GameObject.Find("enemyNote3") == true){
+                    if(GameObject.Find("enemyNote3") == true)
+                    {
                         if (enemyLine3){
                             DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
@@ -329,15 +332,11 @@ public class GameControler : MonoBehaviour{
         }
     }
     
-    //ノーツの速度変更の関数
-    public float NoteSpeeds(){
-        float noteSpeed = Random.Range(0.05f, 0.1f);
-        return noteSpeed;
-    }
-    //ダメージの軽減があるかどうかの判定をする関数
+    //enemyNoteをタップしたときの軽減があるかどうかの判定をする関数
     public void DamageCut(GameObject notes,bool i){
+        //ノーツの削除
         Destroy(notes);
-        //HPを減らす関数
+        //防御成功か
         if(i == true){
             scenarioText.ChengeScenarioText("防御成功");
         } else {
@@ -364,6 +363,7 @@ public class GameControler : MonoBehaviour{
             scenarioText.ChengeScenarioText(animalName + "攻撃失敗\n");
         }
     }
+    //防御成功時の全員の防御アニメーション
     public void AllCharaPartyDamage()
     {
         datyoAnimation.DefenceAnimation();
@@ -371,26 +371,7 @@ public class GameControler : MonoBehaviour{
         momongaAnimation.DefenceAnimation();
         kameAnimation.DefenceAnimation();
     }
-    //スマホ向け そのオブジェクトがタッチされていたらtrue（マルチタップ対応）
-    bool OnTouchDown()
-    {
-        // タッチされているとき
-        if (0 < Input.touchCount)
-        {
-            // タッチされている指の数だけ処理
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                // タッチ情報をコピー
-                Touch t = Input.GetTouch(i);
-                // タッチしたときかどうか
-                if (t.phase == TouchPhase.Began)
-                {
-                    return true;
-                }
-            }
-        }
-        return false; //タッチされてなかったらfalse
-    }
+    //ノーツを探し、格納する
     private void InputNoteObject(){
         if (GameObject.Find("datyonote") == true){
             note1 = GameObject.Find("datyonote");

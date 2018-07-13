@@ -29,25 +29,32 @@ public class MoveEnemyNote : MonoBehaviour {
         float noteSpeed = Random.Range(-0.05f, -0.15f);
         return noteSpeed;
     }
+    //違うcollision内に入ったら
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        //オブジェクトのtagがEnemyならreturn
         if (collision.gameObject.tag == "Party") return;
+        //オブジェクトのtagがEndならnoteの削除
         if (collision.gameObject.tag == "End")
         {
             Destroy(this.gameObject);
             gameControler.DamageCut(null, false);
             animation.AttackEffect("tinpan");
         }
+        //違うなら判定ラインをtrueに
         else
         {
             CheckEnemyLine(objName, true);
         }
     }
+    //collisionから出たら
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Party") return;
+        //判定ラインをfalseに
         CheckEnemyLine(objName, false);
     }
+    //noteごとに判定ラインをtrueかfalseにする関数
     private void CheckEnemyLine(string line,bool check)
     {
         switch (line)

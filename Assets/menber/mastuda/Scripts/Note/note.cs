@@ -141,6 +141,7 @@ public class note : MonoBehaviour {
         notes.name = noteName;
         return noteName;
     }
+    //noteをインスタンス化する
     private string CloneDeadlyPartyNote(string name,float i, float j){
         deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
@@ -152,6 +153,7 @@ public class note : MonoBehaviour {
         deadlyNote.name = noteName;
         return noteName;
     }
+    //
     private Sprite ChangeSprite(string name)
     {
         Sprite spr = null;

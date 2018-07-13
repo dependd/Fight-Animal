@@ -23,22 +23,26 @@ public class MovePartyNote : MonoBehaviour {
     void FixedUpdate(){
         this.transform.position += new Vector3(noteSpeed, 0, 0);
     }
-
+    //違うcollision内に入ったら
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //オブジェクトのtagがEnemyならreturn
         if (collision.gameObject.tag == "Enemy")return;
+        //オブジェクトのtagがEndならnoteの削除
         if (collision.gameObject.tag == "End"){
             Destroy(this.gameObject);
         }
+        //違うなら判定ラインをtrueに
         else {
             CheckLine(objectName, true);
         }
         
     }
-
+    //collisionから出たら
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy") return;
+        //判定ラインをfalseに
         CheckLine(objectName, false);
     }
 
@@ -71,6 +75,7 @@ public class MovePartyNote : MonoBehaviour {
             return 0;
         }
     }
+    //キャラごとに判定ラインをtrueかfalseにする関数
     private void CheckLine(string name,bool line)
     {
         switch (name)

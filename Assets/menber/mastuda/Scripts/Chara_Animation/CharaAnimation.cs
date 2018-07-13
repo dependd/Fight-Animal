@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharaAnimation : MonoBehaviour
 {
+    //キャラごとのgameobjectを取得
     Animator animator;
     GameObject effect;
     GameObject datyo;
@@ -19,23 +20,25 @@ public class CharaAnimation : MonoBehaviour
         effect = GameObject.Find("Effect");
         animator = GetComponent<Animator>();
     }
-
+    //キャラの攻撃時のアニメーションをする
     public void AttackAnimation()
     {
         animator.SetBool("Attack", true);
     }
-
+    //キャラがダメージを受けたときのアニメーションをする
     public void DamegeAnimation()
     {
         animator.SetBool("Damage", true);
     }
-
+    //キャラが防御したときのアニメーションをする
     public void DefenceAnimation()
     {
         animator.SetBool("Defence", true);
     }
+    //攻撃のエフェクトをつくる関数
     public void AttackEffect(string name)
-    {
+    {   
+        //引数の名前で誰の攻撃は判別
         switch (name)
         {
             case "datyo":
@@ -89,6 +92,7 @@ public class CharaAnimation : MonoBehaviour
         }
         
     }
+    //エフェクトをインスタンス化する
     private GameObject InstantEffect(string name,GameObject obj)
     {
         obj = (GameObject)Resources.Load("Prefabs/" + name + "_Effect");

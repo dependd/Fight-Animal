@@ -27,7 +27,12 @@ public class MovePartyNote : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")return;
-        CheckLine(objectName,true);
+        if (collision.gameObject.tag == "End"){
+            Destroy(this.gameObject);
+        }
+        else {
+            CheckLine(objectName, true);
+        }
         
     }
 

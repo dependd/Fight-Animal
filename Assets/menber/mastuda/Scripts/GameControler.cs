@@ -128,14 +128,22 @@ public class GameControler : MonoBehaviour{
     void Update(){
 
         //Touch myTouch = Input.GetTouch(0);
-
+        /*
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
         for (int i = 0; i < Input.touchCount; i++){
             if (enemyNoteParent.childCount > 0){
                 InputNoteObject();
+            }*/
+        if (Input.GetMouseButtonDown(0)) {
+           
+            
+           //Vector2 ray = Input.touches[i].position;
+           Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (enemyNoteParent.childCount > 0)
+            {
+                InputNoteObject();
             }
-            Vector2 ray = Input.touches[i].position;
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1){
@@ -144,13 +152,13 @@ public class GameControler : MonoBehaviour{
                         if (enemyLine1){
                             DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note1st = false;
+                            //enemynote.note1st = false;
                             AllCharaPartyDamage();
                         }
                         else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2){
                             DamageCut(enemyNote1, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note1st = false;
+                            //enemynote.note1st = false;
                         }
                     }
 
@@ -159,26 +167,26 @@ public class GameControler : MonoBehaviour{
                         if (enemyLine2){
                             DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note2nd = false;
+                            //enemynote.note2nd = false;
                             AllCharaPartyDamage();
                         }
                         else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2){
                             DamageCut(enemyNote2, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note2nd = false;
+                            //enemynote.note2nd = false;
                         }
                     }
                     if(GameObject.Find("enemyNote3") == true){
                         if (enemyLine3){
                             DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note3rd = false;
+                            //enemynote.note3rd = false;
                             AllCharaPartyDamage();
                         }
                         else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2){
                             DamageCut(enemyNote3, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            enemynote.note3rd = false;
+                            //enemynote.note3rd = false;
                         }
                     }
                 }

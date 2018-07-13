@@ -119,9 +119,6 @@ public class note : MonoBehaviour {
                 deadlyNote4th = true;
             }
         }
-        if(parent.childCount > 0) {
-            OverNote();
-        }
     }
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){
@@ -175,56 +172,6 @@ public class note : MonoBehaviour {
         }
         return spr;
     }
-
-    private void OverNote(){
-        //画面外に出たnoteを止める条件
-        if(note1st == true){
-            if (note1.transform.position.x >= 7.5f){
-                ReMoveNote(note1);
-                note1st = false;
-            }
-        }
-        if(note2nd == true){
-            if (note2.transform.position.x >= 7.5f){
-                ReMoveNote(note2);
-                note2nd = false;
-            }
-        }
-        if(note3rd == true){
-            if (note3.transform.position.x >= 7.5f){
-                ReMoveNote(note3);
-                note3rd = false;
-            }
-        }
-        if(note4th == true){
-            if (note4.transform.position.x >= 7.5f){
-                ReMoveNote(note4);
-                note4th = false;
-            }
-        }
-        if(deadlyNote1st == true) {
-            if (deadlyNote1.transform.position.x >= 7.5f){
-                ReMoveNote(deadlyNote1);
-                deadlyNote1st = false;
-            }
-        }
-        if(deadlyNote2nd == true) {
-            if (deadlyNote2.transform.position.x >= 7.5f){
-                ReMoveNote(deadlyNote2);
-                deadlyNote2nd = false;
-            }
-        }
-        if(deadlyNote3rd == true) {
-            if (deadlyNote3.transform.position.x >= 7.5f){
-                ReMoveNote(deadlyNote3);
-                deadlyNote3rd = false;
-            }
-        }
-        if(deadlyNote4th == true) {
-            if (deadlyNote4.transform.position.x >= 7.5f){
-                ReMoveNote(deadlyNote4);
-                deadlyNote4th = false;
-            }
-        }
-    }
+    
+    
 }

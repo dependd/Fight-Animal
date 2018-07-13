@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveEnemyNote : MonoBehaviour {
     GameObject GameControler;
     GameControler gameControler;
+    GameObject tinpan;
+    CharaAnimation animation;
 
     float noteSpeed;
 
@@ -14,6 +16,8 @@ public class MoveEnemyNote : MonoBehaviour {
         noteSpeed = NoteSpeeds();
         GameControler = GameObject.Find("GameControler");
         gameControler = GameControler.GetComponent<GameControler>();
+        tinpan = GameObject.Find("tinpan");
+        animation = tinpan.GetComponent<CharaAnimation>();
     }
     // Update is called once per frame
     void FixedUpdate () {
@@ -28,7 +32,16 @@ public class MoveEnemyNote : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Party") return;
-        CheckEnemyLine(objName, true);
+        if (collision.gameObject.tag == "End")
+        {
+            Destroy(this.gameObject);
+            gameControler.DamageCut(null, false);
+            animation.AttackEffect("tinpan");
+        }
+        else
+        {
+            CheckEnemyLine(objName, true);
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {

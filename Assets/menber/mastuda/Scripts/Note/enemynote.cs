@@ -36,10 +36,6 @@ public class enemynote : MonoBehaviour{
 
     // Update is called once per frame
     void FixedUpdate(){
-        //noteを動かす処理
-        //note1.transform.position += new Vector3(note1speed, 0, 0);
-        //note2.transform.position += new Vector3(note2speed, 0, 0);
-        //note3.transform.position += new Vector3(note3speed, 0, 0);
 
 
         //値によってランダムなnoteを戻らせる条件
@@ -61,9 +57,6 @@ public class enemynote : MonoBehaviour{
                 note3 = GameObject.Find(CloneEnemyNote("3",2.8f,-0.85f));
                 note3rd = true;
             }
-        }
-        if (parent.childCount > 0){
-            OverNote();
         }
     }
     //noteのスピードを変える変数
@@ -99,31 +92,5 @@ public class enemynote : MonoBehaviour{
         var noteName = "enemyNote" + name;
         note.name = noteName;
         return noteName;
-    }
-    private void OverNote(){
-        //画面外に出たnoteを止める条件
-        //画面外に出たら敵にダメージを与える処理
-        if (note1st){
-            if (note1.transform.position.x <= -7.5f){
-                MoveNotes(note1, true);
-                note1st = false;
-                tinpanAttackScript.AttackEffect("tinpan");
-            }
-        }
-        if (note2nd){
-            if (note2.transform.position.x <= -7.5f){
-                MoveNotes(note2, true);
-                note2nd = false;
-                tinpanAttackScript.AttackEffect("tinpan");
-            }
-        }
-
-        if (note3rd){
-            if (note3.transform.position.x <= -7.5f){
-                MoveNotes(note3, true);
-                note3rd = false;
-                tinpanAttackScript.AttackEffect("tinpan");
-            }
-        }
     }
 }

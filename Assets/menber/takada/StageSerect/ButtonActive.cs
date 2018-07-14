@@ -22,13 +22,13 @@ public class ButtonActive : MonoBehaviour {
     
     void Update(){
 
-        if () {
+        if (false) {
             //引数無しのコールバック
             if (TutorialWinLoad != null)
                 TutorialWinLoad.Invoke();
         }
 
-        if () {
+        if (false) {
             //引数無しのコールバック
             if (Battle1winLoad != null)
                 Battle1winLoad.Invoke();

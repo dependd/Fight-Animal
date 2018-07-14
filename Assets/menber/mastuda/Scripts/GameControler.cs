@@ -80,6 +80,22 @@ public class GameControler : MonoBehaviour{
     GameObject tinpanAttack;
     [SerializeField]
     CharaAnimation tinpanAttackScript;
+    //BGMを入れる変数
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip BGM;
+    //SEを入れる変数
+    [SerializeField]
+    AudioClip datyoATK;
+    [SerializeField]
+    AudioClip tokageATK;
+    [SerializeField]
+    AudioClip momongaATK;
+    [SerializeField]
+    AudioClip kameATK;
+    [SerializeField]
+    AudioClip enemyATK;
+
     //判定ラインにオブジェクトが乗っているかの判定をする
     public bool enemyLine1 = false;
     public bool enemyLine2 = false;
@@ -121,7 +137,8 @@ public class GameControler : MonoBehaviour{
         //ScenarioCharaのScenarioCharaスクリプトを取得
         chara = GameObject.Find("ScinarioChara");
         scenarioChara = chara.GetComponent<ScinarioChara>();
-        //
+        //BGMスタート
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     void Update(){
@@ -131,12 +148,13 @@ public class GameControler : MonoBehaviour{
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
         for (int i = 0; i < Input.touchCount; i++){
+            //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
             if (enemyNoteParent.childCount > 0){
                 InputNoteObject();
             }
             
             Vector2 ray = Input.touches[i].position;*/
-            //クリックの取得
+        //クリックの取得
         if (Input.GetMouseButtonDown(0)) {
             //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
             if (enemyNoteParent.childCount > 0)
@@ -153,13 +171,13 @@ public class GameControler : MonoBehaviour{
                         if (enemyLine1){
                             DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note1st = false;
                             AllCharaPartyDamage();
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                         else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2){
                             DamageCut(enemyNote1, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note1st = false;
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
 
@@ -169,13 +187,13 @@ public class GameControler : MonoBehaviour{
                         if (enemyLine2){
                             DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note2nd = false;
                             AllCharaPartyDamage();
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                         else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2){
                             DamageCut(enemyNote2, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note2nd = false;
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
                     if(GameObject.Find("enemyNote3") == true)
@@ -183,13 +201,13 @@ public class GameControler : MonoBehaviour{
                         if (enemyLine3){
                             DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note3rd = false;
                             AllCharaPartyDamage();
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                         else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2){
                             DamageCut(enemyNote3, false);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            //enemynote.note3rd = false;
+                            //audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
                 }
@@ -205,11 +223,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("ダチョウ",note1, true, CharaStatus.datyo.OffensivePower, false);
                             datyoAnimation.AttackAnimation();
                             datyoAttackScript.AttackEffect("datyo");
-                            note.note1st = false;
+                            //audioSource.PlayOneShot(datyoATK, 0.7f);
                         }
                         else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",note1, false, CharaStatus.datyo.OffensivePower, false);
-                            note.note1st = false;
                         }
                     }
                 }
@@ -221,7 +238,7 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("ダチョウ",deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
                             datyoAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("datyo");
-                            note.deadlyNote1st = false;
+                            //audioSource.PlayOneShot(datyoATK, 0.7f);
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2){
                             AttackAnimal("ダチョウ",deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
@@ -237,11 +254,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("トカゲ",note2, true, CharaStatus.tokage.OffensivePower, false);
                             tokageAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("tokage");
-                            note.note2nd = false;
+                            //audioSource.PlayOneShot(tokageATK,0.7f);
                         }
                         else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2){
                             AttackAnimal("トカゲ",note2, false, CharaStatus.tokage.OffensivePower, false);
-                            note.note2nd = false;
                         }
                     }
                 }
@@ -253,11 +269,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("トカゲ",deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
                             tokageAnimation.AttackAnimation();
                             tokageAttackScript.AttackEffect("tokage");
-                            note.deadlyNote2nd = false;
+                            //audioSource.PlayOneShot(tokageATK, 0.7f);
                         }
                         else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2){
                             AttackAnimal("トカゲ",deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
-                            note.deadlyNote2nd = false;
                         }
                     }
                 }
@@ -270,11 +285,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("モモンガ",note3, true, CharaStatus.momonga.OffensivePower, false);
                             momongaAnimation.AttackAnimation();
                             momongaAttackScript.AttackEffect("momonga");
-                            note.note3rd = false;
+                            //audioSource.PlayOneShot(momongaATK, 0.7f);
                         }
                         else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2){
                             AttackAnimal("モモンガ",note3, false, CharaStatus.momonga.OffensivePower, false);
-                            note.note3rd = false;
                         }
                     }
                 }
@@ -286,11 +300,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("モモンガ",deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
                             momongaAnimation.AttackAnimation();
                             momongaAttackScript.AttackEffect("momonga");
-                            note.deadlyNote3rd = false;
+                            //audioSource.PlayOneShot(momongaATK, 0.7f);
                         }
                         else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2){
                             AttackAnimal("モモンガ",deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
-                            note.deadlyNote3rd = false;
                         }
                     }
                 }
@@ -303,11 +316,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("カメ",note4, true, CharaStatus.kame.OffensivePower, false);
                             kameAnimation.AttackAnimation();
                             kameAttackScript.AttackEffect("kame");
-                            note.note4th = false;
+                            //audioSource.PlayOneShot(kameATK, 0.7f);
                         }
                         else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2){
                             AttackAnimal("カメ",note4, false, CharaStatus.kame.OffensivePower, false);
-                            note.note4th = false;
                         }
                     }
                 }
@@ -319,11 +331,10 @@ public class GameControler : MonoBehaviour{
                             AttackAnimal("カメ",deadlyNote4, true, CharaStatus.kame.OffensivePower, true);
                             kameAnimation.AttackAnimation();
                             kameAttackScript.AttackEffect("kame");
-                            note.deadlyNote4th = false;
+                            //audioSource.PlayOneShot(kameATK, 0.7f);
                         }
                         else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2){
                             AttackAnimal("カメ",deadlyNote4, false, CharaStatus.kame.OffensivePower, true);
-                            note.deadlyNote4th = false;
 
                         }
                     }

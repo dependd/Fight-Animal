@@ -1,0 +1,78 @@
+﻿;メッセージ表示
+[showmessage]
+
+;utilsファイルの呼び出し
+[call file=wide/libs/utils]
+
+;キャラネームの定義
+[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+;キャラネームの表示
+[text_show name="_sp_chara_name"]
+
+;キャラクターの定義（追加する場合は表示させる直前に宣言すること）
+[chara_new name=encho storage=encho1 jname=園長 jcolor="#249390"]
+
+;ボタンの定義
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+
+;ボタンの表示
+[button_show tag="button" time=0]
+
+;イベントの定義
+[evt tag="button" act="click" target="*click_system_button" ]
+
+;背景の定義
+[bg_new storage="bg"]
+;背景の表示
+[bg_show ]
+
+*click_system_button
+[if exp="{evt.caller_name}==button_skip"]
+[wait time=2]
+[scene file="Battle" ]
+[evt_stop]
+[endif]
+
+
+時は8012年[l][r]
+世界で一番人気がある動物園があった。[l][r]
+
+その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
+
+そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
+
+彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[p]
+
+ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
+
+しばらくすると園長がけがをして帰ってきた。[p]
+
+園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
+
+そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
+
+#encho
+「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
+
+#
+園長の言葉を胸に、[l][r]
+
+[chara_new name="kame" storage="kame1" scale="0.3" x=5 z=1] 
+[show name="kame"]
+カメ、[l]
+
+[chara_new name="tokage" storage="tokage1" scale="0.3" x=1 z=1] 
+[show name="tokage"]
+トカゲ、[l]
+
+[chara_new name="dacyou" storage="dacyou1" scale="0.3" x=-2 z=1] 
+[show name="dacyou"]
+ダチョウ、[l]
+
+[chara_new name="momonga" storage="momonga1" scale="0.3" x=-5 z=1] 
+[show name="momonga"]
+モモンガ[l]
+の４人は森へと向かうので[r]あった・・・。
+
+[wait time=2]
+[scene file="Battle" ]

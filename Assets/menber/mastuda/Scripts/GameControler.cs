@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameControler : MonoBehaviour{
+    [SerializeField]
+    GameObject countDownText;
+    [SerializeField]
+    CountDown countDown;
     //乱数を入れる変数
     int random;
     //ノーツの親オブジェクトを入れる変数
@@ -106,20 +110,10 @@ public class GameControler : MonoBehaviour{
     public bool kameLine = false;
 
     void Start(){
-        //それぞれの変数にオブジェクトを格納する
+
         partyNoteParent = GameObject.Find("PartyNote").transform;
         enemyNoteParent = GameObject.Find("EnemyNote").transform;
-        note1 = GameObject.Find("datyonote");
-        note2 = GameObject.Find("tokagenote");
-        note3 = GameObject.Find("momonganote");
-        note4 = GameObject.Find("kamenote");
-        enemyNote1 = GameObject.Find("enemyNote1");
-        enemyNote2 = GameObject.Find("enemyNote2");
-        enemyNote3 = GameObject.Find("enemyNote3");
-        deadlyNote1 = GameObject.Find("datyodeadlyNote");
-        deadlyNote2 = GameObject.Find("tokagedeadlyNote");
-        deadlyNote3 = GameObject.Find("momongadeadlyNote");
-        deadlyNote4 = GameObject.Find("kamedeadlyNote");
+        //それぞれの変数にオブジェクトを格納する
         //enemySliderのhpスクリプトを取得
         notes = GameObject.Find("enemySlider");
         hp = notes.GetComponent<hp>();
@@ -138,7 +132,8 @@ public class GameControler : MonoBehaviour{
         chara = GameObject.Find("ScinarioChara");
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
+        StartCoroutine(countDown.CountdownCoroutine());
     }
 
     void Update(){

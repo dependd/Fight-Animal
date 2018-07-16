@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour {
+public class TutorialControler : MonoBehaviour {
     //乱数を入れる変数
     int random;
     //ノーツの親オブジェクトを入れる変数
@@ -94,6 +94,13 @@ public class Tutorial : MonoBehaviour {
     [SerializeField]
     AudioClip enemyATK;
 
+    [SerializeField]
+    TutorialFlagManager flagManager;
+
+    GameObject[] objs;
+
+    public bool tutorialFlag = false;
+
     //判定ラインにオブジェクトが乗っているかの判定をする
     public bool enemyLine1 = false;
     public bool enemyLine2 = false;
@@ -138,11 +145,18 @@ public class Tutorial : MonoBehaviour {
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
         audioSource = GetComponent<AudioSource>();
+
+
+        objs = GameObject.FindGameObjectsWithTag("Note");
+        SetActiveNote(true);
     }
 
     void Update()
     {
-
+        if (flagManager != true)
+        {
+            return;
+        }
         //Touch myTouch = Input.GetTouch(0);
         /*
         Touch[] myTouches = Input.touches;
@@ -157,219 +171,220 @@ public class Tutorial : MonoBehaviour {
         //クリックの取得
         if (Input.GetMouseButtonDown(0))
         {
-            //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
-            if (enemyNoteParent.childCount > 0)
-            {
-                InputNoteObject();
-            }
-            //クリック位置をワールド座標に変換
-            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //敵の攻撃を防ぐ処理
-            Debug.Log("クリックした座標は" + ray);
-            if (ray.x >= -6.3 && ray.x <= -4.1)
-            {
-                if (ray.y >= -1.5 && ray.y <= 2.7)
+            
+                //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
+                if (enemyNoteParent.childCount > 0)
                 {
-                    if (GameObject.Find("enemyNote1") == true)
+                    InputNoteObject();
+                }
+                //クリック位置をワールド座標に変換
+                Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //敵の攻撃を防ぐ処理
+                Debug.Log("クリックした座標は" + ray);
+                if (ray.x >= -6.3 && ray.x <= -4.1)
+                {
+                    if (ray.y >= -1.5 && ray.y <= 2.7)
                     {
-                        if (enemyLine1)
+                        if (GameObject.Find("enemyNote1") == true)
                         {
-                            DamageCut(enemyNote1, true);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            AllCharaPartyDamage();
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            if (enemyLine1)
+                            {
+                                DamageCut(enemyNote1, true);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                AllCharaPartyDamage();
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
+                            else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2)
+                            {
+                                DamageCut(enemyNote1, false);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
                         }
-                        else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2)
-                        {
-                            DamageCut(enemyNote1, false);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
-                        }
-                    }
 
 
-                    if (GameObject.Find("enemyNote2") == true)
-                    {
-                        if (enemyLine2)
+                        if (GameObject.Find("enemyNote2") == true)
                         {
-                            DamageCut(enemyNote2, true);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            AllCharaPartyDamage();
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            if (enemyLine2)
+                            {
+                                DamageCut(enemyNote2, true);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                AllCharaPartyDamage();
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
+                            else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2)
+                            {
+                                DamageCut(enemyNote2, false);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
                         }
-                        else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2)
+                        if (GameObject.Find("enemyNote3") == true)
                         {
-                            DamageCut(enemyNote2, false);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
-                        }
-                    }
-                    if (GameObject.Find("enemyNote3") == true)
-                    {
-                        if (enemyLine3)
-                        {
-                            DamageCut(enemyNote3, true);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            AllCharaPartyDamage();
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
-                        }
-                        else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2)
-                        {
-                            DamageCut(enemyNote3, false);
-                            tinpanAttackScript.AttackEffect("tinpan");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            if (enemyLine3)
+                            {
+                                DamageCut(enemyNote3, true);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                AllCharaPartyDamage();
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
+                            else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2)
+                            {
+                                DamageCut(enemyNote3, false);
+                                tinpanAttackScript.AttackEffect("tinpan");
+                                //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            }
                         }
                     }
                 }
-            }
-            if (partyNoteParent.childCount > 0)
-            {
-                InputNoteObject();
-            }
-            //1番目の勇者が攻撃する処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= 2.4 && ray.y <= 3.6)
+                if (partyNoteParent.childCount > 0)
                 {
-                    if (GameObject.Find("datyonote") == true)
-                    {
-                        if (datyoLine)
-                        {
-                            AttackAnimal("ダチョウ", note1, true, CharaStatus.datyo.OffensivePower, false);
-                            datyoAnimation.AttackAnimation();
-                            datyoAttackScript.AttackEffect("datyo");
-                            //audioSource.PlayOneShot(datyoATK, 0.7f);
-                        }
-                        else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2)
-                        {
-                            AttackAnimal("ダチョウ", note1, false, CharaStatus.datyo.OffensivePower, false);
-                        }
-                    }
+                    InputNoteObject();
                 }
-            }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= 2.4 && ray.y <= 3.6)
+                //1番目の勇者が攻撃する処理
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("datyodeadlyNote") == true)
+                    if (ray.y >= 2.4 && ray.y <= 3.6)
                     {
-                        if (datyoLine)
+                        if (GameObject.Find("datyonote") == true)
                         {
-                            AttackAnimal("ダチョウ", deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
-                            datyoAnimation.AttackAnimation();
-                            tokageAttackScript.AttackEffect("datyo");
-                            //audioSource.PlayOneShot(datyoATK, 0.7f);
-                        }
-                        else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2)
-                        {
-                            AttackAnimal("ダチョウ", deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
+                            if (datyoLine)
+                            {
+                                AttackAnimal("ダチョウ", note1, true, CharaStatus.datyo.OffensivePower, false);
+                                datyoAnimation.AttackAnimation();
+                                datyoAttackScript.AttackEffect("datyo");
+                                //audioSource.PlayOneShot(datyoATK, 0.7f);
+                            }
+                            else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2)
+                            {
+                                AttackAnimal("ダチョウ", note1, false, CharaStatus.datyo.OffensivePower, false);
+                            }
                         }
                     }
                 }
-            }
-            //2番目の勇者が攻撃する時の処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= 1 && ray.y < 2.2)
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("tokagenote") == true)
+                    if (ray.y >= 2.4 && ray.y <= 3.6)
                     {
-                        if (tokageLine)
+                        if (GameObject.Find("datyodeadlyNote") == true)
                         {
-                            AttackAnimal("トカゲ", note2, true, CharaStatus.tokage.OffensivePower, false);
-                            tokageAnimation.AttackAnimation();
-                            tokageAttackScript.AttackEffect("tokage");
-                            //audioSource.PlayOneShot(tokageATK,0.7f);
-                        }
-                        else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2)
-                        {
-                            AttackAnimal("トカゲ", note2, false, CharaStatus.tokage.OffensivePower, false);
+                            if (datyoLine)
+                            {
+                                AttackAnimal("ダチョウ", deadlyNote1, true, CharaStatus.datyo.OffensivePower, true);
+                                datyoAnimation.AttackAnimation();
+                                tokageAttackScript.AttackEffect("datyo");
+                                //audioSource.PlayOneShot(datyoATK, 0.7f);
+                            }
+                            else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2)
+                            {
+                                AttackAnimal("ダチョウ", deadlyNote1, false, CharaStatus.datyo.OffensivePower, true);
+                            }
                         }
                     }
                 }
-            }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= 1 && ray.y < 2.2)
+                //2番目の勇者が攻撃する時の処理
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("tokagedeadlyNote") == true)
+                    if (ray.y >= 1 && ray.y < 2.2)
                     {
-                        if (tokageLine)
+                        if (GameObject.Find("tokagenote") == true)
                         {
-                            AttackAnimal("トカゲ", deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
-                            tokageAnimation.AttackAnimation();
-                            tokageAttackScript.AttackEffect("tokage");
-                            //audioSource.PlayOneShot(tokageATK, 0.7f);
-                        }
-                        else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2)
-                        {
-                            AttackAnimal("トカゲ", deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
+                            if (tokageLine)
+                            {
+                                AttackAnimal("トカゲ", note2, true, CharaStatus.tokage.OffensivePower, false);
+                                tokageAnimation.AttackAnimation();
+                                tokageAttackScript.AttackEffect("tokage");
+                                //audioSource.PlayOneShot(tokageATK,0.7f);
+                            }
+                            else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2)
+                            {
+                                AttackAnimal("トカゲ", note2, false, CharaStatus.tokage.OffensivePower, false);
+                            }
                         }
                     }
                 }
-            }
-            //3番目の勇者が攻撃するときの処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= -0.4 && ray.y <= 0.6)
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("momonganote") == true)
+                    if (ray.y >= 1 && ray.y < 2.2)
                     {
-                        if (momongaLine)
+                        if (GameObject.Find("tokagedeadlyNote") == true)
                         {
-                            AttackAnimal("モモンガ", note3, true, CharaStatus.momonga.OffensivePower, false);
-                            momongaAnimation.AttackAnimation();
-                            momongaAttackScript.AttackEffect("momonga");
-                            //audioSource.PlayOneShot(momongaATK, 0.7f);
-                        }
-                        else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2)
-                        {
-                            AttackAnimal("モモンガ", note3, false, CharaStatus.momonga.OffensivePower, false);
+                            if (tokageLine)
+                            {
+                                AttackAnimal("トカゲ", deadlyNote2, true, CharaStatus.tokage.OffensivePower, true);
+                                tokageAnimation.AttackAnimation();
+                                tokageAttackScript.AttackEffect("tokage");
+                                //audioSource.PlayOneShot(tokageATK, 0.7f);
+                            }
+                            else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2)
+                            {
+                                AttackAnimal("トカゲ", deadlyNote2, false, CharaStatus.tokage.OffensivePower, true);
+                            }
                         }
                     }
                 }
-            }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= -0.4 && ray.y <= 0.6)
+                //3番目の勇者が攻撃するときの処理
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("momongadeadlyNote") == true)
+                    if (ray.y >= -0.4 && ray.y <= 0.6)
                     {
-                        if (momongaLine)
+                        if (GameObject.Find("momonganote") == true)
                         {
-                            AttackAnimal("モモンガ", deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
-                            momongaAnimation.AttackAnimation();
-                            momongaAttackScript.AttackEffect("momonga");
-                            //audioSource.PlayOneShot(momongaATK, 0.7f);
-                        }
-                        else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2)
-                        {
-                            AttackAnimal("モモンガ", deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
+                            if (momongaLine)
+                            {
+                                AttackAnimal("モモンガ", note3, true, CharaStatus.momonga.OffensivePower, false);
+                                momongaAnimation.AttackAnimation();
+                                momongaAttackScript.AttackEffect("momonga");
+                                //audioSource.PlayOneShot(momongaATK, 0.7f);
+                            }
+                            else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2)
+                            {
+                                AttackAnimal("モモンガ", note3, false, CharaStatus.momonga.OffensivePower, false);
+                            }
                         }
                     }
                 }
-            }
-            //4番目の勇者が攻撃するときの処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
-            {
-                if (ray.y >= -2.3 && ray.y <= -1.0)
+                if (ray.x >= 4.1 && ray.x <= 6.1)
                 {
-                    if (GameObject.Find("kamenote") == true)
+                    if (ray.y >= -0.4 && ray.y <= 0.6)
                     {
-                        if (kameLine)
+                        if (GameObject.Find("momongadeadlyNote") == true)
                         {
-                            AttackAnimal("カメ", note4, true, CharaStatus.kame.OffensivePower, false);
-                            kameAnimation.AttackAnimation();
-                            kameAttackScript.AttackEffect("kame");
-                            //audioSource.PlayOneShot(kameATK, 0.7f);
-                        }
-                        else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2)
-                        {
-                            AttackAnimal("カメ", note4, false, CharaStatus.kame.OffensivePower, false);
+                            if (momongaLine)
+                            {
+                                AttackAnimal("モモンガ", deadlyNote3, true, CharaStatus.momonga.OffensivePower, true);
+                                momongaAnimation.AttackAnimation();
+                                momongaAttackScript.AttackEffect("momonga");
+                                //audioSource.PlayOneShot(momongaATK, 0.7f);
+                            }
+                            else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2)
+                            {
+                                AttackAnimal("モモンガ", deadlyNote3, false, CharaStatus.momonga.OffensivePower, true);
+                            }
                         }
                     }
                 }
-            }
+                //4番目の勇者が攻撃するときの処理
+                if (ray.x >= 4.1 && ray.x <= 6.1)
+                {
+                    if (ray.y >= -2.3 && ray.y <= -1.0)
+                    {
+                        if (GameObject.Find("kamenote") == true)
+                        {
+                            if (kameLine)
+                            {
+                                AttackAnimal("カメ", note4, true, CharaStatus.kame.OffensivePower, false);
+                                kameAnimation.AttackAnimation();
+                                kameAttackScript.AttackEffect("kame");
+                                //audioSource.PlayOneShot(kameATK, 0.7f);
+                            }
+                            else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2)
+                            {
+                                AttackAnimal("カメ", note4, false, CharaStatus.kame.OffensivePower, false);
+                            }
+                        }
+                    }
+                }
             if (ray.x >= 4.1 && ray.x <= 6.1)
             {
                 if (ray.y >= -2.3 && ray.y <= -1.0)
@@ -389,11 +404,29 @@ public class Tutorial : MonoBehaviour {
 
                         }
                     }
+
                 }
+            
             }
         }
     }
 
+    public void SetActiveNote(bool hantei)
+    {
+        if (hantei)
+        {
+            for (int i = 0; i < objs.Length; i++)
+            {
+                objs[i].SetActive(false);
+            }
+        } else
+        {
+            for (int i = 0; i < objs.Length; i++)
+            {
+                objs[i].SetActive(true);
+            }
+        }
+    }
     //enemyNoteをタップしたときの軽減があるかどうかの判定をする関数
     public void DamageCut(GameObject notes, bool i)
     {

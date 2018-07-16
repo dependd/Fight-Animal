@@ -10,13 +10,10 @@ public class StageSerectCommunicator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-            BattleButton1.SetActive(false);
-            BattleButton2.SetActive(false);
- 
-    }
-	
-	// Update is called once per frame
-	void Update () {
+
+         BattleButton1.SetActive(false);
+         BattleButton2.SetActive(false);
+
         if (Singleton.Instance.ButtonFlag[1] == 1)
         {
             BattleButton1.SetActive(true);
@@ -25,5 +22,10 @@ public class StageSerectCommunicator : MonoBehaviour {
         {
             BattleButton2.SetActive(true);
         }
+    }
+	
+	// Update is called once per frame
+	void Update () {
+
     }
 }

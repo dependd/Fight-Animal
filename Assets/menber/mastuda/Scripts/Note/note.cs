@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class note : MonoBehaviour {
     int random;
+    [HideInInspector]
+    public int randomMAX = 100000;
     //Sprite
     [SerializeField]
     Sprite datyoSprite;
@@ -106,14 +108,14 @@ public class note : MonoBehaviour {
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){
         
-        int random = Random.Range(0, 100000);
+        int random = Random.Range(0, randomMAX);
         return random;
     }
     //noteを削除する変数
     private void ReMoveNote(GameObject notes){
         Destroy(notes);
     }
-    private string ClonePartyNote(string name, float i, float j){
+    public string ClonePartyNote(string name, float i, float j){
         notes = (GameObject)Resources.Load("Prefabs/Note/" + name + "Note");
         notes = Instantiate(notes, new Vector3(i, j, 0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
@@ -125,7 +127,7 @@ public class note : MonoBehaviour {
         return noteName;
     }
     //noteをインスタンス化する
-    private string CloneDeadlyPartyNote(string name,float i, float j){
+    public string CloneDeadlyPartyNote(string name,float i, float j){
         deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる

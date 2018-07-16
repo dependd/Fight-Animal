@@ -5,7 +5,10 @@ using UnityEngine;
 public class MovePartyNote : MonoBehaviour {
 
     //ノーツのスピードを入れる変数
-    float noteSpeed;
+    [HideInInspector]
+    public float noteSpeed;
+    [HideInInspector]
+    public float stocNoteSpeed;
     //ノーツの名前を入れる変数
     string objectName;
     GameObject Gamecontroler;
@@ -47,7 +50,7 @@ public class MovePartyNote : MonoBehaviour {
     }
 
     //noteのスピードを変える変数
-    private float NoteSpeeds(){
+    public float NoteSpeeds(){
         if(objectName == "datyonote"){
             return (float)charastatus.momonga.NoteSpeed;
         }

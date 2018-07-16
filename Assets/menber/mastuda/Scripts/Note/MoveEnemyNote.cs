@@ -8,7 +8,7 @@ public class MoveEnemyNote : MonoBehaviour {
     GameObject tinpan;
     CharaAnimation animation;
 
-    float noteSpeed;
+    public float noteSpeed;
 
     string objName;
     private void Start(){

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemynote : MonoBehaviour{
     int random;
+    [HideInInspector]
+    public int randomMAX = 10000;
     //各noteを格納する変数
     GameObject note1;
     GameObject note2;
@@ -66,7 +68,7 @@ public class enemynote : MonoBehaviour{
     }
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){
-        int random = Random.Range(0, 10000);
+        int random = Random.Range(0, randomMAX);
         return random;
     }
     //noteを止めたり出現させる関数
@@ -78,7 +80,7 @@ public class enemynote : MonoBehaviour{
         Destroy(notes);
     }
     //PrefabのenemyNoteをゲーム画面に表示させる関数
-    private string CloneEnemyNote(string name,float i,float j){
+    public string CloneEnemyNote(string name,float i,float j){
         note = (GameObject)Resources.Load("Prefabs/Note/enemyNote");
         note = Instantiate(note, new Vector3(i,j,0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる

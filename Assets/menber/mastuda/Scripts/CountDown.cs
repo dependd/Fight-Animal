@@ -9,6 +9,12 @@ public class CountDown : MonoBehaviour {
     [SerializeField]
     private Text _textCountdown;
 
+    private void Start()
+    {
+
+        //カウントダウンの関数
+        StartCoroutine(CountdownCoroutine());
+    }
 
     public IEnumerator CountdownCoroutine()
     {

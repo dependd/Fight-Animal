@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class GameControler : MonoBehaviour{
+    //カウントダウンをするためオブジェクト、スクリプトを入れるの変数
     [SerializeField]
     GameObject countDownText;
     [SerializeField]
@@ -99,6 +102,9 @@ public class GameControler : MonoBehaviour{
     AudioClip kameATK;
     [SerializeField]
     AudioClip enemyATK;
+    //tutorialControler
+    [SerializeField]
+    TutorialFlagManager tutorialFlagManager;
 
     //判定ラインにオブジェクトが乗っているかの判定をする
     public bool enemyLine1 = false;
@@ -133,7 +139,7 @@ public class GameControler : MonoBehaviour{
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(countDown.CountdownCoroutine());
+
     }
 
     void Update(){

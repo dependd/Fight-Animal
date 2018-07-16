@@ -12,18 +12,18 @@ public class StageSerectCommunicator : MonoBehaviour {
     void Start () {
             BattleButton1.SetActive(false);
             BattleButton2.SetActive(false);
-
-             if(Singleton.Instance.ButtonFlag[1] == 1) {
-                Debug.Log("フラグが立ちました");
-                BattleButton1.SetActive(true);
-                
-            } else if (Singleton.Instance.ButtonFlag[2] == 1) {
-                BattleButton2.SetActive(true);
-            }
+ 
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Singleton.Instance.ButtonFlag[1] == 1)
+        {
+            BattleButton1.SetActive(true);
+        }
+        if (Singleton.Instance.ButtonFlag[2] == 1)
+        {
+            BattleButton2.SetActive(true);
+        }
+    }
 }

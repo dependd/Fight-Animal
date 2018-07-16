@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class ButtonActive : MonoBehaviour {
-
+    /*
     //イベントの定義（2つとも引数無し）
     public UnityEvent TutorialWinLoad;
     public UnityEvent Battle1winLoad;
@@ -35,7 +35,7 @@ public class ButtonActive : MonoBehaviour {
         }
     }
 
-        
+        */
 }
 
 

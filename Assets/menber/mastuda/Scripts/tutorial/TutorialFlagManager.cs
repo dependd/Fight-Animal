@@ -17,9 +17,13 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     enemynote enemynote;
     [SerializeField]
     GameObject enemyNote;
-    [SerializeField]
     MoveEnemyNote moveEnemyNote;
     GameObject notes = null;
+    [SerializeField]
+    GameObject SerectCircle;
+    [SerializeField]
+    SerectCircle serectCircle;
+
     public enum Flag
     {
         description,
@@ -43,6 +47,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         tutorialFlag = Flag.description;
         text = scenarioText.GetComponent<ScenarioText>();
         tutorialControler = GetComponent<TutorialControler>();
+        serectCircle = SerectCircle.GetComponent<SerectCircle>();
         Description(flags);
         note.randomMAX = 0 ;
         enemynote.randomMAX = 0;
@@ -80,18 +85,25 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         switch (i)
         {
             case 1:
-                text.ChengeScenarioText("これ味方");
+                text.ChengeScenarioText("チュートリアルです");
                 flags++;
                 break;
             case 2:
-                text.ChengeScenarioText("これ敵");
+                text.ChengeScenarioText("これ味方");
+                serectCircle.TutorialSerectCircle(3.5f, 6, 380, 0);
                 flags++;
                 break;
             case 3:
+                text.ChengeScenarioText("これ敵");
+                serectCircle.TutorialSerectCircle(3.5f, 6, -380, 0);
+                flags++;
+                break;
+            case 4:
                 text.ChengeScenarioText("これHP");
                 flags = 1;
                 tutorialFlag = Flag.note;
                 break;
+
         }
     }
     public void Note(int i)

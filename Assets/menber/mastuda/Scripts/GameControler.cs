@@ -115,7 +115,7 @@ public class GameControler : MonoBehaviour{
     public bool momongaLine = false ;
     public bool kameLine = false;
 
-    void Start(){
+    void Awake(){
 
         partyNoteParent = GameObject.Find("PartyNote").transform;
         enemyNoteParent = GameObject.Find("EnemyNote").transform;

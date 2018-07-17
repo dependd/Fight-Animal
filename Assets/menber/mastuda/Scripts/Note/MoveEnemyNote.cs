@@ -8,12 +8,16 @@ public class MoveEnemyNote : MonoBehaviour {
     GameObject tinpan;
     CharaAnimation animation;
 
-    public float noteSpeed;
+    float noteSpeed;
+    public float lengeMAX = -0.15f;
+    public float lengeMIN = -0.05f;
+
 
     string objName;
     private void Start(){
         objName = this.gameObject.name;
         noteSpeed = NoteSpeeds();
+        Debug.Log(noteSpeed);
         GameControler = GameObject.Find("GameControler");
         gameControler = GameControler.GetComponent<GameControler>();
         tinpan = GameObject.Find("tinpan");
@@ -26,7 +30,7 @@ public class MoveEnemyNote : MonoBehaviour {
 
     //noteのスピードを変える変数
     private float NoteSpeeds(){
-        float noteSpeed = Random.Range(-0.05f, -0.15f);
+        float noteSpeed = Random.Range(lengeMIN, lengeMAX);
         return noteSpeed;
     }
     //違うcollision内に入ったら

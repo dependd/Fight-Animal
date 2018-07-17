@@ -58,49 +58,49 @@ public class note : MonoBehaviour {
         random = RandomRange();
         if (GameObject.Find("datyonote") == false){
             if (random > 28000 && random <= 29000 && deadlyNote1 == null){
-                note1 = GameObject.Find(ClonePartyNote("datyo", -2.8f, 3));
+                note1 = ClonePartyNote("datyo", -2.8f, 3);
                 note1Speed = (float)CharaStatus.momonga.NoteSpeed;
             }
         }
         if (GameObject.Find("tokagenote") == false){
             if (random > 49000 && random <= 50000 && deadlyNote2 == null){
-                note2 = GameObject.Find(ClonePartyNote("tokage",-2.8f, 1.46f));
+                note2 = ClonePartyNote("tokage",-2.8f, 1.46f);
                 note2Speed = (float)CharaStatus.tokage.NoteSpeed;
             }
         }
         if (GameObject.Find("momonganote") == false){
             if (random > 70000 && random <= 71000 && deadlyNote3 == null){
-                note3 = GameObject.Find(ClonePartyNote("momonga", -2.8f, 0));
+                note3 = ClonePartyNote("momonga", -2.8f, 0);
                 note3Speed = (float)CharaStatus.datyo.NoteSpeed;
             }
         }
         if (GameObject.Find("kamenote") == false){
             if (random > 91000 && random <= 93000 && deadlyNote4 == null){
-                note4 = GameObject.Find(ClonePartyNote("kame", -2.8f, -1.65f));
+                note4 = ClonePartyNote("kame", -2.8f, -1.65f);
                 note4Speed = (float)CharaStatus.kame.NoteSpeed;
             }
         }
         if (GameObject.Find("datyodeadlyNote") == false){
             if (random >= 44000 && random <= 44500 && note1 == null){
-                deadlyNote1 = GameObject.Find(CloneDeadlyPartyNote("datyo", -2.8f, 3));
+                deadlyNote1 = CloneDeadlyPartyNote("datyo", -2.8f, 3);
                 deadlyNote1Speed = (float)CharaStatus.momonga.DeadlyNoteSpeed;
             }
         }
         if (GameObject.Find("tokagedeadlyNote") == false){
             if (random >= 44500 && random <= 45000 && note2 == null){
-                deadlyNote2 = GameObject.Find(CloneDeadlyPartyNote("tokage", -2.8f, 1.46f));
+                deadlyNote2 = CloneDeadlyPartyNote("tokage", -2.8f, 1.46f);
                 deadlyNote2Speed = (float)CharaStatus.tokage.DeadlyNoteSpeed;
             }
         }
         if (GameObject.Find("momongadeadlyNote") == false){
             if (random >= 55000 && random <= 55500 && note3 == null){
-                deadlyNote3 = GameObject.Find(CloneDeadlyPartyNote("momonga", -2.8f, 0));
+                deadlyNote3 = CloneDeadlyPartyNote("momonga", -2.8f, 0);
                 deadlyNote3Speed = (float)CharaStatus.datyo.DeadlyNoteSpeed;
             }
         }
         if (GameObject.Find("kamedeadlyNote") == false){
             if (random >= 55500 && random <= 56000 && note4 == null){
-                deadlyNote4 = GameObject.Find(CloneDeadlyPartyNote("kame", -2.8f, -1.65f));
+                deadlyNote4 = CloneDeadlyPartyNote("kame", -2.8f, -1.65f);
                 deadlyNote4Speed = (float)CharaStatus.kame.DeadlyNoteSpeed;
             }
         }
@@ -115,7 +115,7 @@ public class note : MonoBehaviour {
     private void ReMoveNote(GameObject notes){
         Destroy(notes);
     }
-    public string ClonePartyNote(string name, float i, float j){
+    public GameObject ClonePartyNote(string name, float i, float j){
         notes = (GameObject)Resources.Load("Prefabs/Note/" + name + "Note");
         notes = Instantiate(notes, new Vector3(i, j, 0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
@@ -124,10 +124,10 @@ public class note : MonoBehaviour {
         //名前をenemyNote"数字"に変更する
         var noteName = name + "note";
         notes.name = noteName;
-        return noteName;
+        return notes;
     }
     //noteをインスタンス化する
-    public string CloneDeadlyPartyNote(string name,float i, float j){
+    public GameObject CloneDeadlyPartyNote(string name,float i, float j){
         deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
@@ -136,7 +136,7 @@ public class note : MonoBehaviour {
         //名前をenemyNote"数字"に変更する
         var noteName = name + "deadlyNote";
         deadlyNote.name = noteName;
-        return noteName;
+        return deadlyNote;
     }
     //
     private Sprite ChangeSprite(string name)

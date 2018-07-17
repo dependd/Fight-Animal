@@ -44,19 +44,19 @@ public class enemynote : MonoBehaviour{
         random = RandomRange();
         if (GameObject.Find("enemyNote1") == false){
             if (random >= 4800 && random <= 4850){
-                note1 = GameObject.Find(CloneEnemyNote("1", 2.8f, 2.2f));
+                note1 = CloneEnemyNote("1", 2.8f, 2.2f);
                 note1st = true;
             }
         }
         if (GameObject.Find("enemyNote2") == false){
             if (random > 4950 && random <= 5000){
-                note2 = GameObject.Find(CloneEnemyNote("2",2.8f,0.68f));
+                note2 = CloneEnemyNote("2",2.8f,0.68f);
                 note2nd = true;
             }
         }
         if (GameObject.Find("enemyNote3") == false){
             if (random > 5000 && random <= 5050){
-                note3 = GameObject.Find(CloneEnemyNote("3",2.8f,-0.85f));
+                note3 = CloneEnemyNote("3",2.8f,-0.85f);
                 note3rd = true;
             }
         }
@@ -80,7 +80,7 @@ public class enemynote : MonoBehaviour{
         Destroy(notes);
     }
     //PrefabのenemyNoteをゲーム画面に表示させる関数
-    public string CloneEnemyNote(string name,float i,float j){
+    public GameObject CloneEnemyNote(string name,float i,float j){
         note = (GameObject)Resources.Load("Prefabs/Note/enemyNote");
         note = Instantiate(note, new Vector3(i,j,0), Quaternion.identity);
         //MoveNoteのスクリプトを持たせる
@@ -89,6 +89,6 @@ public class enemynote : MonoBehaviour{
         //名前をenemyNote"数字"に変更する
         var noteName = "enemyNote" + name;
         note.name = noteName;
-        return noteName;
+        return note;
     }
 }

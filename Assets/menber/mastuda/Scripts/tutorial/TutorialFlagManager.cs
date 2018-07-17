@@ -17,18 +17,25 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     enemynote enemynote;
     [SerializeField]
     GameObject enemyNote;
-
-	public enum Flag
+    [SerializeField]
+    MoveEnemyNote moveEnemyNote;
+    GameObject notes = null;
+    public enum Flag
     {
         description,
         note,
         enemyNote,
         deadlyNote,
-        tutorialBattle
+        tutorialBattle,
+
     }
 
+    private bool touchFlag = true;
+    [HideInInspector]
     public int flags = 1;
+    [HideInInspector]
     public bool flag = false;
+    [HideInInspector]
     public Flag tutorialFlag;
 
     private void Start()
@@ -43,26 +50,28 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (touchFlag)
         {
-            switch (tutorialFlag)
+            if (Input.GetMouseButtonDown(0))
             {
-                case Flag.description:
-                    Description(flags);
-                    break;
-                case Flag.note:
-                    Note(flags);
-                    break;
-                case Flag.enemyNote:
-                    EnemyNote(flags);
-                    break;
-                case Flag.deadlyNote:
-                    DeadlyNote(flags);
-                    break;
-                default:
-                    break;
+                switch (tutorialFlag)
+                {
+                    case Flag.description:
+                        Description(flags);
+                        break;
+                    case Flag.note:
+                        Note(flags);
+                        break;
+                    case Flag.enemyNote:
+                        EnemyNote(flags);
+                        break;
+                    case Flag.deadlyNote:
+                        DeadlyNote(flags);
+                        break;
+                    default:
+                        break;
+                }
             }
-        
         }
     
     }
@@ -90,8 +99,9 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         switch (i)
         {
             case 1:
+                TouchFlag(false);
                 text.ChengeScenarioText("これが攻撃ノーツ");
-                note.ClonePartyNote("tokage", -2.8f, 1.46f);
+                notes = note.ClonePartyNote("tokage", -2.8f, 1.46f);
                 Invoke("StopNote",0.5f);
                 flags++;
                 break;
@@ -100,6 +110,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 flags++;
                 break;
             case 3:
+                TouchFlag(false);
                 text.ChengeScenarioText("重なったらここをタップ");
                 StopNote();
                 Invoke("StopNote", 0.75f);
@@ -107,6 +118,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 break;
             case 4:
                 text.ChengeScenarioText("次は敵ノーツ");
+                Destroy(notes);
                 StopNote();
                 flags = 1;
                 tutorialFlag = Flag.enemyNote;
@@ -118,8 +130,12 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         switch (i)
         {
             case 1:
+                TouchFlag(false);
                 text.ChengeScenarioText("これ敵ノーツ");
-                enemynote.CloneEnemyNote("1", 2.8f, 0.68f);
+                notes = enemynote.CloneEnemyNote("1", 2.8f, 0.68f);
+                moveEnemyNote = notes.GetComponent<MoveEnemyNote>();
+                moveEnemyNote.lengeMAX = -0.1f;
+                moveEnemyNote.lengeMIN = -0.1f;
                 Invoke("StopNote", 0.5f);
                 flags++;
                 break;
@@ -128,13 +144,15 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 flags++;
                 break;
             case 3:
+                TouchFlag(false);
                 text.ChengeScenarioText("重なったらここをタップ");
                 StopNote();
-                Invoke("StopNote", 0.6f);
+                Invoke("StopNote", 0.75f);
                 flags++;
                 break;
             case 4:
                 text.ChengeScenarioText("次は必殺ノーツ");
+                Destroy(notes);
                 StopNote();
                 flags = 1;
                 tutorialFlag = Flag.deadlyNote;
@@ -146,9 +164,10 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         switch (i)
         {
             case 1:
+                TouchFlag(false);
                 text.ChengeScenarioText("これ必殺ノーツ");
-                note.CloneDeadlyPartyNote("momonga", -2.8f, 0);
-                Invoke("StopNote", 0.45f);
+                notes = note.CloneDeadlyPartyNote("momonga", -2.8f, 0);
+                Invoke("StopNote", 0.4f);
                 flags++;
                 break;
             case 2:
@@ -156,17 +175,20 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 flags++;
                 break;
             case 3:
+                TouchFlag(false);
                 text.ChengeScenarioText("タイミングも同じだけど難しいよ");
                 StopNote();
-                Invoke("StopNote", 0.5f);
+                Invoke("StopNote", 0.45f);
                 flags++;
                 break;
             case 4:
                 text.ChengeScenarioText("じゃあ実際にやってみよう！");
                 tutorialControler.tutorialFlag = false;
+                Destroy(notes);
                 StopNote();
                 //tutorialControler.SetActiveNote(false);
-                Invoke("ReStart",1.0f);
+                Invoke("ReStart",1.5f);
+                tutorialFlag = Flag.tutorialBattle;
                 flag = true;
                 break;
         }
@@ -178,6 +200,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
+            TouchFlag(true);
         }
         else if (Time.timeScale == 0)
         {
@@ -186,7 +209,18 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void ReStart()
     {
-        note.randomMAX = 100000;
-        enemynote.randomMAX = 10000;
+        note.randomMAX = 250000;
+        enemynote.randomMAX = 25000;
+    }
+    private void TouchFlag(bool i)
+    {
+        if (i)
+        {
+            touchFlag = true;
+        }
+        else
+        {
+            touchFlag = false;
+        }
     }
 }

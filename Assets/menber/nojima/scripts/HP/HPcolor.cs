@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class HPcolor : MonoBehaviour {
 
     //変数を入れる箱を用意
+
+    float MaxEnemyHp;
+    float MaxPartyHp;
     float EnemyHp;
     float PartyHp;
     private GameObject enemySlider;
@@ -24,8 +27,9 @@ public class HPcolor : MonoBehaviour {
         enemySlider = GameObject.Find("enemySlider");
         FillColor1 = GameObject.Find("Fill");
         FillColor2 = GameObject.Find("Fill2");
-        
 
+        MaxEnemyHp = enemySlider.GetComponent<hp>().enemyhp;
+        MaxPartyHp = enemySlider.GetComponent<hp>().partyhp;
     }
 
     
@@ -44,17 +48,17 @@ public class HPcolor : MonoBehaviour {
         
         //エネミーHP
         //HPが640以下ならオレンジに。320以下なら赤に
-        if (EnemyHp <= 640){
+        if (EnemyHp <= MaxEnemyHp * 0.8) { 
             FillColor1.GetComponent<Image>().color = Orange;
-        }if (EnemyHp <= 320) {
+        }if (EnemyHp <= MaxEnemyHp * 0.4) {
             FillColor1.GetComponent<Image>().color = Red;
         }
 
         //パーティHP
         //HPが160以下ならfillのcolorをオレンジ80以下なら赤に変える
-        if (PartyHp <= 160) {
+        if (PartyHp <= MaxPartyHp * 0.8) {
             FillColor2.GetComponent<Image>().color = Orange;
-        }if (PartyHp <= 80) {
+        }if (PartyHp <= MaxPartyHp * 0.4) {
             FillColor2.GetComponent<Image>().color = Red;
         }
     }

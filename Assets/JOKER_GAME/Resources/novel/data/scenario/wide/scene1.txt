@@ -1,85 +1,114 @@
-﻿;メッセージ表示
-[showmessage]
-
-;utilsファイルの呼び出し
-[call file=wide/libs/utils]
-
+﻿;序章
+;ステージ初期化
+;背景定義
+[bg_new name=zoo storage="zoo"]
+[bg_show name=zoo ]
+;キャラクター定義
+[chara_new name=kame storage=kame scale="0.6" x=-4 y=-2 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.6" x=-1 y=-2 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.7" x=1 y=-3 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.6" x=4 y=-2 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
 [text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
-;キャラネームの表示
 [text_show name="_sp_chara_name"]
 
-;キャラクターの定義（追加する場合は表示させる直前に宣言すること）
-[chara_new name=encho storage=encho1 jname=園長 jcolor="#249390"]
-
+;シナリオ開始
+[wait time=2]
 ;ボタンの定義
+[showmessage]
 [button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
-
-;ボタンの表示
 [button_show tag="button" time=0]
-
-;イベントの定義
 [evt tag="button" act="click" target="*click_system_button" ]
 
-[return]
-
-;背景の定義
-[bg_new storage="bg"]
-;背景の表示
-[bg_show ]
-
-*click_system_button
-[if exp="{evt.caller_name}==button_skip"]
-[wait time=2]
-[scene file="StageSerect" ]
-[evt_stop]
-[endif]
 
 
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]
-
 その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
 
 そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
-
 彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[p]
 
 ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
-
 しばらくすると園長がけがをして帰ってきた。[p]
 
 園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
-
 そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
 
-#encho
+[show name="enchouNormal"]
+#enchouNormal
 「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
+[hide name="enchouNormal"]
 
 #
 園長の言葉を胸に、[l][r]
 
-[chara_new name="kame" storage="kame" scale="0.3" x=5 z=1] 
-[show name="kame"]
-カメ、[l]
+カメ、
+;立ち絵の表示
+[show name=kame]
 
-[chara_new name="tokage" storage="tokage" scale="0.3" x=1 z=1] 
-[show name="tokage"]
-トカゲ、[l]
+トカゲ、
+;立ち絵の表示
+[show name=tokage]
 
-[chara_new name="dacyou" storage="dachou" scale="0.3" x=-2 z=1] 
-[show name="dacyou"]
-ダチョウ、[l]
+ダチョウ、
+;立ち絵の表示
+[show name=dachou]
 
-[chara_new name="momonga" storage="momonga" scale="0.3" x=-5 z=1] 
-[show name="momonga"]
-モモンガ[l]
-の４人は森へと向かうので[r]あった・・・。
+モモンガ[r]
+;立ち絵の表示
+[show name=momonga]
 
-[show name="kame"]
-[show name="tokage"]
-[show name="dasyou"]
-[show name="momonga"]
+の４人は森へと向かうのであった・・・。[p]
 
+[hide name="kame"]
+[hide name="tokage"]
+[hide name="dachou"]
+[hide name="momonga"]
+
+#enchouNormal
+「ふむ、少し待ちなさい」
+[show name="enchouNormal"][p]
+
+#
+意気揚々と森に向かおうとした勇者たちに園長が声をかける[p]
+
+[show name=tokage x=1 ]
+#tokage
+「なんだよ園長、これからって時に・・・」[p]
+
+#enchouNormal
+「よくよく考えたら君たちの強さをわしは知らないではないか。」[p]
+
+[show name="kame" x=4 ]
+#kame
+「それはそうですが・・・まさか？」[p]
+
+#enchouNormal
+「うむ、わしが試してやろう。老いぼれだからと言って手加減はいらないぞ」[p]
+
+[hide name="tokage"]
+[show name="momonga" x=1]
+#momonga
+「えっと、どうします？園長さん本気みたいですけど・・・」[p]
+
+[hide name="kame"]
+[show name="dachou" x=4]
+#dachou
+「やるしかないんじゃない？準備運動くらいにはなるでしょう」[p]
+
+#
+勇者四人がしぶしぶといった感じで戦闘態勢に入る。[p]
+
+#enchouNormal
+「ふぉっふぉっふぉ、勝負じゃ！」[p]
+
+*click_system_button
 [wait time=2]
-[scene file="StageSerect" ]
+[scene file="Tutorial" ]
+[evt_stop]

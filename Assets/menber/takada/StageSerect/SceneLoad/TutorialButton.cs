@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Novel;
 
 public class TutorialButton : MonoBehaviour
 {
 
     public void OnClick()
     {
-        SceneManager.LoadScene("Tutorial");
+        NovelSingleton.StatusManager.callJoker("wide/scene1", "");
 
     }
 }

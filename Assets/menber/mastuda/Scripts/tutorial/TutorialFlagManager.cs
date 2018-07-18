@@ -78,8 +78,20 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 }
             }
         }
-    
     }
+    /// <summary>
+    /// これ以上チュートリアルに要素を増やす場合は
+    /// 
+    /// case 数値:
+    ///     text.ChengeScenarioText("ここにテキスト");
+    ///     flags++;
+    ///     break;
+    /// 
+    /// を追加すること
+    /// 各switch文の最後のcaseにはできるだけ触れないでください
+    /// </summary>
+    /// <param name="i"></param>
+    //画面説明
     public void Description(int i)
     {
         switch (i)
@@ -90,35 +102,44 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 break;
             case 2:
                 text.ChengeScenarioText("これ味方");
-                serectCircle.TutorialSerectCircle(3.5f, 6, 380, 0);
+                //画面に黒の円を描く関数(Xの大きさ,Yの大きさ,Xの位置,Yの位置)
+                serectCircle.TutorialSerectCircle(3, 5, 380, 0);
                 flags++;
                 break;
             case 3:
                 text.ChengeScenarioText("これ敵");
-                serectCircle.TutorialSerectCircle(3.5f, 6, -380, 0);
+                serectCircle.TutorialSerectCircle(3, 5, -380, 0);
                 flags++;
                 break;
             case 4:
-                text.ChengeScenarioText("これHP");
+                text.ChengeScenarioText("これHP\n左が敵、右が味方");
+                serectCircle.TutorialSerectCircle(10,1.5f,0,330);
+                flags++;
+                break;
+            case 5:
+                text.ChengeScenarioText("次音符について説明");
+                serectCircle.TutorialSerectCircle(800, 0, 392, 120);
                 flags = 1;
                 tutorialFlag = Flag.note;
                 break;
-
         }
     }
+    //攻撃音符説明
     public void Note(int i)
     {
         switch (i)
         {
             case 1:
                 TouchFlag(false);
-                text.ChengeScenarioText("これが攻撃ノーツ");
+                text.ChengeScenarioText("これが攻撃音符");
                 notes = note.ClonePartyNote("tokage", -2.8f, 1.46f);
                 Invoke("StopNote",0.5f);
+                serectCircle.TutorialSerectCircle(1.5f, 1.5f, -24, 114);
                 flags++;
                 break;
             case 2:
                 text.ChengeScenarioText("これが判定ライン");
+                serectCircle.TutorialSerectCircle(1, 5.5f, 268.5f, 45);
                 flags++;
                 break;
             case 3:
@@ -126,44 +147,71 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 text.ChengeScenarioText("重なったらここをタップ");
                 StopNote();
                 Invoke("StopNote", 0.75f);
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, 120);
                 flags++;
                 break;
             case 4:
-                text.ChengeScenarioText("次は敵ノーツ");
+                text.ChengeScenarioText("キャラごとにタップする位置は変わる\nここは黄色い音符\nダチョウの攻撃のタッチ場所");
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, 230);
                 Destroy(notes);
                 StopNote();
+                flags++;
+                break;
+            case 5:
+                text.ChengeScenarioText("ここは赤い音符\nトカゲの攻撃のタッチ場所");
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, 120);
+                flags++;
+                break;
+            case 6:
+                text.ChengeScenarioText("ここは緑の音符\nモモンガの攻撃のタッチ場所");
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, 0);
+                flags++;
+                break;
+            case 7:
+                text.ChengeScenarioText("ここは青い音符\nカメの攻撃のタッチ場所");
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, -120);
+                flags++;
+                break;
+            case 8:
+                text.ChengeScenarioText("次は敵音符");
+                serectCircle.TutorialSerectCircle(800, 0, 392, 120);
                 flags = 1;
                 tutorialFlag = Flag.enemyNote;
                 break;
         }
     }
+    //敵音符説明
     public void EnemyNote(int i)
     {
         switch (i)
         {
             case 1:
                 TouchFlag(false);
-                text.ChengeScenarioText("これ敵ノーツ");
+                text.ChengeScenarioText("これは敵の音符\n敵の音符はこれの上下にもう二種類存在");
                 notes = enemynote.CloneEnemyNote("1", 2.8f, 0.68f);
                 moveEnemyNote = notes.GetComponent<MoveEnemyNote>();
                 moveEnemyNote.lengeMAX = -0.1f;
                 moveEnemyNote.lengeMIN = -0.1f;
                 Invoke("StopNote", 0.5f);
+                serectCircle.TutorialSerectCircle(1.5f, 1.5f, 24, 50);
                 flags++;
                 break;
             case 2:
                 text.ChengeScenarioText("これが判定ライン");
+                serectCircle.TutorialSerectCircle(1, 5.5f, -277, 50);
                 flags++;
                 break;
             case 3:
                 TouchFlag(false);
-                text.ChengeScenarioText("重なったらここをタップ");
+                text.ChengeScenarioText("重なったらここをタップ\n敵の攻撃防御のタップ場所この範囲だけ\nここだけで３つの音符分対応できる");
                 StopNote();
                 Invoke("StopNote", 0.75f);
+                serectCircle.TutorialSerectCircle(2.5f, 5.1f, -386.3f, 40);
                 flags++;
                 break;
             case 4:
-                text.ChengeScenarioText("次は必殺ノーツ");
+                text.ChengeScenarioText("次は必殺音符");
+                serectCircle.TutorialSerectCircle(800, 0, 392, 120);
                 Destroy(notes);
                 StopNote();
                 flags = 1;
@@ -171,30 +219,35 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 break;
         }
     }
+    //必殺音符説明
     public void DeadlyNote(int i)
     {
         switch (i)
         {
             case 1:
                 TouchFlag(false);
-                text.ChengeScenarioText("これ必殺ノーツ");
+                text.ChengeScenarioText("この短いのが必殺音符");
                 notes = note.CloneDeadlyPartyNote("momonga", -2.8f, 0);
                 Invoke("StopNote", 0.4f);
+                serectCircle.TutorialSerectCircle(1.5f, 1.5f, 15.5f, 0.28f);
                 flags++;
                 break;
             case 2:
                 text.ChengeScenarioText("判定ラインはかわらず");
+                serectCircle.TutorialSerectCircle(1, 5.5f, 268.5f, 45);
                 flags++;
                 break;
             case 3:
                 TouchFlag(false);
-                text.ChengeScenarioText("タイミングも同じだけど難しいよ");
+                text.ChengeScenarioText("タイミングもタップする場所も同じだけど\n難しいよ");
                 StopNote();
                 Invoke("StopNote", 0.45f);
+                serectCircle.TutorialSerectCircle(3, 1.5f, 392, 0);
                 flags++;
                 break;
             case 4:
                 text.ChengeScenarioText("じゃあ実際にやってみよう！");
+                serectCircle.TutorialSerectCircle(800, 0, 392, 120);
                 tutorialControler.tutorialFlag = false;
                 Destroy(notes);
                 StopNote();
@@ -223,6 +276,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     {
         note.randomMAX = 250000;
         enemynote.randomMAX = 25000;
+        text.ChengeScenarioText("");
     }
     private void TouchFlag(bool i)
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SerectCircle : MonoBehaviour {
-    
+    //チュートリアルシーンに黒円を描く関数
     public void TutorialSerectCircle(float XScale,float YScale,float XPos,float YPos)
     {
         Vector2 pos = this.gameObject.transform.position;

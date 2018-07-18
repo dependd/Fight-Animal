@@ -43,7 +43,7 @@ public class hp : MonoBehaviour
         }
         if (enemyhp <= 0)
         {
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene("Win2");
         }
     }
     public void DownPartyHp(bool i, int j)
@@ -56,7 +56,7 @@ public class hp : MonoBehaviour
             EnemyDamage.SetActive(true);
             string X = k.ToString();
             ED.text = X;
-            Invoke("DelayEnemyDamage", 1);
+            Invoke("DelayEnemyDamage", 0.5f);
         }
         else
         {
@@ -65,7 +65,7 @@ public class hp : MonoBehaviour
             EnemyDamage.SetActive(true);
             string Y = j.ToString();
             ED.text = Y;
-            Invoke("DelayEnemyDamage", 1);
+            Invoke("DelayEnemyDamage", 0.5f);
         }
 
     }

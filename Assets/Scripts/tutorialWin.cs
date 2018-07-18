@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Novel;
 
 public class tutorialWin : MonoBehaviour {
 	
@@ -10,8 +11,8 @@ public class tutorialWin : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
 
-            SceneManager.LoadScene("StageSerect");
-            
+            NovelSingleton.StatusManager.callJoker("wide/scene1_after", "");
+
         }
     }
 }

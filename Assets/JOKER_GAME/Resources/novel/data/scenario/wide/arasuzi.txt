@@ -1,0 +1,82 @@
+﻿;序章
+;ステージ初期化
+;背景定義
+[bg_new name=zoo storage="zoo"]
+[bg_show name=zoo ]
+;キャラクター定義
+[chara_new name=kame storage=kame scale="0.6" x=-4 y=-2 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.6" x=-1 y=-2 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.7" x=1 y=-3 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.6" x=4 y=-2 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
+;キャラネームの定義
+[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;シナリオ開始
+[wait time=2]
+;ボタンの定義
+[showmessage]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+[button_show tag="button" time=0]
+[evt tag="button" act="click" target="*click_system_button" ]
+
+
+
+時は8012年[l][r]
+世界で一番人気がある動物園があった。[l][r]
+その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
+
+そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
+彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[p]
+
+ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
+しばらくすると園長がけがをして帰ってきた。[p]
+
+園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
+そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
+
+[show name="enchouNormal"]
+#enchouNormal
+「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
+[hide name="enchouNormal"]
+
+#
+園長の言葉を胸に、[l][r]
+
+カメ、
+;立ち絵の表示
+[show name=kame]
+
+トカゲ、
+;立ち絵の表示
+[show name=tokage]
+
+ダチョウ、
+;立ち絵の表示
+[show name=dachou]
+
+モモンガ[r]
+;立ち絵の表示
+[show name=momonga]
+
+の４人は森へと向かうのであった・・・。[p]
+
+[hide name="kame"]
+[hide name="tokage"]
+[hide name="dachou"]
+[hide name="momonga"]
+
+[hidemessage]
+
+[wait time=2]
+[scene file="StageSerect" ]
+
+*click_system_button
+[wait time=2]
+[scene file="StageSerect" ]
+[evt_stop]

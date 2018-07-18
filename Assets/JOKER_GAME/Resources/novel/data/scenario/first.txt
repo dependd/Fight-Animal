@@ -7,7 +7,7 @@
 ;@call file=libs/utils
 
 ;横バージョン読み込み
-@jump file=wide/scene1
+@jump file=wide/arasuzi
 
 ;縦バージョン読み込み
 ;@jump file=tall/title

@@ -26,65 +26,6 @@
 [evt tag="button" act="click" target="*click_system_button" ]
 
 
-[show name="cinpanNormal" x=-4 ]
-#cinpanNormal
-「くっっ！」[p]
-[hide name="cinpanNormal"]
-[show name="cinpanNormal" x=-4 y=-5 ]
-
-#
-;チンパンの姿が元に戻り地面に膝をつく。
-チンパンが地面に膝をつく。[p]
-
-[show name="tokage" x=1 ]
-#tokage
-「さぁ、姫を返してもらおうか？」[p]
-[hide name="tokage"]
-
-#
-すると奥からウサギ姫が現れる。[p]
-[show name="usagi" x= 4]
-#usagi
-「チンパンちゃん！？」[p]
-#
-慌ててチンパンに駆け寄る。[p]
-[hide name="usagi"]
-[show name="usagi" x= -1]
-#usagi
-「ど、どうしたの？ボロボロじゃない！」[p]
-
-[show name="dachou" x=4]
-#dachou
-「離れなさい、ウサギ姫、そいつはあなたをさらった犯人よ」[p]
-
-#usagi
-「さらった？私はチンパンちゃんとお散歩してただけよ！」[p]
-
-[hide name="dachou"]
-[show name="kame" x=4]
-#kame
-「どういうことかしら？」[p]
-
-#cinpanNormal
-「あんたらはあの老害に利用されただけさ、[l][r]
-私はあいつから姫を助けただけさ・・・。」[p]
-
-[show name="tokage" x=1 ]
-#tokage
-「え、え～っと？どういうことなんだ？」[p]
-
-#kame
-「なるほど。とりあえず園長さんの話を聞いたほうがよさそうね。」[p]
-
-#usagi
-「私たちもいく！[l][r]
-どうして園長さんがチンパンちゃんをいじめるのか理由を知りたいもの。」[p]
-
-[hide name="cinpanNormal"]
-[hide name="usagi"]
-[hide name="tokage"]
-[hide name="kame"]
-#
 こうして勇者たちは森から抜け出そうとした。[l][r]
 すると・・・。[p]
 
@@ -140,6 +81,9 @@
 [show name="enchouFight" x=0]
 #enchouFight
 「さぁ、準備はいいかな？」[p]
+
+[wait time=2]
+[scene file="EntyoBattle" ]
 
 *click_system_button
 [wait time=2]

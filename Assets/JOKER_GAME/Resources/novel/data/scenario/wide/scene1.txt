@@ -25,52 +25,6 @@
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 
-
-
-時は8012年[l][r]
-世界で一番人気がある動物園があった。[l][r]
-その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
-
-そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
-彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[p]
-
-ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
-しばらくすると園長がけがをして帰ってきた。[p]
-
-園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
-そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
-
-[show name="enchouNormal"]
-#enchouNormal
-「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
-[hide name="enchouNormal"]
-
-#
-園長の言葉を胸に、[l][r]
-
-カメ、
-;立ち絵の表示
-[show name=kame]
-
-トカゲ、
-;立ち絵の表示
-[show name=tokage]
-
-ダチョウ、
-;立ち絵の表示
-[show name=dachou]
-
-モモンガ[r]
-;立ち絵の表示
-[show name=momonga]
-
-の４人は森へと向かうのであった・・・。[p]
-
-[hide name="kame"]
-[hide name="tokage"]
-[hide name="dachou"]
-[hide name="momonga"]
-
 #enchouNormal
 「ふむ、少し待ちなさい」
 [show name="enchouNormal"][p]
@@ -107,6 +61,9 @@
 
 #enchouNormal
 「ふぉっふぉっふぉ、勝負じゃ！」[p]
+
+[wait time=2]
+[scene file="Tutorial" ]
 
 *click_system_button
 [wait time=2]

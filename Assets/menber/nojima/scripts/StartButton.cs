@@ -8,7 +8,7 @@ public class StartButton : MonoBehaviour {
 
     public void OnClick(){
 
-        NovelSingleton.StatusManager.callJoker("wide/scene1", "");
+        NovelSingleton.StatusManager.callJoker("wide/arasuzi", "");
 
     }
 

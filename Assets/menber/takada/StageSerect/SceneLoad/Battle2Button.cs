@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Novel;
 
 public class Battle2Button : MonoBehaviour
 {
 
     public void OnClick()
     {
-        SceneManager.LoadScene("EntyoBattle");
+        NovelSingleton.StatusManager.callJoker("wide/scene3", "");
 
     }
 }

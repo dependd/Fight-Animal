@@ -6,6 +6,7 @@
 [bg_show name=zoo ]
 
 ;ボタンの定義
+[showmessage]
 [button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
@@ -33,74 +34,54 @@
 [text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
-[bg_new name=tree storage="bg"]
-[bg_show name=tree ]
-[showmessage]
 
-[show name="tokage" x=1]
-#tokage
-「まったく見つからない・・・。」[p]
 
-[show name="momonga" x=4]
-#momonga
-「空から見ても全く分からないです・・・。」[p]
-
-[hide name="momonga"]
-[show name="kame" x=4]
-#kame
-「参ったわねぇ・・。」[p]
-
-[hide name="tokage"]
-[show name="dachou" x=1]
-#dachou
-「いや、この気配・・・来るわよ。」[p]
-
-[hide name="kame"]
-[hide name="dachou"]
-[hidemessage]
-[show name="cinpanNormal"]
-[showmessage]
-
-#
-奥の茂みからチンパンが現れる[p]
-
-#cinpanNormal
-「お前らがあの老害の差し金か？」[p]
-
-[show name="kame"]
-#kame
-「老害？園長のことかしら。」[p]
-
-#cinpanNormal
-「ああ、そうだ、あの老害にウサギ姫を渡すわけにはいかない。」[p]
+[show name="enchouNormal"]
+#enchouNormal
+「ぐぐぐ、分かった、お前たちは十分強い！」[p]
 
 [show name="tokage"]
 #tokage
-「要するに戦うしかないってことだろ？じゃあさっさとやろうぜ！」[p]
+「だから大丈夫だって言ってるのに・・・。」[p]
 
-[hide name="kame"]
 [show name="momonga"]
 #momonga
-「うぅ、戦うしかないんですね。」[p]
+「園長さん、ボロボロですけど大丈夫ですか？」[p]
+
+#enchouNormal
+「ふぉっふぉっふぉ、このくらいなら問題ないわい。」[p]
 
 [hide name="tokage"]
+[hide name="momonga"]
+
 [show name="dachou"]
 #dachou
-「はぁ、めんどくさいわねぇ・・。」[p]
+「いったい何もんだよこいつ、私ら結構本気だったんだけど・・・。」[p]
 
+#enchouNormal
+「このくらいできないと園長なんか勤まらんわい！」[p]
+
+[show name="kame"]
+#kame
+「さすが園長ね～」[p]
+
+#enchouNormal
+「さて、お前らの技量もよくわかった、さぁ今度こそ姫を助け出してくるのだ！」[p]
+
+[hide name="kame"]
+[hide name="dachou"]
+[hide name="enchouNormal"]
 #
-全員が戦闘態勢になる[p]
+こうして勇者4人は森へと旅立っていった。[p]
+#
+ [r]
 
-;チンパンの姿が動物へと変わる
-;[show name="cinpanFight"]
-
-#cinpanNormal
-「さぁいくぞ！」[p]
+[hidemessage]
 
 [wait time=2]
-[scene file="Battle" ]
+[scene file="StageSerect" ]
 
 *click_system_button
 [wait time=2]
-[scene file="Battle" ]
+[scene file="StageSerect" ]
 [evt_stop]

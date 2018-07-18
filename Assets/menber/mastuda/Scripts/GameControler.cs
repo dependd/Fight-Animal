@@ -135,7 +135,7 @@ public class GameControler : MonoBehaviour{
         text = GameObject.Find("ScenarioText");
         scenarioText = text.GetComponent<ScenarioText>();
         //ScenarioCharaのScenarioCharaスクリプトを取得
-        chara = GameObject.Find("ScinarioChara");
+        chara = GameObject.Find("Image");
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
         audioSource = GetComponent<AudioSource>();

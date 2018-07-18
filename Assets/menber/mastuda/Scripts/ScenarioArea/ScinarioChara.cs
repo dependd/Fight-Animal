@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScinarioChara : MonoBehaviour {
-    
+
+    Image image;
     SpriteRenderer mainSpriteRenderer;
     public Sprite datyo;
     public Sprite tokage;
@@ -11,7 +13,8 @@ public class ScinarioChara : MonoBehaviour {
     public Sprite kame;
     // Use this for initialization
     void Start() {
-        mainSpriteRenderer = this.GetComponent<SpriteRenderer>();
+        image = this.GetComponent<Image>();
+        //mainSpriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
     public void PopUpChara(string name)
@@ -20,16 +23,24 @@ public class ScinarioChara : MonoBehaviour {
         switch (charaName)
         {
             case "datyo":
-                mainSpriteRenderer.sprite = datyo;
+                image.color = new Color(1, 1, 1, 1);
+                image.sprite = datyo;
+                //mainSpriteRenderer.sprite = datyo;
                 break;
             case "tokage":
-                mainSpriteRenderer.sprite = tokage;
+                image.color = new Color(1, 1, 1, 1);
+                image.sprite = tokage;
+                //mainSpriteRenderer.sprite = tokage;
                 break;
             case "momonga":
-                mainSpriteRenderer.sprite = momonga;
+                image.color = new Color(1, 1, 1, 1);
+                image.sprite = momonga;
+                //mainSpriteRenderer.sprite = momonga;
                 break;
             case "kame":
-                mainSpriteRenderer.sprite = kame;
+                image.color = new Color(1, 1, 1, 1);
+                image.sprite = kame;
+                //mainSpriteRenderer.sprite = kame;
                 break;
         }
     }

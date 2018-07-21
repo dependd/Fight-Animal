@@ -143,7 +143,7 @@ public class GameControler : MonoBehaviour{
     void Update(){
 
         //Touch myTouch = Input.GetTouch(0);
-        /*
+        
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
         for (int i = 0; i < Input.touchCount; i++){
@@ -152,8 +152,8 @@ public class GameControler : MonoBehaviour{
                 InputNoteObject();
             }
             
-            Vector2 ray = Input.touches[i].position;*/
-        //クリックの取得
+            Vector3 ray = Camera.main.WorldToScreenPoint(Input.touches[i].position);
+        /*クリックの取得
         if (Input.GetMouseButtonDown(0)) {
             //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
             if (enemyNoteParent.childCount > 0)
@@ -162,6 +162,7 @@ public class GameControler : MonoBehaviour{
             }
             //クリック位置をワールド座標に変換
             Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            */
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1){

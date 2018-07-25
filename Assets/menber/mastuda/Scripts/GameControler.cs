@@ -146,14 +146,18 @@ public class GameControler : MonoBehaviour{
         
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
-        for (int i = 0; i < Input.touchCount; i++){
+        for (int i = 0; i < Input.touchCount; i++)
+        {
             //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
-            if (enemyNoteParent.childCount > 0){
+            if (enemyNoteParent.childCount > 0)
+            {
                 InputNoteObject();
             }
-            
+
             Vector3 ray = Camera.main.WorldToScreenPoint(Input.touches[i].position);
-        /*クリックの取得
+        
+        /*
+        //クリックの取得
         if (Input.GetMouseButtonDown(0)) {
             //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
             if (enemyNoteParent.childCount > 0)

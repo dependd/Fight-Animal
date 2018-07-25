@@ -10,7 +10,7 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     public void OnPointerDown(PointerEventData eventData)
     {
         //マウスクリック時
-        NewTapEffect(eventData.position);
+        //NewTapEffect(eventData.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)

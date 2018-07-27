@@ -155,8 +155,8 @@ public class GameControler : MonoBehaviour{
             }
 
             Vector3 ray = Camera.main.WorldToScreenPoint(Input.touches[i].position);
+        }
         
-        /*
         //クリックの取得
         if (Input.GetMouseButtonDown(0)) {
             //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
@@ -166,7 +166,7 @@ public class GameControler : MonoBehaviour{
             }
             //クリック位置をワールド座標に変換
             Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            */
+            
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1){

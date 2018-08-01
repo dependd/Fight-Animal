@@ -1,7 +1,7 @@
 ﻿;戦えアニマル＿対話２
 ;ステージ初期化
 ;背景定義
-[bg_new name=tree storage="bg"]
+[bg_new name=tree storage="bg" z=0]
 [bg_show name=tree ]
 ;キャラクター定義
 [chara_new name=kame storage=kame scale="0.6" x=4 y=-2 jname=カメ jcolor="#337799" ]

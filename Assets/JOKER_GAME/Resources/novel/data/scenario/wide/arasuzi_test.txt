@@ -24,7 +24,7 @@
 [return]
 
 ;背景の定義
-[bg_new storage="zoo"]
+[bg_new storage="zoo" z=0]
 ;背景の表示
 [bg_show ]
 

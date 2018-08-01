@@ -1,7 +1,7 @@
 ﻿;序章
 ;ステージ初期化
 ;背景定義
-[bg_new name=zoo storage="zoo"]
+[bg_new name=zoo storage="zoo" z=0]
 [bg_show name=zoo ]
 ;キャラクター定義
 [chara_new name=kame storage=kame scale="0.6" x=-4 y=-2 jname=カメ jcolor="#337799" ]

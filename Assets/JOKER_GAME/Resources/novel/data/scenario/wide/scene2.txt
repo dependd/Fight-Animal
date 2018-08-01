@@ -2,7 +2,7 @@
 
 
 ;背景定義
-[bg_new name=zoo storage="zoo"]
+[bg_new name=zoo storage="zoo" z=0]
 [bg_show name=zoo ]
 
 ;ボタンの定義

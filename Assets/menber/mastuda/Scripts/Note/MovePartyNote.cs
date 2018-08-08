@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MovePartyNote : MonoBehaviour {
 
+    SpriteRenderer spriteRenderer;
+    [SerializeField]
+    Sprite lightImages;
+    [SerializeField]
+    Sprite noteImage;
     //ノーツのスピードを入れる変数
     [HideInInspector]
     public float noteSpeed;
@@ -21,6 +26,7 @@ public class MovePartyNote : MonoBehaviour {
         charastatus = Gamecontroler.GetComponent<Charastatus>();
         noteSpeed = NoteSpeeds();
         gameControler = Gamecontroler.GetComponent<GameControler>();
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void FixedUpdate(){
@@ -38,7 +44,9 @@ public class MovePartyNote : MonoBehaviour {
         //違うなら判定ラインをtrueに
         else {
             CheckLine(objectName, true);
+            spriteRenderer.sprite = lightImages;
         }
+
         
     }
     //collisionから出たら
@@ -47,6 +55,7 @@ public class MovePartyNote : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy") return;
         //判定ラインをfalseに
         CheckLine(objectName, false);
+        spriteRenderer.sprite = noteImage;
     }
 
     //noteのスピードを変える変数

@@ -118,8 +118,6 @@ public class note : MonoBehaviour {
     public GameObject ClonePartyNote(string name, float i, float j){
         notes = (GameObject)Resources.Load("Prefabs/Note/" + name + "Note");
         notes = Instantiate(notes, new Vector3(i, j, 0), Quaternion.identity);
-        //MoveNoteのスクリプトを持たせる
-        notes.AddComponent<MovePartyNote>();
         notes.transform.parent = partyNote.transform;
         //名前をenemyNote"数字"に変更する
         var noteName = name + "note";
@@ -130,8 +128,6 @@ public class note : MonoBehaviour {
     public GameObject CloneDeadlyPartyNote(string name,float i, float j){
         deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
-        //MoveNoteのスクリプトを持たせる
-        deadlyNote.AddComponent<MovePartyNote>();
         deadlyNote.transform.parent = partyNote.transform;
         //名前をenemyNote"数字"に変更する
         var noteName = name + "deadlyNote";

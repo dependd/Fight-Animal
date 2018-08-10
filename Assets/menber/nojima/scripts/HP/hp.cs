@@ -43,12 +43,12 @@ public class hp : MonoBehaviour
         }
         if (enemyhp <= 0)
         {
-            if(Singleton.Instance.ButtonFlag[1] == 1)
+            if(Singleton.Instance.ButtonFlag[2] == 1)
             {
-                SceneManager.LoadScene("Win2");
-            }else if(Singleton.Instance.ButtonFlag[2] == 1 ){
-
                 SceneManager.LoadScene("Win3");
+            }else if(Singleton.Instance.ButtonFlag[1] == 1){
+
+                SceneManager.LoadScene("Win2");
             }
             else
             {

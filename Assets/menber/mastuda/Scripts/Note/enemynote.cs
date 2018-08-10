@@ -94,8 +94,6 @@ public class enemynote : MonoBehaviour{
             note = (GameObject)Resources.Load("Prefabs/Note/EntyoNote");
             note = Instantiate(note, new Vector3(i, j, 0), Quaternion.identity);
         }
-        //MoveNoteのスクリプトを持たせる
-        note.AddComponent<MoveEnemyNote>();
         note.transform.parent = enemyNote.transform;
         //名前をenemyNote"数字"に変更する
         var noteName = "enemyNote" + name;

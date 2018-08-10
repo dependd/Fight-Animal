@@ -38,11 +38,14 @@ public class menu : MonoBehaviour {
             menuScreen.SetActive(false);
         }
     }
-    public void Retrun() {
+
+    public void RetrunStart()
+    {
+
+        Time.timeScale = 1;
         SceneManager.LoadScene("start");
+
     }
-
-
 
 
 }

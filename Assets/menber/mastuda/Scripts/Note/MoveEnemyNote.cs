@@ -8,6 +8,12 @@ public class MoveEnemyNote : MonoBehaviour {
     GameObject tinpan;
     CharaAnimation animation;
 
+    SpriteRenderer spriteRenderer;
+    [SerializeField]
+    Sprite lightImages;
+    [SerializeField]
+    Sprite noteImage;
+
     float noteSpeed;
     public float lengeMAX = -0.15f;
     public float lengeMIN = -0.05f;
@@ -22,6 +28,7 @@ public class MoveEnemyNote : MonoBehaviour {
         gameControler = GameControler.GetComponent<GameControler>();
         tinpan = GameObject.Find("tinpan");
         animation = tinpan.GetComponent<CharaAnimation>();
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void FixedUpdate () {
@@ -49,6 +56,7 @@ public class MoveEnemyNote : MonoBehaviour {
         else
         {
             CheckEnemyLine(objName, true);
+            spriteRenderer.sprite = lightImages;
         }
     }
     //collisionから出たら
@@ -57,6 +65,7 @@ public class MoveEnemyNote : MonoBehaviour {
         if (collision.gameObject.tag == "Party") return;
         //判定ラインをfalseに
         CheckEnemyLine(objName, false);
+        spriteRenderer.sprite = noteImage;
     }
     //noteごとに判定ラインをtrueかfalseにする関数
     private void CheckEnemyLine(string line,bool check)

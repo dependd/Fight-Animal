@@ -357,7 +357,23 @@ public class GameControler : MonoBehaviour{
         } else {
             scenarioText.ChengeScenarioText("防御失敗");
         }
-        hp.DownPartyHp(i, CharaStatus.tinpan.OffensivePower);
+        int attaskPower = 0;
+        switch (BattleManager.Instance.nowBattleScene)
+        {
+            case 0:
+                attaskPower = CharaStatus.tinpan.OffensivePower;
+                break;
+            case 1:
+                attaskPower = CharaStatus.tinpan.OffensivePower;
+                break;
+            case 2:
+                attaskPower = CharaStatus.encho.OffensivePower;
+                break;
+            default:
+                break;
+                
+        }
+        hp.DownPartyHp(i, attaskPower);
     }
     //勇者が攻撃する関数
     private void AttackAnimal(string animalName,GameObject notes,bool hantei,int power,bool deadly){

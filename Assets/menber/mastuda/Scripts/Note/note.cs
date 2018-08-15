@@ -43,6 +43,13 @@ public class note : MonoBehaviour {
     GameObject GameControler;
     Charastatus CharaStatus;
     MovePartyNote MovePartyNote;
+    //NoteFrequencyスクリプトに参照するための変数
+    NoteFrequency noteFrequency;
+    //ノーツ作成のフラグ
+    [HideInInspector]public bool datyoNote = true;
+    [HideInInspector]public bool tokageNote  = true;
+    [HideInInspector]public bool momongaNote = true;
+    [HideInInspector]public bool kameNote = true;
     // Use this for initialization
     void Start () {
         partyNote = GameObject.Find("PartyNote");
@@ -50,34 +57,39 @@ public class note : MonoBehaviour {
         //GameControlerのCharaStatusスクリプトを取得
         GameControler = GameObject.Find("GameControler");
         CharaStatus = GameControler.GetComponent<Charastatus>();
+        noteFrequency = GetComponent<NoteFrequency>();
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         //値によってランダムなnoteを戻らせる条件
-        random = RandomRange();
+        //random = RandomRange();
         if (GameObject.Find("datyonote") == false){
-            if (random > 28000 && random <= 29000 && deadlyNote1 == null){
+            if (/*random > 28000 && random <= 29000 && deadlyNote1 == null*/datyoNote){
                 note1 = ClonePartyNote("datyo", -2.8f, 3);
                 note1Speed = (float)CharaStatus.momonga.NoteSpeed;
+                datyoNote = false;
             }
         }
         if (GameObject.Find("tokagenote") == false){
-            if (random > 49000 && random <= 50000 && deadlyNote2 == null){
+            if (/*random > 49000 && random <= 50000 && deadlyNote2 == null*/tokageNote){
                 note2 = ClonePartyNote("tokage",-2.8f, 1.46f);
                 note2Speed = (float)CharaStatus.tokage.NoteSpeed;
+                tokageNote = false;
             }
         }
         if (GameObject.Find("momonganote") == false){
-            if (random > 70000 && random <= 71000 && deadlyNote3 == null){
+            if (/*random > 70000 && random <= 71000 && deadlyNote3 == null*/momongaNote){
                 note3 = ClonePartyNote("momonga", -2.8f, 0);
                 note3Speed = (float)CharaStatus.datyo.NoteSpeed;
+                momongaNote = false;
             }
         }
         if (GameObject.Find("kamenote") == false){
-            if (random > 91000 && random <= 93000 && deadlyNote4 == null){
+            if (/*random > 91000 && random <= 93000 && deadlyNote4 == null*/kameNote){
                 note4 = ClonePartyNote("kame", -2.8f, -1.65f);
                 note4Speed = (float)CharaStatus.kame.NoteSpeed;
+                kameNote = false;
             }
         }
         if (GameObject.Find("datyodeadlyNote") == false){

@@ -19,6 +19,9 @@ public class MovePartyNote : MonoBehaviour {
     GameObject Gamecontroler;
     GameControler gameControler;
     Charastatus charastatus;
+    //NoteFrequencyスクリプトに参照する
+    GameObject note;
+    NoteFrequency noteFrequency;
     
     private void Start(){
         objectName = this.gameObject.name;
@@ -27,6 +30,8 @@ public class MovePartyNote : MonoBehaviour {
         noteSpeed = NoteSpeeds();
         gameControler = Gamecontroler.GetComponent<GameControler>();
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        note = GameObject.Find("PartyNote");
+        noteFrequency = note.GetComponent<NoteFrequency>();
     }
     // Update is called once per frame
     void FixedUpdate(){
@@ -40,6 +45,7 @@ public class MovePartyNote : MonoBehaviour {
         //オブジェクトのtagがEndならnoteの削除
         if (collision.gameObject.tag == "End"){
             Destroy(this.gameObject);
+            noteFrequency.NoteCreateFrequency(objectName);
         }
         //違うなら判定ラインをtrueに
         else {

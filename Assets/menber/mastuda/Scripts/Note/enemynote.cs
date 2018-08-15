@@ -24,6 +24,17 @@ public class enemynote : MonoBehaviour{
     //GameControlerスクリプトに参照するための変数
     GameObject GameControler;
     GameControler GameControlers;
+
+    //NoteFrequencyスクリプトに参照するための変数
+    GameObject partyNote;
+    NoteFrequency noteFrequency;
+    //ノーツ作成のフラグ
+    [HideInInspector]
+    public bool enemyNote1 = true;
+    [HideInInspector]
+    public bool enemyNote2 = true;
+    [HideInInspector]
+    public bool enemyNote3 = true;
     // Use this for initialization
     void Start(){
         enemyNote = GameObject.Find("EnemyNote");
@@ -34,6 +45,8 @@ public class enemynote : MonoBehaviour{
 
         GameControler = GameObject.Find("GameControler");
         GameControlers = GameControler.GetComponent<GameControler>();
+        partyNote = GameObject.Find("PartyNote");
+        noteFrequency = partyNote.GetComponent<NoteFrequency>();
     }
 
     // Update is called once per frame
@@ -41,30 +54,28 @@ public class enemynote : MonoBehaviour{
 
 
         //値によってランダムなnoteを戻らせる条件
-        random = RandomRange();
+        //random = RandomRange();
         if (GameObject.Find("enemyNote1") == false){
-            if (random >= 4800 && random <= 4850){
+            if (/*random >= 4800 && random <= 4850*/enemyNote1){
                 note1 = CloneEnemyNote("1", 2.8f, 2.2f);
                 note1st = true;
+                enemyNote1 = false;
             }
         }
         if (GameObject.Find("enemyNote2") == false){
-            if (random > 4950 && random <= 5000){
+            if (/*random > 4950 && random <= 5000*/enemyNote2){
                 note2 = CloneEnemyNote("2",2.8f,0.68f);
                 note2nd = true;
+                enemyNote2 = false;
             }
         }
         if (GameObject.Find("enemyNote3") == false){
-            if (random > 5000 && random <= 5050){
+            if (/*random > 5000 && random <= 5050*/enemyNote3){
                 note3 = CloneEnemyNote("3",2.8f,-0.85f);
                 note3rd = true;
+                enemyNote3 = false;
             }
         }
-    }
-    //noteのスピードを変える変数
-    private float NoteSpeeds(){
-        float noteSpeed = Random.Range(-0.05f, -0.15f);
-        return noteSpeed;
     }
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){

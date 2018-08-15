@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class note : MonoBehaviour {
     int random;
-    [HideInInspector]
-    public int randomMAX = 100000;
     //Sprite
     [SerializeField]
     Sprite datyoSprite;
@@ -64,34 +62,66 @@ public class note : MonoBehaviour {
 	void FixedUpdate () {
         //値によってランダムなnoteを戻らせる条件
         //random = RandomRange();
-        if (GameObject.Find("datyonote") == false){
+        //if (GameObject.Find("datyonote") == false){
             if (/*random > 28000 && random <= 29000 && deadlyNote1 == null*/datyoNote){
-                note1 = ClonePartyNote("datyo", -2.8f, 3);
-                note1Speed = (float)CharaStatus.momonga.NoteSpeed;
-                datyoNote = false;
+                int rnd = RandomRange();
+                if (rnd != 4){
+                    note1 = ClonePartyNote("datyo", -2.8f, 3);
+                    note1Speed = (float)CharaStatus.momonga.NoteSpeed;
+                    datyoNote = false;
+                }
+                else{
+                    deadlyNote1 = CloneDeadlyPartyNote("datyo", -2.8f, 3);
+                    deadlyNote1Speed = (float)CharaStatus.momonga.DeadlyNoteSpeed;
+                    datyoNote = false;
+                }
             }
-        }
-        if (GameObject.Find("tokagenote") == false){
+        
+        //if (GameObject.Find("tokagenote") == false){
             if (/*random > 49000 && random <= 50000 && deadlyNote2 == null*/tokageNote){
-                note2 = ClonePartyNote("tokage",-2.8f, 1.46f);
-                note2Speed = (float)CharaStatus.tokage.NoteSpeed;
-                tokageNote = false;
+                int rnd = RandomRange();
+                if (rnd != 4){
+                    note2 = ClonePartyNote("tokage", -2.8f, 1.51f);
+                    note2Speed = (float)CharaStatus.tokage.NoteSpeed;
+                    tokageNote = false;
+                }
+                else{
+                    deadlyNote2 = CloneDeadlyPartyNote("tokage", -2.8f, 1.46f);
+                    deadlyNote2Speed = (float)CharaStatus.tokage.DeadlyNoteSpeed;
+                    tokageNote = false;
+                }
             }
-        }
-        if (GameObject.Find("momonganote") == false){
+        
+        //if (GameObject.Find("momonganote") == false){
             if (/*random > 70000 && random <= 71000 && deadlyNote3 == null*/momongaNote){
-                note3 = ClonePartyNote("momonga", -2.8f, 0);
-                note3Speed = (float)CharaStatus.datyo.NoteSpeed;
-                momongaNote = false;
+                int rnd = RandomRange();
+                if (rnd != 4){
+                    note3 = ClonePartyNote("momonga", -2.8f, 0);
+                    note3Speed = (float)CharaStatus.datyo.NoteSpeed;
+                    momongaNote = false;
+                }
+                else{
+                    deadlyNote3 = CloneDeadlyPartyNote("momonga", -2.8f, 0);
+                    deadlyNote3Speed = (float)CharaStatus.datyo.DeadlyNoteSpeed;
+                    momongaNote = false;
+                }
             }
-        }
-        if (GameObject.Find("kamenote") == false){
+        
+        //if (GameObject.Find("kamenote") == false){
             if (/*random > 91000 && random <= 93000 && deadlyNote4 == null*/kameNote){
-                note4 = ClonePartyNote("kame", -2.8f, -1.65f);
-                note4Speed = (float)CharaStatus.kame.NoteSpeed;
-                kameNote = false;
+                int rnd = RandomRange();
+                if (rnd != 4){
+                    note4 = ClonePartyNote("kame", -2.8f, -1.65f);
+                    note4Speed = (float)CharaStatus.kame.NoteSpeed;
+                    kameNote = false;
+                }
+                else{
+                    deadlyNote4 = CloneDeadlyPartyNote("kame", -2.8f, -1.65f);
+                    deadlyNote4Speed = (float)CharaStatus.kame.DeadlyNoteSpeed;
+                    kameNote = false;
+                }
             }
-        }
+        /*
         if (GameObject.Find("datyodeadlyNote") == false){
             if (random >= 44000 && random <= 44500 && note1 == null){
                 deadlyNote1 = CloneDeadlyPartyNote("datyo", -2.8f, 3);
@@ -115,12 +145,12 @@ public class note : MonoBehaviour {
                 deadlyNote4 = CloneDeadlyPartyNote("kame", -2.8f, -1.65f);
                 deadlyNote4Speed = (float)CharaStatus.kame.DeadlyNoteSpeed;
             }
-        }
+        }*/
     }
     //noteが戻るためのランダムな値を出す関数
     private int RandomRange(){
         
-        int random = Random.Range(0, randomMAX);
+        int random = Random.Range(0, 5);
         return random;
     }
     //noteを削除する変数

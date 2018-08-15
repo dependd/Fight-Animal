@@ -49,8 +49,13 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         tutorialControler = GetComponent<TutorialControler>();
         serectCircle = SerectCircle.GetComponent<SerectCircle>();
         Description(flags);
-        note.randomMAX = 0 ;
-        enemynote.randomMAX = 0;
+        note.datyoNote = false;
+        note.tokageNote = false;
+        note.momongaNote = false;
+        note.kameNote = false;
+        enemynote.enemyNote1 = false;
+        enemynote.enemyNote2 = false;
+        enemynote.enemyNote3 = false;
         
     }
     private void Update()
@@ -133,8 +138,8 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
             case 1:
                 TouchFlag(false);
                 text.ChengeScenarioText("これが攻撃のボードです。");
-                notes = note.ClonePartyNote("tokage", -2.8f, 1.46f);
-                Invoke("StopNote", 0.5f);
+                notes = note.ClonePartyNote("tokage", -2.8f, 1.51f);
+                Invoke("StopNote", 0.6f);
                 serectCircle.TutorialSerectCircle(1.5f, 1.5f, -24, 114);
                 flags++;
                 break;
@@ -147,7 +152,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 TouchFlag(false);
                 text.ChengeScenarioText("重なったらここをタップ");
                 StopNote();
-                Invoke("StopNote", 0.75f);
+                Invoke("StopNote", 1f);
                 serectCircle.TutorialSerectCircle(3, 1.5f, 392, 120);
                 flags++;
                 break;
@@ -275,8 +280,13 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void ReStart()
     {
-        note.randomMAX = 250000;
-        enemynote.randomMAX = 25000;
+        note.datyoNote = true;
+        note.tokageNote = true;
+        note.momongaNote = true;
+        note.kameNote = true;
+        enemynote.enemyNote1 = true;
+        enemynote.enemyNote2 = true;
+        enemynote.enemyNote3 = true;
         text.ChengeScenarioText("");
     }
     private void TouchFlag(bool i)

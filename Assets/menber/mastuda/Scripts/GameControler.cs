@@ -383,23 +383,23 @@ public class GameControler : MonoBehaviour{
         } else {
             scenarioText.ChengeScenarioText("防御失敗");
         }
-        int attaskPower = 0;
+        int attakePower = 0;
         switch (BattleManager.Instance.nowBattleScene)
         {
             case 0:
-                attaskPower = CharaStatus.tinpan.OffensivePower;
+                attakePower = CharaStatus.tinpan.OffensivePower;
                 break;
             case 1:
-                attaskPower = CharaStatus.tinpan.OffensivePower;
+                attakePower = CharaStatus.tinpan.OffensivePower;
                 break;
             case 2:
-                attaskPower = CharaStatus.encho.OffensivePower;
+                attakePower = CharaStatus.encho.OffensivePower;
                 break;
             default:
                 break;
                 
         }
-        hp.DownPartyHp(i, attaskPower);
+        hp.DownPartyHp(i, attakePower);
     }
     //勇者が攻撃する関数
     private void AttackAnimal(string animalName,GameObject notes,bool hantei,int power,bool deadly){

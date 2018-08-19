@@ -10,7 +10,7 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     public void OnPointerDown(PointerEventData eventData)
     {
         //マウスクリック時
-        //NewTapEffect(eventData.position);
+        NewTapEffect(eventData.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -34,7 +34,9 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         {
             if (t.phase == TouchPhase.Began)
             {
-                NewTapEffect(t.position);
+
+                Vector3 ray = Camera.main.WorldToScreenPoint(t.position);
+                NewTapEffect(ray);
             }
         }
     }

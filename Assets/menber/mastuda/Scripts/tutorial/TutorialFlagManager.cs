@@ -282,13 +282,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void ReStart()
     {
-        note.datyoNote = true;
-        note.tokageNote = true;
-        note.momongaNote = true;
-        note.kameNote = true;
-        enemynote.enemyNote1 = true;
-        enemynote.enemyNote2 = true;
-        enemynote.enemyNote3 = true;
+    
         noteFrequency.GetComponent<NoteFrequency>().enabled = true;
         text.ChengeScenarioText("");
     }

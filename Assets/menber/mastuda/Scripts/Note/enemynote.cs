@@ -29,12 +29,12 @@ public class enemynote : MonoBehaviour{
     GameObject partyNote;
     NoteFrequency noteFrequency;
     //ノーツ作成のフラグ
-    [HideInInspector]
-    public bool enemyNote1 = true;
-    [HideInInspector]
-    public bool enemyNote2 = true;
-    [HideInInspector]
-    public bool enemyNote3 = true;
+    //[HideInInspector]
+    public bool enemyNote1;
+    //[HideInInspector]
+    public bool enemyNote2;
+    //[HideInInspector]
+    public bool enemyNote3;
     // Use this for initialization
     void Start(){
         enemyNote = GameObject.Find("EnemyNote");
@@ -57,21 +57,21 @@ public class enemynote : MonoBehaviour{
         //random = RandomRange();
         if (GameObject.Find("enemyNote1") == false){
             if (/*random >= 4800 && random <= 4850*/enemyNote1){
-                note1 = CloneEnemyNote("1", 2.8f, 2.2f);
+                note1 = CloneEnemyNote("1", 2.5f, 2.2f);
                 note1st = true;
                 enemyNote1 = false;
             }
         }
         if (GameObject.Find("enemyNote2") == false){
             if (/*random > 4950 && random <= 5000*/enemyNote2){
-                note2 = CloneEnemyNote("2",2.8f,0.68f);
+                note2 = CloneEnemyNote("2",2.5f,0.68f);
                 note2nd = true;
                 enemyNote2 = false;
             }
         }
         if (GameObject.Find("enemyNote3") == false){
             if (/*random > 5000 && random <= 5050*/enemyNote3){
-                note3 = CloneEnemyNote("3",2.8f,-0.85f);
+                note3 = CloneEnemyNote("3",2.5f,-0.85f);
                 note3rd = true;
                 enemyNote3 = false;
             }

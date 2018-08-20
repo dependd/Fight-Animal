@@ -44,10 +44,14 @@ public class note : MonoBehaviour {
     //NoteFrequencyスクリプトに参照するための変数
     NoteFrequency noteFrequency;
     //ノーツ作成のフラグ
-    [HideInInspector]public bool datyoNote = true;
-    [HideInInspector]public bool tokageNote  = true;
-    [HideInInspector]public bool momongaNote = true;
-    [HideInInspector]public bool kameNote = true;
+    //[HideInInspector]
+    public bool datyoNote;
+    //[HideInInspector]
+    public bool tokageNote;
+    //[HideInInspector]
+    public bool momongaNote;
+    //[HideInInspector]
+    public bool kameNote;
     // Use this for initialization
     void Start () {
         partyNote = GameObject.Find("PartyNote");
@@ -66,12 +70,12 @@ public class note : MonoBehaviour {
             if (/*random > 28000 && random <= 29000 && deadlyNote1 == null*/datyoNote){
                 int rnd = RandomRange();
                 if (rnd != 4){
-                    note1 = ClonePartyNote("datyo", -2.8f, 3);
+                    note1 = ClonePartyNote("datyo", -2.5f, 3);
                     note1Speed = (float)CharaStatus.momonga.NoteSpeed;
                     datyoNote = false;
                 }
                 else{
-                    deadlyNote1 = CloneDeadlyPartyNote("datyo", -2.8f, 3);
+                    deadlyNote1 = CloneDeadlyPartyNote("datyo", -2.5f, 3);
                     deadlyNote1Speed = (float)CharaStatus.momonga.DeadlyNoteSpeed;
                     datyoNote = false;
                 }
@@ -81,12 +85,12 @@ public class note : MonoBehaviour {
             if (/*random > 49000 && random <= 50000 && deadlyNote2 == null*/tokageNote){
                 int rnd = RandomRange();
                 if (rnd != 4){
-                    note2 = ClonePartyNote("tokage", -2.8f, 1.51f);
+                    note2 = ClonePartyNote("tokage", -2.5f, 1.51f);
                     note2Speed = (float)CharaStatus.tokage.NoteSpeed;
                     tokageNote = false;
                 }
                 else{
-                    deadlyNote2 = CloneDeadlyPartyNote("tokage", -2.8f, 1.46f);
+                    deadlyNote2 = CloneDeadlyPartyNote("tokage", -2.5f, 1.46f);
                     deadlyNote2Speed = (float)CharaStatus.tokage.DeadlyNoteSpeed;
                     tokageNote = false;
                 }
@@ -96,12 +100,12 @@ public class note : MonoBehaviour {
             if (/*random > 70000 && random <= 71000 && deadlyNote3 == null*/momongaNote){
                 int rnd = RandomRange();
                 if (rnd != 4){
-                    note3 = ClonePartyNote("momonga", -2.8f, 0);
+                    note3 = ClonePartyNote("momonga", -2.5f, 0);
                     note3Speed = (float)CharaStatus.datyo.NoteSpeed;
                     momongaNote = false;
                 }
                 else{
-                    deadlyNote3 = CloneDeadlyPartyNote("momonga", -2.8f, 0);
+                    deadlyNote3 = CloneDeadlyPartyNote("momonga", -2.5f, 0);
                     deadlyNote3Speed = (float)CharaStatus.datyo.DeadlyNoteSpeed;
                     momongaNote = false;
                 }
@@ -111,12 +115,12 @@ public class note : MonoBehaviour {
             if (/*random > 91000 && random <= 93000 && deadlyNote4 == null*/kameNote){
                 int rnd = RandomRange();
                 if (rnd != 4){
-                    note4 = ClonePartyNote("kame", -2.8f, -1.65f);
+                    note4 = ClonePartyNote("kame", -2.5f, -1.65f);
                     note4Speed = (float)CharaStatus.kame.NoteSpeed;
                     kameNote = false;
                 }
                 else{
-                    deadlyNote4 = CloneDeadlyPartyNote("kame", -2.8f, -1.65f);
+                    deadlyNote4 = CloneDeadlyPartyNote("kame", -2.5f, -1.65f);
                     deadlyNote4Speed = (float)CharaStatus.kame.DeadlyNoteSpeed;
                     kameNote = false;
                 }

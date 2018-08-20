@@ -8,7 +8,6 @@ public class CountDown : MonoBehaviour {
 
     [SerializeField]
     private Text _textCountdown;
-
     private void Start()
     {
 
@@ -42,5 +41,6 @@ public class CountDown : MonoBehaviour {
         {
             notes[i].SetActive(true);
         }
+        
     }
 }

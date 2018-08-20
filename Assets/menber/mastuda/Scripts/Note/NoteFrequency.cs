@@ -26,6 +26,8 @@ public class NoteFrequency : MonoBehaviour {
     float enemy3Time = 9999;
     //最大何秒でノーツを出すか
     int maxRenge;
+    //頻度を変更するための
+    int maxFrequency;
 
 
     // Use this for initialization
@@ -35,13 +37,23 @@ public class NoteFrequency : MonoBehaviour {
         enemynote = enemyNote.GetComponent<enemynote>();
         if (BattleManager.Instance.nowBattleScene == 0){
             maxRenge = 5;
+            maxFrequency = 300;
         } else if (BattleManager.Instance.nowBattleScene == 1){
             maxRenge = 3;
+            maxFrequency = 180;
         }else if(BattleManager.Instance.nowBattleScene == 2)
         {
             maxRenge = 2;
+            maxFrequency = 120;
         }
-	}
+        NoteCreateFrequency("tokagenote");
+        NoteCreateFrequency("datyonote");
+        NoteCreateFrequency("kamenote");
+        NoteCreateFrequency("momonganote");
+        NoteCreateFrequency("enemyNote1");
+        NoteCreateFrequency("enemyNote2");
+        NoteCreateFrequency("enemyNote3");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -205,7 +217,7 @@ public class NoteFrequency : MonoBehaviour {
     private int RandomRange()
     {
 
-        int random = Random.Range(0, 180);
+        int random = Random.Range(0, maxFrequency);
         return random;
     }
 }

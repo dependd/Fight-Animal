@@ -23,6 +23,8 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     GameObject SerectCircle;
     [SerializeField]
     SerectCircle serectCircle;
+    [SerializeField]
+    NoteFrequency noteFrequency;    
 
     public enum Flag
     {
@@ -287,6 +289,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         enemynote.enemyNote1 = true;
         enemynote.enemyNote2 = true;
         enemynote.enemyNote3 = true;
+        noteFrequency.GetComponent<NoteFrequency>().enabled = true;
         text.ChengeScenarioText("");
     }
     private void TouchFlag(bool i)

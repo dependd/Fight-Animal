@@ -197,6 +197,26 @@ public class NoteFrequency : MonoBehaviour {
                 kameTime = elapsedTime;
                 kameTime += maxRenge;
                 break;
+            case "datyodeadlyNote":
+                datyo = true;
+                datyoTime = elapsedTime;
+                datyoTime += maxRenge;
+                break;
+            case "momongadeadlyNote":
+                momonga = true;
+                momongaTime = elapsedTime;
+                momongaTime += maxRenge;
+                break;
+            case "kamedeadlyNote":
+                kame = true;
+                kameTime = elapsedTime;
+                kameTime += maxRenge;
+                break;
+            case "tokagedeadlyNote":
+                tokage = true;
+                tokageTime = elapsedTime;
+                tokageTime += maxRenge;
+                break;
             case "enemyNote1":
                 enemy1 = true;
                 enemy1Time = elapsedTime;

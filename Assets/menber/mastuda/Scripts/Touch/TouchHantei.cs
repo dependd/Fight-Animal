@@ -6,7 +6,9 @@ public class TouchHantei : MonoBehaviour {
     [SerializeField]
     GameControler gameControler;
     //ノーツの親オブジェクトを入れる変数
+    [SerializeField]
     Transform partyNoteParent;
+    [SerializeField]
     Transform enemyNoteParent;
     //ノーツのゲームオブジェクトを入れる変数
     [HideInInspector]
@@ -31,7 +33,6 @@ public class TouchHantei : MonoBehaviour {
     public GameObject deadlyNote3;
     [HideInInspector]
     public GameObject deadlyNote4;
-    [HideInInspector]
     //hpスクリプトに参照するための変数
     GameObject notes;
     hp hp;
@@ -110,12 +111,17 @@ public class TouchHantei : MonoBehaviour {
     //NoteFrequencyスクリプトに参照する
     NoteFrequency noteFrequency;
 
+
+    [SerializeField]
+    GameObject countDownText;
+    [SerializeField]
+    CountDown countDown;
     // Use this for initialization
     void Start () {
         gameControler = GetComponent<GameControler>();
 
-        partyNoteParent = GameObject.Find("PartyNote").transform;
-        enemyNoteParent = GameObject.Find("EnemyNote").transform;
+        //partyNoteParent = GameObject.Find("PartyNote").transform;
+        //enemyNoteParent = GameObject.Find("EnemyNote").transform;
         //それぞれの変数にオブジェクトを格納する
         //enemySliderのhpスクリプトを取得
         notes = GameObject.Find("enemySlider");
@@ -138,6 +144,9 @@ public class TouchHantei : MonoBehaviour {
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
         audioSource = GetComponent<AudioSource>();
+        if (BattleManager.Instance.nowBattleScene == 0) return;
+        countDown = countDownText.GetComponent<CountDown>();
+        StartCoroutine(countDown.CountdownCoroutine());
     }
 
     // Update is called once per frame

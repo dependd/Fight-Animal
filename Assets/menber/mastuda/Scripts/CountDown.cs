@@ -12,7 +12,7 @@ public class CountDown : MonoBehaviour {
     {
 
         //カウントダウンの関数
-        StartCoroutine(CountdownCoroutine());
+       // StartCoroutine(CountdownCoroutine());
     }
 
     public IEnumerator CountdownCoroutine()

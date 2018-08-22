@@ -21,7 +21,7 @@
 [wait time=2]
 ;ボタンの定義
 [showmessage]
-[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.3 sort=5 layer=ui storage="Animal_battle" ]
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 

@@ -114,6 +114,8 @@ public class GameControler : MonoBehaviour{
     public bool tokageLine = false;
     public bool momongaLine = false ;
     public bool kameLine = false;
+    //TouchHanteiスクリプトに参照する
+    TouchHantei touchHantei;
 
     void Awake(){
 
@@ -130,6 +132,8 @@ public class GameControler : MonoBehaviour{
         note = partyNote.GetComponent<note>();
         //Frequencyスクリプト取得
         noteFrequency = partyNote.GetComponent<NoteFrequency>();
+        //TouchHanteiスクリプト取得
+        touchHantei = GetComponent<TouchHantei>();
         //enemyNoteのenemynoteスクリプトを取得
         enemyNote = GameObject.Find("EnemyNote");
         enemynote = enemyNote.GetComponent<enemynote>();
@@ -143,7 +147,7 @@ public class GameControler : MonoBehaviour{
         audioSource = GetComponent<AudioSource>();
         
     }
-
+    /*
     void Update(){
 
         //Touch myTouch = Input.GetTouch(0);
@@ -372,7 +376,7 @@ public class GameControler : MonoBehaviour{
             }
         }
     }
-    
+    */
     //enemyNoteをタップしたときの軽減があるかどうかの判定をする関数
     public void DamageCut(GameObject notes,bool i){
         //ノーツの削除
@@ -402,7 +406,7 @@ public class GameControler : MonoBehaviour{
         hp.DownPartyHp(i, attakePower);
     }
     //勇者が攻撃する関数
-    private void AttackAnimal(string animalName,GameObject notes,bool hantei,int power,bool deadly){
+    public void AttackAnimal(string animalName,GameObject notes,bool hantei,int power,bool deadly){
         Destroy(notes);
         //攻撃成功かどうかの判定
         if(hantei == true){
@@ -429,39 +433,39 @@ public class GameControler : MonoBehaviour{
         kameAnimation.DefenceAnimation();
     }
     //ノーツを探し、格納する
-    private void InputNoteObject(){
+    public void InputNoteObject(){
         if (GameObject.Find("datyonote") == true){
-            note1 = GameObject.Find("datyonote");
+            touchHantei.note1 = GameObject.Find("datyonote");
         }
         if (GameObject.Find("tokagenote") == true){
-            note2 = GameObject.Find("tokagenote");
+            touchHantei.note2 = GameObject.Find("tokagenote");
         }
         if (GameObject.Find("momonganote") == true){
-            note3 = GameObject.Find("momonganote");
+            touchHantei.note3 = GameObject.Find("momonganote");
         }
         if (GameObject.Find("kamenote") == true){
-            note4 = GameObject.Find("kamenote");
+            touchHantei.note4 = GameObject.Find("kamenote");
         }
         if (GameObject.Find("enemyNote1") == true){
-            enemyNote1 = GameObject.Find("enemyNote1");
+            touchHantei.enemyNote1 = GameObject.Find("enemyNote1");
         }
         if (GameObject.Find("enemyNote2") == true){
-            enemyNote2 = GameObject.Find("enemyNote2");
+            touchHantei.enemyNote2 = GameObject.Find("enemyNote2");
         }
         if (GameObject.Find("enemyNote3") == true){
-            enemyNote3 = GameObject.Find("enemyNote3");
+            touchHantei.enemyNote3 = GameObject.Find("enemyNote3");
         }
         if (GameObject.Find("datyodeadlyNote") == true){
-            deadlyNote1 = GameObject.Find("datyodeadlyNote");
+            touchHantei.deadlyNote1 = GameObject.Find("datyodeadlyNote");
         }
         if (GameObject.Find("tokagedeadlyNote") == true){
-            deadlyNote2 = GameObject.Find("tokagedeadlyNote");
+            touchHantei.deadlyNote2 = GameObject.Find("tokagedeadlyNote");
         }
         if (GameObject.Find("momongadeadlyNote") == true){
-            deadlyNote3 = GameObject.Find("momongadeadlyNote");
+            touchHantei.deadlyNote3 = GameObject.Find("momongadeadlyNote");
         }
         if (GameObject.Find("kamedeadlyNote") == true){
-            deadlyNote4 = GameObject.Find("kamedeadlyNote");
+            touchHantei.deadlyNote4 = GameObject.Find("kamedeadlyNote");
         }
     }
 }

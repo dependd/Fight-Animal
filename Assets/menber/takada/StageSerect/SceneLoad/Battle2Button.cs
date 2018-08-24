@@ -9,6 +9,7 @@ public class Battle2Button : MonoBehaviour
 
     public void OnClick()
     {
+        BattleManager.Instance.nowBattleScene = 2;
         NovelSingleton.StatusManager.callJoker("wide/scene3", "");
 
     }

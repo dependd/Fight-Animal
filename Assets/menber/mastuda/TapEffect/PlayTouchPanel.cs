@@ -35,7 +35,7 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             if (t.phase == TouchPhase.Began)
             {
 
-                Vector3 ray = Camera.main.WorldToScreenPoint(t.position);
+                Vector3 ray = Camera.main.ScreenToWorldPoint(t.position);
                 NewTapEffect(ray);
             }
         }

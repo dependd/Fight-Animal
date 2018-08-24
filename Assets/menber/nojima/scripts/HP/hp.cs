@@ -43,10 +43,10 @@ public class hp : MonoBehaviour
         }
         if (enemyhp <= 0)
         {
-            if(Singleton.Instance.ButtonFlag[2] == 1)
+            if(BattleManager.Instance.nowBattleScene == 2)
             {
                 SceneManager.LoadScene("Win3");
-            }else if(Singleton.Instance.ButtonFlag[1] == 1){
+            }else if(BattleManager.Instance.nowBattleScene == 1){
 
                 SceneManager.LoadScene("Win2");
             }

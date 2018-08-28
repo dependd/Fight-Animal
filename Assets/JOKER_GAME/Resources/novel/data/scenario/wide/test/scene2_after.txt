@@ -1,0 +1,94 @@
+﻿;戦えアニマル＿対話２
+;ステージ初期化
+;背景定義
+[bg_new name=tree storage="bg" z=0]
+[bg_show name=tree ]
+;キャラクター定義
+[chara_new name=kame storage=kame scale="0.6" x=4 y=-2 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.6" x=2 y=-2 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.7" x=4 y=-3 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.6" x=1 y=-2 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
+;キャラネームの定義
+[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;シナリオ開始
+[wait time=2]
+;ボタンの定義
+[showmessage]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+[button_show tag="button" time=0]
+[evt tag="button" act="click" target="*click_system_button" ]
+
+
+[show name="cinpanNormal" x=-4 ]
+#cinpanNormal
+「くっっ！」[p]
+[hide name="cinpanNormal"]
+[show name="cinpanNormal" x=-4 y=-5 ]
+
+#
+;チンパンの姿が元に戻り地面に膝をつく。
+チンパンが地面に膝をつく。[p]
+
+[show name="tokage" x=1 ]
+#tokage
+「さぁ、姫を返してもらおうか？」[p]
+[hide name="tokage"]
+
+#
+すると奥からウサギ姫が現れる。[p]
+[show name="usagi" x= 4]
+#usagi
+「チンパンちゃん！？」[p]
+#
+慌ててチンパンに駆け寄る。[p]
+[hide name="usagi"]
+[show name="usagi" x= -1]
+#usagi
+「ど、どうしたの？ボロボロじゃない！」[p]
+
+[show name="dachou" x=4]
+#dachou
+「離れなさい、ウサギ姫、そいつはあなたをさらった犯人よ」[p]
+
+#usagi
+「さらった？私はチンパンちゃんとお散歩してただけよ！」[p]
+
+[hide name="dachou"]
+[show name="kame" x=4]
+#kame
+「どういうことかしら？」[p]
+
+#cinpanNormal
+「あんたらはあの老害に利用されただけさ、[l][r]
+私はあいつから姫を助けただけさ・・・。」[p]
+
+[show name="tokage" x=1 ]
+#tokage
+「え、え～っと？どういうことなんだ？」[p]
+
+#kame
+「なるほど。とりあえず園長さんの話を聞いたほうがよさそうね。」[p]
+
+#usagi
+「私たちもいく！[l][r]
+どうして園長さんがチンパンちゃんをいじめるのか理由を知りたいもの。」[p]
+
+[hide name="cinpanNormal"]
+[hide name="usagi"]
+[hide name="tokage"]
+[hide name="kame"]
+
+[wait time=2]
+[scene file="StageSerect" ]
+
+*click_system_button
+[wait time=2]
+[scene file="StageSerect" ]
+[evt_stop]

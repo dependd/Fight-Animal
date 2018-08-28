@@ -1,24 +1,24 @@
 ﻿;序章
 ;ステージ初期化
 ;背景定義
-[bg_new name=zoo storage="zoo" z=5]
+[bg_new name=zoo storage="zoo" z=0]
 [bg_show name=zoo ]
 ;キャラクター定義
-[chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
-[chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
-[chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
-[chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
-[chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
-[chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
-[chara_new name=enchouFight storage=enchouFight scale="0.7" x=0 y=-0.5 z=4 jname=園長 jcolor="#994c00" ]
-[chara_new name=enchouNormal storage=enchouNormal scale="0.6" x=-4 y=-2.2 z=4 jname=園長 jcolor="#994c00" ]
+[chara_new name=kame storage=kame scale="0.6" x=-4 y=-2 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.6" x=-1 y=-2 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.7" x=1 y=-3 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.6" x=4 y=-2 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
 [text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
 ;シナリオ開始
-[playbgm storage="daily" time=2 ]
+[wait time=2]
 ;ボタンの定義
 [showmessage]
 [button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
@@ -27,32 +27,32 @@
 
 #enchouNormal
 「ふむ、少し待ちなさい」
-[show name="enchouNormal" x=-3 z=2][p]
+[show name="enchouNormal"][p]
 
 #
 意気揚々と森に向かおうとした勇者たちに園長が声をかける[p]
 
-[show name=tokage x=1 z=3]
+[show name=tokage x=1 ]
 #tokage
 「なんだよ園長、これからって時に・・・」[p]
 
 #enchouNormal
 「よくよく考えたら君たちの強さをわしは知らないではないか。」[p]
 
-[show name="kame" x=3 z=2.9 ]
+[show name="kame" x=4 ]
 #kame
 「それはそうですが・・・まさか？」[p]
 
 #enchouNormal
 「うむ、わしが試してやろう。老いぼれだからと言って手加減はいらないぞ」[p]
 
-[hide name="tokage" time=0.3 ]
-[show name="momonga" x=1 z=2.8 time=0.7]
+[hide name="tokage"]
+[show name="momonga" x=1]
 #momonga
 「えっと、どうします？園長さん本気みたいですけど・・・」[p]
 
-[hide name="kame" time=0.3 ]
-[show name="dachou" x=3 z=2.7 time=0.7]
+[hide name="kame"]
+[show name="dachou" x=4]
 #dachou
 「やるしかないんじゃない？準備運動くらいにはなるでしょう」[p]
 
@@ -62,10 +62,10 @@
 #enchouNormal
 「ふぉっふぉっふぉ、勝負じゃ！」[p]
 
-[stopbgm time=1 wait=true ]
+[wait time=2]
 [scene file="Tutorial" ]
 
 *click_system_button
-[stopbgm time=1 wait=true ]
+[wait time=2]
 [scene file="Tutorial" ]
 [evt_stop]

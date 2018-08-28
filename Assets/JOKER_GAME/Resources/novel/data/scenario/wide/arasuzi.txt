@@ -1,32 +1,30 @@
 ﻿;序章
 ;ステージ初期化
 ;背景定義
-[bg_new name=zoo storage="zoo" z=0]
+[bg_new name=zoo storage="zoo" z=5]
 [bg_show name=zoo ]
 ;キャラクター定義
-[chara_new name=kame storage=kame scale="0.6" x=-4 y=-2 jname=カメ jcolor="#337799" ]
-[chara_new name=tokage storage=tokage scale="0.6" x=-1 y=-2 jname=トカゲ jcolor="#993333" ]
-[chara_new name=dachou storage=dachou scale="0.7" x=1 y=-3 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.6" x=4 y=-2 jname=モモンガ jcolor="#339977" ]
-[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
-[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
-[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
-[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
-[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
+[chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=0 y=-0.5 z=4 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.6" x=-4 y=-2.2 z=4 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
-[text_new name=_sp_chara_name layer=ui x="-272" y=-165 val="" color="000000" fontsize=20 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
 ;シナリオ開始
-[wait time=2]
+[playbgm storage="daily" time=2 ]
 ;ボタンの定義
 [showmessage]
-[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.3 sort=5 layer=ui storage="Animal_battle" ]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 
-
-[font color=#000000]
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]
 その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
@@ -40,43 +38,43 @@
 園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
 そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
 
-[show name="enchouNormal"]
+[show name="enchouNormal" x=3 z=3]
 #enchouNormal
 「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
-[hide name="enchouNormal"]
+[hide name="enchouNormal" time=0.3]
 
 #
 園長の言葉を胸に、[l][r]
 
 カメ、
 ;立ち絵の表示
-[show name=kame]
+[show name=kame x=-4 z=4]
 
 トカゲ、
 ;立ち絵の表示
-[show name=tokage]
+[show name=tokage x=-1 z=3]
 
 ダチョウ、
 ;立ち絵の表示
-[show name=dachou]
+[show name=dachou x=1 z=2]
 
 モモンガ[r]
 ;立ち絵の表示
-[show name=momonga]
+[show name=momonga x=4 z=1]
 
 の４人は森へと向かうのであった・・・。[p]
 
-[hide name="kame"]
-[hide name="tokage"]
-[hide name="dachou"]
-[hide name="momonga"]
+[hide name="kame" time=0.5]
+[hide name="tokage" time=0.5]
+[hide name="dachou" time=0.5]
+[hide name="momonga" time=0.5]
 
 [hidemessage]
 
-[wait time=2]
+[stopbgm time=1 wait=true ]
 [scene file="StageSerect" ]
 
 *click_system_button
-[wait time=2]
+[stopbgm time=1 wait=true ]
 [scene file="StageSerect" ]
 [evt_stop]

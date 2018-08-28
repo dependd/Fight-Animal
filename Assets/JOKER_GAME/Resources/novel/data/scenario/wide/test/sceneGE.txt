@@ -1,24 +1,24 @@
 ﻿
 ;ステージ初期化
 ;背景定義
-[bg_new name=tree storage="bg" z=5]
+[bg_new name=tree storage="bg" z=0]
 [bg_show name=tree ]
 ;キャラクター定義
-[chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
-[chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
-[chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
-[chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
-[chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
-[chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
-[chara_new name=enchouFight storage=enchouFight scale="0.7" x=0 y=-0.5 z=4 jname=園長 jcolor="#994c00" ]
-[chara_new name=enchouNormal storage=enchouNormal scale="0.6" x=-4 y=-2.2 z=4 jname=園長 jcolor="#994c00" ]
+[chara_new name=kame storage=kame scale="0.6" x=4 y=-2 jname=カメ jcolor="#337799" ]
+[chara_new name=tokage storage=tokage scale="0.6" x=2 y=-2 jname=トカゲ jcolor="#993333" ]
+[chara_new name=dachou storage=dachou scale="0.7" x=4 y=-3 jname=ダチョウ jcolor="#997733" ]
+[chara_new name=momonga storage=momonga scale="0.6" x=1 y=-2 jname=モモンガ jcolor="#339977" ]
+[chara_new name=usagi storage=usagi scale="0.6" x=-1 y=-1.5 jname=ウサギ姫 jcolor="#997979" ]
+[chara_new name=cinpanFight storage=cinpanFight scale="0.7" x=4 y=-2 jname=チンパン jcolor="#999999" ]
+[chara_new name=cinpanNormal storage=cinpanNormal scale="1" x=4 y=-3 jname=チンパン jcolor="#999999" ]
+[chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
+[chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
 [text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
 ;シナリオ開始
-[playbgm storage="daily" time=2 ]
+[wait time=2]
 ;ボタンの定義
 [showmessage]
 [button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
@@ -28,9 +28,8 @@
 
 
 ;立ち絵の表示
-[show name=enchouFight x=0 z=3 ]
+[show name=enchouFight]
 ;立ち絵振動
-[anim name=enchouFight time=0.5 y=-2.5 ]
 #enchouFight
 「ぬわぁぁぁぁぁぁぁぁぁぁぁ！」[p]
 ;下へ倒す
@@ -39,11 +38,11 @@
 #
 園長が地面に膝をつく[p]
 
-[show name=tokage x=1.3 z=2.9 time=0.7]
+[show name=tokage]
 #tokage
 「さぁ、観念して全部説明しろ！どういうことなんだ！」[p]
 
-[show name=kame x=4 z=2.8 time=0.7]
+[show name=kame]
 #kame
 「まぁまぁ、トカゲちゃん落ち着いて？」[p]
 
@@ -54,7 +53,7 @@
 「きっと園長ちゃんにも事情がったのよね。ねぇ？」[p]
 ;トカゲ立ち絵消える
 
-[show name=enchouNormal x=-4 z=2.7 time=0.7]
+[show name=enchouNormal]
 ;立ち上がって
 #enchouNormal
 「ひ、ひぃぃ！！！」[p]
@@ -67,59 +66,58 @@
 「わ、わしはただ姫にもっと近づきたくて・・・。」[p]
 
 #
-ゆっくりと話し始める園長[p][r]
+ゆっくりと話し始める園長[p]
 ;会話枠消える
 [hidemessage]
 ;キャラ立ち絵消える
-[hide name="enchouNormal" time=0.5]
-[hide name="kame" time=0.5]
-[hide name="tokage" time=0.5]
+[hide name="kame"]
+[hide name="tokage"]
+[hide name="enchouNormal"]
 ;黒幕
-;[bg_new name=black storage="black" z=4.9]
-;[bg_show name=black ]
-;[wait time=1]
+[bg_new name=black storage="black"]
+[bg_show name=black ]
+[wait time=2]
 
 [showmessage]
-・・・・・・・・・・・・[p][r]
-;[hidemessage]
-;[wait time=2]
+・・・・・・・・・・・・[p]
+[hidemessage]
+[wait time=2]
 
 ;黒幕明け
-;[bg_show name=tree z=4.8]
+[bg_show name=tree ]
 
-;[showmessage]
-[show name="momonga" x=1 z=2.9 ]
+[showmessage]
+[show name="momonga"]
 #momonga
 「まとめると・・・、[p]
 ウサギ姫さんとの散歩中に手をつなごうとしたらそこをチンパンさんに防がれてしまって泣く泣く動物園に逃げ帰ってきたと・・・・。」[p]
 
-[show name="dachou" x=4 z=2.8 time=0.7]
+[show name="dachou"]
 #dachou
 「なんか、ふたを開けるとみっともないうえにみじめな話ね・・・。」[p]
 
-[hide name="momonga" time=0.3]
-[hide name="dachou" time=0.3]
+[hide name="momonga"]
+[hide name="dachou"]
 #
 もはや怒る気力もなくただただ呆れる４にんであった。[p]
 
 ;左に表示
-[show name="usagi" x=1 z=2.9]
+[show name="usagi" x= 1]
 #usagi
 「なぁ～んだ、ただ私と手をつなぎたいだけだったの？」[p]
 
 #
 近くの茂みからチンパンとウサギ姫があらわれた[p]
 
-[hide name="usagi" time=0.3]
-[show name="usagi" x=-1 z=2.9 time=0.7]
-[show name=enchouNormal x=-4 z=3 time=0.7]
+[hide name="usagi"]
+[show name="usagi" x= -1]
 #usagi
 「園長さんの頼みならいつでもしてあげたのに、はい握手！」[p]
 
 #
 満点の笑顔で園長に手を差し伸べるウサギ姫[p]
 
-[show name=enchouNormal x=-4 z=2.8 time=0]
+[show name=enchouNormal]
 #enchouNormal
 お、おお、姫・・・いや、天使か？[p]
 
@@ -127,7 +125,6 @@
 しっかりと握手を交わすウサギ姫と園長[p]
 
 ;要調整
-[show name=usagi z=2.7 time=0 ]
 #usagi
 私をここまで育ててくれたのは園長さんでしょ？[l][r]
 ここの動物園のみんな園長さんにはとっても感謝してるんだよ？[l][r]
@@ -135,53 +132,50 @@
 
 #
 そうしてウサギ姫に引かれながら園長は動物園へと戻っていった[p]
-[hide name=usagi time=0.3]
-[hide name=enchouNormal time=0.3]
 
-[show name=cinpanNormal x=-3 z=2.9 time=0.7]
+[show name=cinpanNormal]
 #cinpanNormal
 ほら、わたしらもいくぞ[p]
 
-[show name="tokage" x=1.3 z=2.8 time=0.7]
+[show name="tokage"]
 #tokage
 やれやれ、結局煮え切らない終わり方だなぁ、働き損な気がするぜ・・・。[p]
 
-[show name="kame" x=4 z=2.7 time=0.7]
+[hide name="cinpanNormal"]
+[show name="kame"]
 #kame
 まぁまぁ、たまにはいいんじゃない？久しぶりに野生に戻った気がしたわ～[p]
 
-[hide name="kame" time=0.3]
-[show name="dachou" x=4 z=2.7 time=0.7]
+[hide name="kame"]
+[show name="dachou"]
 #dachou
 あー、その気持ちはわかるかも、全力出すなんて久しぶりだったから・・・[p]
 
-[hide name="tokage" time=0.3]
-[show name="momonga" x=1 z=2.6 time=0.7]
+[hide name="tokage"]
+[show name="momonga"]
 #momonga
 わたしは初めてのことがいっぱいで楽しかったです！[p]
 
 #
  [r]
 
-[hide name="momonga" time=0.3]
-[hide name="dachou" time=0.3]
-[hide name="cinpanNormal" time=0.3]
+[hide name="momonga"]
+[hide name="dachou"]
+[hide name="usagi"]
+[hide name="enchouNormal"]
 
 #
 こうしてウサギ姫誘拐事件は幕を閉じた。[p]
 
 この動物園はさらに繁盛し,[l][r]
 さまざまな事件が起こったが、[l][r]
-それはまた、別のお話・・・。[p][r]
-;[hidemessage]
+それはまた、別のお話・・・。[p]
 
-;[bg_show name=black z=4.7]
+[bg_show name=black ]
 ;黒幕
-
-[showmessage]
 ～fin～[p]
 
 *click_system_button
-[stopbgm time=1 wait=true ]
+[wait time=2]
 [scene file="start" ]
 [evt_stop]

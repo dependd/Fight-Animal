@@ -14,7 +14,7 @@
 [chara_new name=enchouFight storage=enchouFight scale="0.7" x=-4 y=-1 jname=園長 jcolor="#994c00" ]
 [chara_new name=enchouNormal storage=enchouNormal scale="0.7" x=-4 y=-2 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
-[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-272" y=-165 val="" color="000000" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
 ;シナリオ開始
@@ -26,7 +26,7 @@
 [evt tag="button" act="click" target="*click_system_button" ]
 
 
-
+[font color=#000000]
 時は8012年[l][r]
 世界で一番人気がある動物園があった。[l][r]
 その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]

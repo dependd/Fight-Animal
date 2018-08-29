@@ -6,7 +6,7 @@ using Novel;
 
 public class Battle2Button : MonoBehaviour
 {
-
+    
     public void OnClick()
     {
         BattleManager.Instance.nowBattleScene = 2;

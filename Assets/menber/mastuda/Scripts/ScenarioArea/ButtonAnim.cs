@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonAnim : MonoBehaviour {
 
     [SerializeField] private float mMaxScale = 1.1f;
+    [SerializeField] private float mMinScale;
     [SerializeField] private float mTimer = 0.5f;
 
     private RectTransform mRectTransform;
@@ -42,7 +43,7 @@ public class ButtonAnim : MonoBehaviour {
             if (!mIsAction) yield break;
             time += (1 / mTimer) * Time.deltaTime;
             if (time >= 1f) time = 1f;
-            scale = Mathf.Lerp(1, mMaxScale, time);
+            scale = Mathf.Lerp(mMinScale, mMaxScale, time);
             localScale.x = scale;
             localScale.y = scale;
             mRectTransform.localScale = localScale;
@@ -64,7 +65,7 @@ public class ButtonAnim : MonoBehaviour {
             if (!mIsAction) yield break;
             time += (1 / mTimer) * Time.deltaTime;
             if (time >= 1f) time = 1f;
-            scale = Mathf.Lerp(1, mMaxScale, 1 - time);
+            scale = Mathf.Lerp(mMinScale, mMaxScale, 1 - time);
             localScale.x = scale;
             localScale.y = scale;
             mRectTransform.localScale = localScale;

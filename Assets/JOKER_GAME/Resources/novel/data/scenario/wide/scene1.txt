@@ -14,14 +14,14 @@
 [chara_new name=enchouFight storage=enchouFight scale="0.7" x=0 y=-0.5 z=4 jname=園長 jcolor="#994c00" ]
 [chara_new name=enchouNormal storage=enchouNormal scale="0.6" x=-4 y=-2.2 z=4 jname=園長 jcolor="#994c00" ]
 ;キャラネームの定義
-[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-272" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
-
+[font color=#000000 ]
 ;シナリオ開始
 [playbgm storage="daily" time=2 ]
 ;ボタンの定義
 [showmessage]
-[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.3 sort=5 layer=ui storage="skip" ]
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 

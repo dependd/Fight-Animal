@@ -7,7 +7,7 @@
 
 ;ボタンの定義
 [showmessage]
-[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.7 sort=5 layer=ui storage="skip" ]
+[button_new name="button_skip" tag="button" x=248.3 y=-135 scale=0.3 sort=5 layer=ui storage="skip" ]
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 
@@ -24,9 +24,9 @@
 
 [playbgm storage="daily" time=2 ]
 ;キャラネームの定義
-[text_new name=_sp_chara_name layer=ui x="-156" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-272" y=-165 val="" color="DDFF00" fontsize=20 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
-
+[font color=#000000 ]
 
 [show name="enchouNormal" x=-3 z=1 time=0.7]
 #enchouNormal

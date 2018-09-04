@@ -414,7 +414,7 @@ public class GameControler : MonoBehaviour{
             if(deadly == true){
                 power = power * 2;
                 scenarioText.ChengeScenarioText(animalName + "必殺技\n" + power + "ダメージを与えた");
-                scenarioChara.PopUpChara(animalName);
+                //scenarioChara.PopUpChara(animalName);
             } else　{
                 scenarioText.ChengeScenarioText(animalName + "攻撃\n" + power + "ダメージを与えた");
             }

@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Novel;
 
-public class Battle1Button : MonoBehaviour {
+public class Battle1Button : MonoBehaviour
+{
     ButtonAnim buttunActive;
     private void Start()
     {
         buttunActive = GetComponent<ButtonAnim>();
-        if (Singleton.Instance.ButtonFlag[2] == 1)
+        if (Singleton.Instance.ButtonFlag[1] == 1 && Singleton.Instance.ButtonFlag[2] == 0)
         {
-            buttunActive.enabled = false;
+            buttunActive.enabled = true;
         }
     }
     public void OnClick()

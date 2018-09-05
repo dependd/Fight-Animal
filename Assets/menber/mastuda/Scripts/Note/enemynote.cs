@@ -94,7 +94,7 @@ public class enemynote : MonoBehaviour{
     public GameObject CloneEnemyNote(string name,float i,float j){
         if (BattleManager.Instance.nowBattleScene ==0)
         {
-            note = (GameObject)Resources.Load("Prefabs/Note/TinpanNote");
+            note = (GameObject)Resources.Load("Prefabs/Note/EntyoNote");
             note = Instantiate(note, new Vector3(i, j, 0), Quaternion.identity);
         }else if (BattleManager.Instance.nowBattleScene == 1)
         {

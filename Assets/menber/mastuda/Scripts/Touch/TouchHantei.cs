@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchHantei : MonoBehaviour {
+    [HideInInspector]public bool toucjFlag = true;
+
     [SerializeField]
     GameControler gameControler;
     //ノーツの親オブジェクトを入れる変数
@@ -112,6 +114,7 @@ public class TouchHantei : MonoBehaviour {
     NoteFrequency noteFrequency;
 
 
+
     [SerializeField]
     GameObject countDownText;
     [SerializeField]
@@ -152,7 +155,7 @@ public class TouchHantei : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        if (!toucjFlag) return;
         //Touch myTouch = Input.GetTouch(0);
 
         Touch[] myTouches = Input.touches;

@@ -24,7 +24,9 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     [SerializeField]
     SerectCircle serectCircle;
     [SerializeField]
-    NoteFrequency noteFrequency;    
+    NoteFrequency noteFrequency;
+    TouchHantei touchHantei;
+
 
     public enum Flag
     {
@@ -50,6 +52,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         text = scenarioText.GetComponent<ScenarioText>();
         tutorialControler = GetComponent<TutorialControler>();
         serectCircle = SerectCircle.GetComponent<SerectCircle>();
+        touchHantei = GetComponent<TouchHantei>();
         Description(flags);
         note.datyoNote = false;
         note.tokageNote = false;
@@ -58,7 +61,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         enemynote.enemyNote1 = false;
         enemynote.enemyNote2 = false;
         enemynote.enemyNote3 = false;
-        
+        touchHantei.toucjFlag = false;
     }
     private void Update()
     {
@@ -262,6 +265,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 //tutorialControler.SetActiveNote(false);
                 Invoke("ReStart", 1.5f);
                 tutorialFlag = Flag.tutorialBattle;
+                touchHantei.toucjFlag = true;
                 flag = true;
                 break;
         }

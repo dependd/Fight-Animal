@@ -168,7 +168,7 @@ public class TouchHantei : MonoBehaviour {
                 gameControler.InputNoteObject();
             }
 
-            Vector3 ray = Camera.main.WorldToScreenPoint(Input.touches[i].position);
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
         
         /*
         //クリックの取得

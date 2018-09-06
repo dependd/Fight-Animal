@@ -89,10 +89,9 @@
 [hide name="kame" time=0.3]
 [hidemessage]
 
-[stopbgm time=1 wait=true ]
+
 [scene file="StageSerect" ]
 
 *click_system_button
-[stopbgm time=1 wait=true ]
 [scene file="StageSerect" ]
 [evt_stop]

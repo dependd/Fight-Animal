@@ -30,17 +30,14 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     void CheckTap()
     {
-        foreach (Touch t in Input.touches)
+        Touch[] myTouches = Input.touches;
+        //マルチタッチに対応する処理
+        for (int i = 0; i < Input.touchCount; i++)
         {
-            if (t.phase == TouchPhase.Began)
-            {
-
-                Vector3 ray = Camera.main.ScreenToWorldPoint(t.position);
-                NewTapEffect(ray);
-            }
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+            NewTapEffect(ray);
         }
     }
-
     //タップエフェクトを出す
     void NewTapEffect(Vector2 pos)
     {

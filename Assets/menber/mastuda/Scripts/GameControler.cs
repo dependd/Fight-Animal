@@ -377,6 +377,9 @@ public class GameControler : MonoBehaviour{
         }
     }
     */
+	public void PlayOnShot(){
+		audioSource.PlayOneShot(enemyATK, 0.7f);
+	}
     //enemyNoteをタップしたときの軽減があるかどうかの判定をする関数
     public void DamageCut(GameObject notes,bool i){
         //ノーツの削除

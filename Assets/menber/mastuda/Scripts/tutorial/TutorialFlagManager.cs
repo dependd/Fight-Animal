@@ -61,7 +61,6 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         enemynote.enemyNote1 = false;
         enemynote.enemyNote2 = false;
         enemynote.enemyNote3 = false;
-        touchHantei.toucjFlag = false;
     }
     private void Update()
     {
@@ -69,6 +68,8 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         {
             if (Input.GetMouseButtonDown(0))
             {
+				if (!touchHantei.toucjFlag)
+					return;
                 switch (tutorialFlag)
                 {
                     case Flag.description:

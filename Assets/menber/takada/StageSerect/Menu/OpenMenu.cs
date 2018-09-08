@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class OpenMenu : MonoBehaviour {
-
-    public GameObject MenuScreen;
+	
+	public GameObject MenuScreen;
+	public bool touchFlag;
 
     private void Start()
     {
@@ -16,7 +17,8 @@ public class OpenMenu : MonoBehaviour {
     //ボタンがクリックされたらパネルを表示
     public void OnClick()
     {
-        MenuScreen.SetActive(true);
+		MenuScreen.SetActive(true);
+		touchFlag = false;
     }
 
 }

@@ -20,7 +20,7 @@ public class MoveEnemyNote : MonoBehaviour {
     
     //NoteFrequencyスクリプトに参照する
     GameObject note;
-    NoteFrequency noteFrequency;
+	NoteFrequency noteFrequency;
 
     string objName;
     private void Start(){
@@ -33,7 +33,7 @@ public class MoveEnemyNote : MonoBehaviour {
         animation = tinpan.GetComponent<CharaAnimation>();
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         note = GameObject.Find("PartyNote");
-        noteFrequency = note.GetComponent<NoteFrequency>();
+		noteFrequency = note.GetComponent<NoteFrequency>();
     }
     // Update is called once per frame
     void FixedUpdate () {
@@ -57,6 +57,7 @@ public class MoveEnemyNote : MonoBehaviour {
             gameControler.DamageCut(null, false);
             animation.AttackEffect("tinpan");
             noteFrequency.NoteCreateFrequency(objName);
+			gameControler.PlayOnShot ();
         }
         //違うなら判定ラインをtrueに
         else

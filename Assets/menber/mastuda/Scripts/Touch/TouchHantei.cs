@@ -106,6 +106,8 @@ public class TouchHantei : MonoBehaviour {
     AudioClip kameATK;
     [SerializeField]
     AudioClip enemyATK;
+	[SerializeField]
+	AudioClip enemyDefence;
     //tutorialControler
     [SerializeField]
     TutorialFlagManager tutorialFlagManager;
@@ -160,16 +162,14 @@ public class TouchHantei : MonoBehaviour {
 
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
-        for (int i = 0; i < Input.touchCount; i++)
-        {
-            //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
-            if (enemyNoteParent.childCount > 0)
-            {
-                gameControler.InputNoteObject();
-            }
+		for (int i = 0; i < Input.touchCount; i++) {
+			//enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
+			if (enemyNoteParent.childCount > 0) {
+				gameControler.InputNoteObject ();
+			}
 
-            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
-        
+			Vector3 ray = Camera.main.ScreenToWorldPoint (Input.touches [i].position);
+		
         /*
         //クリックの取得
         if (Input.GetMouseButtonDown(0))
@@ -196,14 +196,14 @@ public class TouchHantei : MonoBehaviour {
                             tinpanAttackScript.AttackEffect("tinpan");
                             gameControler.AllCharaPartyDamage();
                             noteFrequency.NoteCreateFrequency("enemyNote1");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+							audioSource.PlayOneShot(enemyDefence, 0.7f);
                         }
                         else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2)
                         {
                             gameControler.DamageCut(enemyNote1, false);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote1");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
 
@@ -215,15 +215,15 @@ public class TouchHantei : MonoBehaviour {
                             gameControler.DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote2");
-                            gameControler.AllCharaPartyDamage();
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+							gameControler.AllCharaPartyDamage();
+							audioSource.PlayOneShot(enemyDefence, 0.7f);
                         }
                         else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2)
                         {
                             gameControler.DamageCut(enemyNote2, false);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote2");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
                     if (GameObject.Find("enemyNote3") == true)
@@ -233,15 +233,15 @@ public class TouchHantei : MonoBehaviour {
                             gameControler.DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote3");
-                            gameControler.AllCharaPartyDamage();
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+							gameControler.AllCharaPartyDamage();
+							audioSource.PlayOneShot(enemyDefence, 0.7f);
                         }
                         else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2)
                         {
                             gameControler.DamageCut(enemyNote3, false);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote3");
-                            //audioSource.PlayOneShot(enemyATK, 0.7f);
+                            audioSource.PlayOneShot(enemyATK, 0.7f);
                         }
                     }
                 }

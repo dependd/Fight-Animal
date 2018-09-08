@@ -10,6 +10,9 @@ public class menu : MonoBehaviour {
 
     bool stop;
     public GameObject menuScreen;
+
+	[SerializeField]GameObject touch;
+	TouchHantei touchHantei;
     //Time.timescaleはUpdateは動いてFixedUpdateは動かない。
     //Updateで動いているものをFixedUpdateに変えてもらう
     public void MenuButton() {
@@ -24,6 +27,7 @@ public class menu : MonoBehaviour {
             }
     }
     private void Start(){
+		touchHantei = touch.GetComponent<TouchHantei>();
         Time.timeScale = 1;
         stop = false;
         menuScreen.SetActive(false);
@@ -34,8 +38,10 @@ public class menu : MonoBehaviour {
         //stopがfalseならmenuScreenが非表示になる
         if (stop == true){
             menuScreen.SetActive(true);
+			touchHantei.toucjFlag = false;
         }else if (stop == false) {
             menuScreen.SetActive(false);
+			touchHantei.toucjFlag = true;
         }
     }
 

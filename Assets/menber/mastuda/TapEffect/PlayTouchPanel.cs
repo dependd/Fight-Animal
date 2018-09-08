@@ -24,10 +24,16 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     void Update()
     {
-        //タップ時
-        CheckTap();
+		//タップ時
+		Touch[] myTouches = Input.touches;
+		//マルチタッチに対応する処理
+		for (int i = 0; i < Input.touchCount; i++)
+		{
+			Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+			NewTapEffect(ray);
+		}
     }
-
+	/*
     void CheckTap()
     {
         Touch[] myTouches = Input.touches;
@@ -37,7 +43,7 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
             NewTapEffect(ray);
         }
-    }
+    }*/
     //タップエフェクトを出す
     void NewTapEffect(Vector2 pos)
     {

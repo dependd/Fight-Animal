@@ -150,6 +150,7 @@ public class TouchHantei : MonoBehaviour {
         //BGMスタート
         audioSource = GetComponent<AudioSource>();
         if (BattleManager.Instance.nowBattleScene == 0) return;
+
         countDown = countDownText.GetComponent<CountDown>();
         StartCoroutine(countDown.CountdownCoroutine());
     }
@@ -162,15 +163,17 @@ public class TouchHantei : MonoBehaviour {
 
         Touch[] myTouches = Input.touches;
         //マルチタッチに対応する処理
-		for (int i = 0; i < Input.touchCount; i++) {
-			//enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
-			if (enemyNoteParent.childCount > 0) {
-				gameControler.InputNoteObject ();
-			}
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            //enemyNoteにオブジェクトがある場合、対応するオブジェクトを格納
+            if (enemyNoteParent.childCount > 0)
+            {
+                gameControler.InputNoteObject();
+            }
 
-			Vector3 ray = Camera.main.ScreenToWorldPoint (Input.touches [i].position);
-		
-        /*
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+        }
+        
         //クリックの取得
         if (Input.GetMouseButtonDown(0))
         {
@@ -181,7 +184,7 @@ public class TouchHantei : MonoBehaviour {
             }
             //クリック位置をワールド座標に変換
             Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            */
+            
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
             if (ray.x >= -6.3 && ray.x <= -4.1)

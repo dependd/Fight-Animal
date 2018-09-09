@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 public class CountDown : MonoBehaviour {
 
     [SerializeField]
-    private Text _textCountdown;
+    private Image _spriteCountdown;
+    [SerializeField] Sprite one;
+    [SerializeField] Sprite twe;
+    [SerializeField] Sprite three;
+    [SerializeField] Sprite go;
+
     private void Start()
     {
 
@@ -22,20 +27,25 @@ public class CountDown : MonoBehaviour {
         {
             notes[i].SetActive(false);
         }
-
-        _textCountdown.text = "3";
+        _spriteCountdown.color = new Color(255,255,255,255);
+        //_textCountdown.text = "3";
+        _spriteCountdown.sprite = one;
         yield return new WaitForSeconds(1.0f);
 
-        _textCountdown.text = "2";
+        //_textCountdown.text = "2";
+        _spriteCountdown.sprite = twe;
         yield return new WaitForSeconds(1.0f);
 
-        _textCountdown.text = "1";
+        //_textCountdown.text = "1";
+        _spriteCountdown.sprite = three;
         yield return new WaitForSeconds(1.0f);
 
-        _textCountdown.text = "GO!";
+        //_textCountdown.text = "GO!";
+        _spriteCountdown.sprite = go;
         yield return new WaitForSeconds(1.0f);
 
-        _textCountdown.text = "";
+        //_textCountdown.text = "";
+        _spriteCountdown.color = new Color(255,255,255,0);
         
         for (int i = 0; i < notes.Length; i++)
         {

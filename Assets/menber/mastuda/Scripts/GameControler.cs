@@ -176,10 +176,12 @@ public class GameControler : MonoBehaviour{
                 break;
                 
         }
+        AllCharaPartyDefence();
         hp.DownPartyHp(i, attakePower);
         if(hp.partyhp <= 0)
         {
             StartCoroutine(BattleLose());
+            scenarioText.ChengeScenarioText("負けてしまった...orz");
         }
     }
     //勇者が攻撃する関数
@@ -214,6 +216,13 @@ public class GameControler : MonoBehaviour{
         tokageAnimation.DefenceAnimation();
         momongaAnimation.DefenceAnimation();
         kameAnimation.DefenceAnimation();
+    }
+    private void AllCharaPartyDefence()
+    {
+        datyoAnimation.DamegeAnimation();
+        tokageAnimation.DamegeAnimation();
+        momongaAnimation.DamegeAnimation();
+        kameAnimation.DamegeAnimation();
     }
     //ノーツを探し、格納する
     public void InputNoteObject(){
@@ -284,7 +293,18 @@ public class GameControler : MonoBehaviour{
         {
             notes[i].SetActive(false);
         }
-        yield return new WaitForSeconds(3.0f);
+        datyoAnimation.DownAnimation();
+        yield return new WaitForSeconds(1.0f);
+
+        tokageAnimation.DownAnimation();
+        yield return new WaitForSeconds(1.0f);
+
+        momongaAnimation.DownAnimation();
+        yield return new WaitForSeconds(1.0f);
+
+        kameAnimation.DownAnimation();
+        yield return new WaitForSeconds(1.5f);
+
         SceneManager.LoadScene("GameOver");
     }
     

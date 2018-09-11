@@ -20,7 +20,12 @@ public class MoviePlayer : MonoBehaviour {
         // スクリプトでAudioOutputModeをAudioSourceに変更
         moviePlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         audioSource = GetComponent<AudioSource>();
-        //
+        // オーディオトラックを有効にする
+        moviePlayer.EnableAudioTrack(0, true);
+        // AudioputがAudioSourceの時にスクリプトからAudioSourceを設定する
+        moviePlayer.SetTargetAudioSource(0, audioSource);
+        // スタートしたら再生
+        moviePlayer.Play();
 	}
 	
 	// Update is called once per frame

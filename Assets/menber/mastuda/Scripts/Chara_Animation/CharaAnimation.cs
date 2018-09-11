@@ -36,6 +36,10 @@ public class CharaAnimation : MonoBehaviour
         animator.SetBool("Defence", true);
     }
     //攻撃のエフェクトをつくる関数
+    public void DownAnimation()
+    {
+        animator.SetBool("Down", true);
+    }
     public void AttackEffect(string name)
     {   
         //引数の名前で誰の攻撃は判別

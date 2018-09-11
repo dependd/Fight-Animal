@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class hp : MonoBehaviour
 {
+    GameObject gameObject;
+    GameControler gameControler;
+
+
     public GameObject PartyDamage;
     public GameObject EnemyDamage;
 
@@ -17,7 +21,8 @@ public class hp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        gameObject = GameObject.Find("GameControler");
+        gameControler = gameObject.GetComponent<GameControler>();
         PartyDamage.SetActive(false);
         EnemyDamage.SetActive(false);
         //スライダーを取得
@@ -39,22 +44,11 @@ public class hp : MonoBehaviour
         _partyslider.value = partyhp;
         if (partyhp <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            //StartCoroutine(gameControler.BattleLose());
         }
         if (enemyhp <= 0)
         {
-            if(BattleManager.Instance.nowBattleScene == 2)
-            {
-                SceneManager.LoadScene("Win3");
-            }else if(BattleManager.Instance.nowBattleScene == 1){
-
-                SceneManager.LoadScene("Win2");
-            }
-            else
-            {
-
-                SceneManager.LoadScene("Win");
-            }
+            //StartCoroutine(gameControler.BattleWin());
         }
     }
     public void DownPartyHp(bool i, int j)

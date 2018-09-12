@@ -12,6 +12,8 @@ public class MoviePlayer : MonoBehaviour {
     private AudioSource audioSource;
     // 内部に保存したテクスチャを表示する
     public RawImage rawImage;
+    // 内部スクリプトを出力するUIにTextureをセットしたかどうか
+    private bool check = false;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +32,11 @@ public class MoviePlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //内部保存しているテクスチャを設定
+        if(moviePlayer.texture != null && !check)
+        {
+            rawImage.texture = moviePlayer.texture;
+            check = true;
+        }
 	}
 }

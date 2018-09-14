@@ -187,7 +187,7 @@ public class TouchHantei : MonoBehaviour {
             
             //敵の攻撃を防ぐ処理
             Debug.Log("クリックした座標は" + ray);
-            if (ray.x >= -6.3 && ray.x <= -4.1)
+            if (ray.x >= -6.3 && ray.x <= -2.6)
             {
                 if (ray.y >= -1.5 && ray.y <= 2.7)
                 {
@@ -254,7 +254,7 @@ public class TouchHantei : MonoBehaviour {
                 gameControler.InputNoteObject();
             }
             //1番目の勇者が攻撃する処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= 2.4 && ray.y <= 3.6)
                 {
@@ -276,7 +276,7 @@ public class TouchHantei : MonoBehaviour {
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= 2.4 && ray.y <= 3.6)
                 {
@@ -299,7 +299,7 @@ public class TouchHantei : MonoBehaviour {
                 }
             }
             //2番目の勇者が攻撃する時の処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= 1 && ray.y < 2.2)
                 {
@@ -321,7 +321,7 @@ public class TouchHantei : MonoBehaviour {
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= 1 && ray.y < 2.2)
                 {
@@ -344,7 +344,7 @@ public class TouchHantei : MonoBehaviour {
                 }
             }
             //3番目の勇者が攻撃するときの処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= -0.4 && ray.y <= 0.6)
                 {
@@ -366,7 +366,7 @@ public class TouchHantei : MonoBehaviour {
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= -0.4 && ray.y <= 0.6)
                 {
@@ -389,7 +389,7 @@ public class TouchHantei : MonoBehaviour {
                 }
             }
             //4番目の勇者が攻撃するときの処理
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= -2.3 && ray.y <= -1.0)
                 {
@@ -411,7 +411,7 @@ public class TouchHantei : MonoBehaviour {
                     }
                 }
             }
-            if (ray.x >= 4.1 && ray.x <= 6.1)
+            if (ray.x >= 2.6 && ray.x <= 6.1)
             {
                 if (ray.y >= -2.3 && ray.y <= -1.0)
                 {

@@ -29,7 +29,7 @@ public class PlayTouchPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 		//マルチタッチに対応する処理
 		for (int i = 0; i < Input.touchCount; i++)
 		{
-			Vector3 ray = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
+			Vector3 ray = Input.touches[i].position;
 			NewTapEffect(ray);
 		}
     }

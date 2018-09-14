@@ -116,6 +116,27 @@ public class TouchHantei : MonoBehaviour {
     NoteFrequency noteFrequency;
 
 
+    //PlayMovieコンポーネント
+    [SerializeField]
+    PlayMovie tokagePlayMovie;
+    [SerializeField]
+    GameObject tokageEF;
+    [SerializeField]
+    PlayMovie datyoPlayMovie;
+    [SerializeField]
+    GameObject datyoEF;
+    [SerializeField]
+    PlayMovie momongaPlayMovie;
+    [SerializeField]
+    GameObject momongaEF;
+    [SerializeField]
+    PlayMovie kamePlayMovie;
+    [SerializeField]
+    GameObject kameEF;
+    [SerializeField]
+    PlayMovie enemyPlayMovie;
+    [SerializeField]
+    GameObject enemyEF;
 
     [SerializeField]
     GameObject countDownText;
@@ -153,6 +174,12 @@ public class TouchHantei : MonoBehaviour {
 
         countDown = countDownText.GetComponent<CountDown>();
         StartCoroutine(countDown.CountdownCoroutine());
+        
+        tokagePlayMovie = tokageEF.GetComponent<PlayMovie>();
+        datyoPlayMovie = datyoEF.GetComponent<PlayMovie>();
+        momongaPlayMovie = momongaEF.GetComponent<PlayMovie>();
+        kamePlayMovie = kameEF.GetComponent<PlayMovie>();
+        enemyPlayMovie = enemyEF.GetComponent<PlayMovie>();
     }
 
     // Update is called once per frame
@@ -197,9 +224,9 @@ public class TouchHantei : MonoBehaviour {
                         {
                             gameControler.DamageCut(enemyNote1, true);
                             tinpanAttackScript.AttackEffect("tinpan");
-                            gameControler.AllCharaPartyDamage();
                             noteFrequency.NoteCreateFrequency("enemyNote1");
 							audioSource.PlayOneShot(enemyDefence, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                         else if (enemyNote1.transform.position.x > -4 && enemyNote1.transform.position.x < -5 || enemyNote1.transform.position.x < -3 && enemyNote1.transform.position.x > -2)
                         {
@@ -207,6 +234,7 @@ public class TouchHantei : MonoBehaviour {
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote1");
                             audioSource.PlayOneShot(enemyATK, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                     }
 
@@ -218,8 +246,8 @@ public class TouchHantei : MonoBehaviour {
                             gameControler.DamageCut(enemyNote2, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote2");
-							gameControler.AllCharaPartyDamage();
 							audioSource.PlayOneShot(enemyDefence, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                         else if (enemyNote2.transform.position.x > -4 && enemyNote2.transform.position.x < -5 || enemyNote2.transform.position.x < -3 && enemyNote2.transform.position.x > -2)
                         {
@@ -227,6 +255,7 @@ public class TouchHantei : MonoBehaviour {
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote2");
                             audioSource.PlayOneShot(enemyATK, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                     }
                     if (GameObject.Find("enemyNote3") == true)
@@ -236,8 +265,8 @@ public class TouchHantei : MonoBehaviour {
                             gameControler.DamageCut(enemyNote3, true);
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote3");
-							gameControler.AllCharaPartyDamage();
 							audioSource.PlayOneShot(enemyDefence, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                         else if (enemyNote3.transform.position.x > -4 && enemyNote3.transform.position.x < -5 || enemyNote3.transform.position.x < -3 && enemyNote3.transform.position.x > -2)
                         {
@@ -245,6 +274,7 @@ public class TouchHantei : MonoBehaviour {
                             tinpanAttackScript.AttackEffect("tinpan");
                             noteFrequency.NoteCreateFrequency("enemyNote3");
                             audioSource.PlayOneShot(enemyATK, 0.7f);
+                            StartCoroutine(enemyPlayMovie.PlayOnMovie());
                         }
                     }
                 }
@@ -267,6 +297,7 @@ public class TouchHantei : MonoBehaviour {
                             datyoAttackScript.AttackEffect("datyo");
                             noteFrequency.NoteCreateFrequency("datyonote");
                             audioSource.PlayOneShot(datyoATK, 0.7f);
+                            StartCoroutine(datyoPlayMovie.PlayOnMovie());
                         }
                         else if (note1.transform.position.x > 4 && note1.transform.position.x < 5 || note1.transform.position.x < 3 && note1.transform.position.x > 2)
                         {
@@ -289,6 +320,7 @@ public class TouchHantei : MonoBehaviour {
                             tokageAttackScript.AttackEffect("datyo");
                             noteFrequency.NoteCreateFrequency("datyonote");
                             audioSource.PlayOneShot(datyoATK, 0.7f);
+                            StartCoroutine(datyoPlayMovie.PlayOnMovie());
                         }
                         else if (deadlyNote1.transform.position.x > 3.8f && deadlyNote1.transform.position.x < 5 || deadlyNote1.transform.position.x < 3.2f && deadlyNote1.transform.position.x > 2)
                         {
@@ -312,6 +344,7 @@ public class TouchHantei : MonoBehaviour {
                             tokageAttackScript.AttackEffect("tokage");
                             noteFrequency.NoteCreateFrequency("tokagenote");
                             audioSource.PlayOneShot(tokageATK, 0.7f);
+                            StartCoroutine(tokagePlayMovie.PlayOnMovie());
                         }
                         else if (note2.transform.position.x > 4 && note2.transform.position.x < 5 || note2.transform.position.x < 3 && note2.transform.position.x > 2)
                         {
@@ -334,6 +367,7 @@ public class TouchHantei : MonoBehaviour {
                             tokageAttackScript.AttackEffect("tokage");
                             noteFrequency.NoteCreateFrequency("tokagenote");
                             audioSource.PlayOneShot(tokageATK, 0.7f);
+                            StartCoroutine(tokagePlayMovie.PlayOnMovie());
                         }
                         else if (deadlyNote2.transform.position.x > 4 && deadlyNote2.transform.position.x < 5 || deadlyNote2.transform.position.x < 3 && deadlyNote2.transform.position.x > 2)
                         {
@@ -357,6 +391,7 @@ public class TouchHantei : MonoBehaviour {
                             momongaAttackScript.AttackEffect("momonga");
                             noteFrequency.NoteCreateFrequency("momonganote");
                             audioSource.PlayOneShot(momongaATK, 0.7f);
+                            StartCoroutine(momongaPlayMovie.PlayOnMovie());
                         }
                         else if (note3.transform.position.x > 4 && note3.transform.position.x < 5 || note3.transform.position.x < 3 && note3.transform.position.x > 2)
                         {
@@ -379,6 +414,7 @@ public class TouchHantei : MonoBehaviour {
                             momongaAttackScript.AttackEffect("momonga");
                             noteFrequency.NoteCreateFrequency("momonganote");
                             audioSource.PlayOneShot(momongaATK, 0.7f);
+                            StartCoroutine(momongaPlayMovie.PlayOnMovie());
                         }
                         else if (deadlyNote3.transform.position.x > 4 && deadlyNote3.transform.position.x < 5 || deadlyNote3.transform.position.x < 3 && deadlyNote3.transform.position.x > 2)
                         {
@@ -402,6 +438,7 @@ public class TouchHantei : MonoBehaviour {
                             kameAttackScript.AttackEffect("kame");
                             noteFrequency.NoteCreateFrequency("kamenote");
                             audioSource.PlayOneShot(kameATK, 0.7f);
+                            StartCoroutine(kamePlayMovie.PlayOnMovie());
                         }
                         else if (note4.transform.position.x > 4 && note4.transform.position.x < 5 || note4.transform.position.x < 3 && note4.transform.position.x > 2)
                         {
@@ -424,6 +461,7 @@ public class TouchHantei : MonoBehaviour {
                             kameAttackScript.AttackEffect("kame");
                             noteFrequency.NoteCreateFrequency("kamenote");
                             audioSource.PlayOneShot(kameATK, 0.7f);
+                            StartCoroutine(kamePlayMovie.PlayOnMovie());
                         }
                         else if (deadlyNote4.transform.position.x > 4 && deadlyNote4.transform.position.x < 5 || deadlyNote4.transform.position.x < 3 && deadlyNote4.transform.position.x > 2)
                         {

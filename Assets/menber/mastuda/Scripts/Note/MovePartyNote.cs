@@ -22,7 +22,7 @@ public class MovePartyNote : MonoBehaviour {
     //NoteFrequencyスクリプトに参照する
     GameObject note;
     NoteFrequency noteFrequency;
-    
+
     private void Start(){
         objectName = this.gameObject.name;
         Gamecontroler = GameObject.Find("GameControler");
@@ -32,6 +32,7 @@ public class MovePartyNote : MonoBehaviour {
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         note = GameObject.Find("PartyNote");
         noteFrequency = note.GetComponent<NoteFrequency>();
+
     }
     // Update is called once per frame
     void FixedUpdate(){

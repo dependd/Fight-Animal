@@ -157,8 +157,10 @@ public class GameControler : MonoBehaviour{
         //防御成功か
         if(i == true){
             scenarioText.ChengeScenarioText("防御成功");
+            AllCharaPartyDefence();
         } else {
             scenarioText.ChengeScenarioText("防御失敗");
+            AllCharaPartyDamage();
         }
         int attakePower = 0;
         switch (BattleManager.Instance.nowBattleScene)
@@ -176,7 +178,6 @@ public class GameControler : MonoBehaviour{
                 break;
                 
         }
-        AllCharaPartyDefence();
         hp.DownPartyHp(i, attakePower);
         if(hp.partyhp <= 0)
         {
@@ -212,17 +213,17 @@ public class GameControler : MonoBehaviour{
     //防御成功時の全員の防御アニメーション
     public void AllCharaPartyDamage()
     {
-        datyoAnimation.DefenceAnimation();
-        tokageAnimation.DefenceAnimation();
-        momongaAnimation.DefenceAnimation();
-        kameAnimation.DefenceAnimation();
-    }
-    private void AllCharaPartyDefence()
-    {
         datyoAnimation.DamegeAnimation();
         tokageAnimation.DamegeAnimation();
         momongaAnimation.DamegeAnimation();
         kameAnimation.DamegeAnimation();
+    }
+    private void AllCharaPartyDefence()
+    {
+        datyoAnimation.DefenceAnimation();
+        tokageAnimation.DefenceAnimation();
+        momongaAnimation.DefenceAnimation();
+        kameAnimation.DefenceAnimation();
     }
     //ノーツを探し、格納する
     public void InputNoteObject(){

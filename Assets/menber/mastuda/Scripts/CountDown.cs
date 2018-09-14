@@ -29,7 +29,7 @@ public class CountDown : MonoBehaviour {
         }
         _spriteCountdown.color = new Color(255,255,255,255);
         //_textCountdown.text = "3";
-        _spriteCountdown.sprite = one;
+        _spriteCountdown.sprite = three;
         yield return new WaitForSeconds(1.0f);
 
         //_textCountdown.text = "2";
@@ -37,7 +37,7 @@ public class CountDown : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
 
         //_textCountdown.text = "1";
-        _spriteCountdown.sprite = three;
+        _spriteCountdown.sprite = one;
         yield return new WaitForSeconds(1.0f);
 
         //_textCountdown.text = "GO!";

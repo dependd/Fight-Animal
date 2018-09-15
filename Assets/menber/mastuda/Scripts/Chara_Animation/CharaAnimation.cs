@@ -19,6 +19,10 @@ public class CharaAnimation : MonoBehaviour
     {
         effect = GameObject.Find("Effect");
         animator = GetComponent<Animator>();
+        if(this.gameObject.name == "tinpan")
+        {
+            animator.SetBool("Transform",true);
+        }
     }
     //キャラの攻撃時のアニメーションをする
     public void AttackAnimation()

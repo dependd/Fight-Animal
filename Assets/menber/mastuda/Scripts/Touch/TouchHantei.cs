@@ -169,17 +169,18 @@ public class TouchHantei : MonoBehaviour {
         chara = GameObject.Find("Image");
         scenarioChara = chara.GetComponent<ScinarioChara>();
         //BGMスタート
-        audioSource = GetComponent<AudioSource>();
-        if (BattleManager.Instance.nowBattleScene == 0) return;
 
-        countDown = countDownText.GetComponent<CountDown>();
-        StartCoroutine(countDown.CountdownCoroutine());
-        
         tokagePlayMovie = tokageEF.GetComponent<PlayMovie>();
         datyoPlayMovie = datyoEF.GetComponent<PlayMovie>();
         momongaPlayMovie = momongaEF.GetComponent<PlayMovie>();
         kamePlayMovie = kameEF.GetComponent<PlayMovie>();
         enemyPlayMovie = enemyEF.GetComponent<PlayMovie>();
+        audioSource = GetComponent<AudioSource>();
+        if (BattleManager.Instance.nowBattleScene != 2) return;
+
+        countDown = countDownText.GetComponent<CountDown>();
+        StartCoroutine(countDown.CountdownCoroutine());
+        
     }
 
     // Update is called once per frame

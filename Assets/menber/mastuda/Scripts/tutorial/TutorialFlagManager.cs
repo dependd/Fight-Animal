@@ -27,6 +27,10 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     NoteFrequency noteFrequency;
     TouchHantei touchHantei;
 
+    [SerializeField]
+    GameObject countDownImage;
+    CountDown countDown;
+
 
     public enum Flag
     {
@@ -53,7 +57,14 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         tutorialControler = GetComponent<TutorialControler>();
         serectCircle = SerectCircle.GetComponent<SerectCircle>();
         touchHantei = GetComponent<TouchHantei>();
-        Description(flags);
+        countDown = countDownImage.GetComponent<CountDown>();
+        if (BattleManager.Instance.nowBattleScene == 0)
+        {
+            Description(flags);
+        }else if (BattleManager.Instance.nowBattleScene == 1)
+        {
+            DeadlyNote(flags);
+        }
         note.datyoNote = false;
         note.tokageNote = false;
         note.momongaNote = false;
@@ -68,24 +79,28 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         {
             if (Input.GetMouseButtonDown(0))
             {
-				if (!touchHantei.toucjFlag)
-					return;
-                switch (tutorialFlag)
+                if (BattleManager.Instance.nowBattleScene == 0)
                 {
-                    case Flag.description:
-                        Description(flags);
-                        break;
-                    case Flag.note:
-                        Note(flags);
-                        break;
-                    case Flag.enemyNote:
-                        EnemyNote(flags);
-                        break;
-                    case Flag.deadlyNote:
-                        DeadlyNote(flags);
-                        break;
-                    default:
-                        break;
+                    if (!touchHantei.toucjFlag)
+                        return;
+                    switch (tutorialFlag)
+                    {
+                        case Flag.description:
+                            Description(flags);
+                            break;
+                        case Flag.note:
+                            Note(flags);
+                            break;
+                        case Flag.enemyNote:
+                            EnemyNote(flags);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else if (BattleManager.Instance.nowBattleScene == 1)
+                {
+                    DeadlyNote(flags);
                 }
             }
         }
@@ -222,12 +237,16 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 flags++;
                 break;
             case 4:
-                text.ChengeScenarioText("次は必殺ボードです。");
+                text.ChengeScenarioText("それでは実際にやってみましょう！");
                 serectCircle.TutorialSerectCircle(800, 0, 392, 120);
-                Destroy(notes);
+                tutorialControler.tutorialFlag = false;
                 StopNote();
-                flags = 1;
-                tutorialFlag = Flag.deadlyNote;
+                Destroy(notes);
+                //tutorialControler.SetActiveNote(false);
+                Invoke("ReStart", 1.0f);
+                tutorialFlag = Flag.tutorialBattle;
+                touchHantei.toucjFlag = true;
+                flag = true;
                 break;
         }
     }
@@ -237,6 +256,11 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
         switch (i)
         {
             case 1:
+                text.ChengeScenarioText("必殺ボードについての説明です。");
+                serectCircle.TutorialSerectCircle(800, 0, 392, 120);
+                flags++;
+                break;
+            case 2:
                 TouchFlag(false);
                 text.ChengeScenarioText("この短いのが必殺ボードです。");
                 notes = note.CloneDeadlyPartyNote("momonga", -2.8f, 0);
@@ -244,12 +268,12 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 serectCircle.TutorialSerectCircle(1.5f, 1.5f, 15.5f, 0.28f);
                 flags++;
                 break;
-            case 2:
+            case 3:
                 text.ChengeScenarioText("判定ラインは変わりません。");
                 serectCircle.TutorialSerectCircle(1, 5.5f, 268.5f, 45);
                 flags++;
                 break;
-            case 3:
+            case 4:
                 TouchFlag(false);
                 text.ChengeScenarioText("タイミングもタップする場所も同じですが難しいです。");
                 StopNote();
@@ -257,15 +281,14 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
                 serectCircle.TutorialSerectCircle(3, 1.5f, 392, 0);
                 flags++;
                 break;
-            case 4:
+            case 5:
                 text.ChengeScenarioText("それでは実際にやってみましょう！");
                 serectCircle.TutorialSerectCircle(800, 0, 392, 120);
                 tutorialControler.tutorialFlag = false;
                 Destroy(notes);
                 StopNote();
                 //tutorialControler.SetActiveNote(false);
-                Invoke("ReStart", 1.5f);
-                tutorialFlag = Flag.tutorialBattle;
+                Invoke("ReStart", 1.0f);
                 touchHantei.toucjFlag = true;
                 flag = true;
                 break;
@@ -290,6 +313,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     
         noteFrequency.GetComponent<NoteFrequency>().enabled = true;
         text.ChengeScenarioText("");
+        StartCoroutine(countDown.CountdownCoroutine());
     }
     private void TouchFlag(bool i)
     {

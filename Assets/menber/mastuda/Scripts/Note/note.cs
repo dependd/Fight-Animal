@@ -172,6 +172,11 @@ public class note : MonoBehaviour {
     }
     //noteをインスタンス化する
     public GameObject CloneDeadlyPartyNote(string name,float i, float j){
+        if (BattleManager.Instance.nowBattleScene == 0)
+        {
+            ClonePartyNote(name,i,j);
+            return null;
+        }
         deadlyNote = (GameObject)Resources.Load("Prefabs/Note/" + name + "DeadlyNote");
         deadlyNote = Instantiate(deadlyNote, new Vector3(i, j, 0), Quaternion.identity);
         deadlyNote.transform.parent = partyNote.transform;

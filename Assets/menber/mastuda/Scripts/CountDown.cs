@@ -51,6 +51,9 @@ public class CountDown : MonoBehaviour {
         {
             notes[i].SetActive(true);
         }
-        
+
+        var note = GameObject.Find("PartyNote");
+        var noteFrequency = note.GetComponent<NoteFrequency>();
+        noteFrequency.GetComponent<NoteFrequency>().enabled = true;
     }
 }

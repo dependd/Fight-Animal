@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharaAnimation : MonoBehaviour
 {
+    SpriteRenderer sprite;
     //キャラごとのgameobjectを取得
     Animator animator;
     GameObject effect;
@@ -21,7 +22,7 @@ public class CharaAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
         if(this.gameObject.name == "tinpan")
         {
-            animator.SetBool("Transform",true);
+           // animator.SetBool("Transform",true);
         }
     }
     //キャラの攻撃時のアニメーションをする
@@ -43,6 +44,18 @@ public class CharaAnimation : MonoBehaviour
     public void DownAnimation()
     {
         animator.SetBool("Down", true);
+    }
+    public IEnumerator TransfromAnim()
+    {
+        
+        animator.SetBool("Trasform", true);
+        yield return new WaitForSeconds(5.0f);
+        var Tinpan = GameObject.Find("tinpan");
+        sprite = Tinpan.GetComponent<SpriteRenderer>();
+        sprite.color = new Color(255,255,255,255);
+        var countDown = GameObject.Find("CountDown");
+        var CD = countDown.GetComponent<CountDown>();
+        StartCoroutine(CD.CountdownCoroutine());
     }
     public void AttackEffect(string name)
     {   

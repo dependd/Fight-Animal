@@ -81,8 +81,7 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
             {
                 if (BattleManager.Instance.nowBattleScene == 0)
                 {
-                    if (!touchHantei.toucjFlag)
-                        return;
+                    touchHantei.toucjFlag = false;
                     switch (tutorialFlag)
                     {
                         case Flag.description:
@@ -239,7 +238,8 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
             case 4:
                 text.ChengeScenarioText("それでは実際にやってみましょう！");
                 serectCircle.TutorialSerectCircle(800, 0, 392, 120);
-                tutorialControler.tutorialFlag = false;
+                //tutorialControler.tutorialFlag = false;
+                touchFlag = false;
                 StopNote();
                 Destroy(notes);
                 //tutorialControler.SetActiveNote(false);
@@ -284,7 +284,8 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
             case 5:
                 text.ChengeScenarioText("それでは実際にやってみましょう！");
                 serectCircle.TutorialSerectCircle(800, 0, 392, 120);
-                tutorialControler.tutorialFlag = false;
+                //tutorialControler.tutorialFlag = false;
+                touchFlag = false;
                 Destroy(notes);
                 StopNote();
                 //tutorialControler.SetActiveNote(false);
@@ -310,10 +311,19 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void ReStart()
     {
-    
-        noteFrequency.GetComponent<NoteFrequency>().enabled = true;
-        text.ChengeScenarioText("");
-        StartCoroutine(countDown.CountdownCoroutine());
+        if (BattleManager.Instance.nowBattleScene == 1)
+        {
+            var tinpan = GameObject.Find("tinpan");
+            var charaAnimation = tinpan.GetComponent<CharaAnimation>();
+            StartCoroutine(charaAnimation.TransfromAnim());
+            text.ChengeScenarioText("チンパンが本性をあらわした!!");
+        }
+        else
+        {
+            noteFrequency.GetComponent<NoteFrequency>().enabled = true;
+            StartCoroutine(countDown.CountdownCoroutine());
+            text.ChengeScenarioText("");
+        }
     }
     private void TouchFlag(bool i)
     {

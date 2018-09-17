@@ -7,7 +7,7 @@
 [chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
 [chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
 [chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=momonga storage=momonga scale="0.7" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
 [chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
 [chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
 [chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
@@ -33,65 +33,82 @@
 [show name="cinpanNormal" x=-3 y=-5 z=3 time=0.7 ]
 
 #
-チンパンが地面に膝をつく。[p]
+チンパンの姿が元に戻り地面に倒れる。[p]
+
+[show name="dachou" x=3 z=2.7 time=0.7]
+#dachou
+「ふぅ、手ごわい相手だったわ」[p]
+
+#cinpanNormal
+「ウサギ姫・・・（ガクッ」[p]
+[anim name="cinpanNormal" time=0.7 y=-10]
+[hide name="cinpanNormal" time=0.1 ]
+
+#
+チンパンは気絶したようだ。[p]
+
+[show name="momonga" x=1 z=2.6 time=0.7]
+#momonga
+「はぅ・・・、チンパンさん、ごめんなさい」[p]
+
+[hide name="dachou" time=0.3 ]
+[hide name="momonga" time=0.3 ]
+#
+4人はチンパンを木陰に運んであげた。[p]
 
 [show name="tokage" x=2 z=2.9 time=0.7]
 #tokage
-「さぁ、姫を返してもらおうか？」[p]
-;[hide name="tokage"]
+「さぁて、姫はどこだ！？」[p]
+[hide name="tokage" time=0.3]
 
 #
-すると奥からウサギ姫が現れる。[p]
-[show name="usagi" x=4 z=2.8]
-#usagi
-「チンパンちゃん！？」[p]
+再び森の中を探す[l][r]
+すると森の奥へと続く道からウサギ姫が現れる。[p]
 
-[playbgm storage="distrust" time=2 ]
+[show name="usagi" x=-3 z=2.8]
+#usagi
+「あれ？みんな、どうしたの？」[p]
 
 #
-慌ててチンパンに駆け寄る。[p]
-[hide name="usagi" time=0.2 ]
-[show name="usagi" x=-1 z=2.8 time=0.4]
-#usagi
-「ど、どうしたの？ボロボロじゃない！」[p]
+けろっとした顔でこちらに駆け寄ってくる[p]
 
-[show name="dachou" x=4 z=2.7 time=0.7]
+[show name="dachou" x=3 z=2.7 time=0.7]
 #dachou
-「離れなさい、ウサギ姫、そいつはあなたをさらった犯人よ」[p]
+「ウサギ姫！大丈夫なの？怪我とかは？」[p]
 
 #usagi
-「さらった？私はチンパンちゃんとお散歩してただけよ！」[p]
+「え？特にしてないよ」[p]
 
 [hide name="dachou" time=0.3]
-[show name="kame" x=4 z=2.6 time=0.7]
+[show name="kame" x=3 z=2.6 time=0.7]
 #kame
-「どういうことかしら？」[p]
+「よかったわ〜、それじゃもう帰りましょうか。」[p]
 
-#cinpanNormal
-「あんたらはあの老害に利用されただけさ、[l][r]
-私はあいつから姫を助けただけさ・・・。」[p]
-
-[show name="tokage" x=2 z=2.5 time=0.7]
-#tokage
-「え、え～っと？どういうことなんだ？」[p]
-
-#kame
-「なるほど。とりあえず園長さんの話を聞いたほうがよさそうね。」[p]
-
-[show name="usagi" z=2.4 time=0]
 #usagi
-「私たちもいく！[l][r]
-どうして園長さんがチンパンちゃんをいじめるのか理由を知りたいもの。」[p]
+「そうだね！」[p]
 
-[hide name="cinpanNormal" time=0.3]
-[hide name="usagi" time=0.3]
-[hide name="tokage" time=0.3]
 [hide name="kame" time=0.3]
-[hidemessage]
+[show name="tokage" x=2 z=2.9 time=0.7]
+#tokage
+「ふぃー、それにしても疲れたぜ」[p]
+
+#usagi
+「何かしてたの？」[p]
+
+[hide name="tokage" time=0.3]
+[show name="momonga" x=2 z=2.9 time=0.7]
+#momonga
+「えっと、なんでもないですよ、早く帰りましょう」[p]
+
+#
+こうして勇者たちは動物園へと帰るため森の中を歩き始めた。[p]
+
+
 
 
 [scene file="StageSerect" ]
 
 *click_system_button
+
 [scene file="StageSerect" ]
 [evt_stop]

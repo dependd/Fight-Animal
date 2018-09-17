@@ -7,7 +7,7 @@
 [chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
 [chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
 [chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=momonga storage=momonga scale="0.7" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
 [chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
 [chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
 [chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
@@ -26,53 +26,124 @@
 [button_show tag="button" time=0]
 [evt tag="button" act="click" target="*click_system_button" ]
 
-#
-こうして勇者たちは森から抜け出そうとした。[l][r]
-すると・・・。[p]
-
-[show name="enchouNormal" x=-4 z=3 ]
+[show name="enchouNormal" x=-3 z=3 ]
 #enchouNormal
 「ふむ、姫を取り戻してきたか、ご苦労だった」[p]
 
 #
 森の入り口には園長が立っていた。[p]
 
-[show name="dachou" x=4 z=2.9 time=0.7]
+
+[show name="dachou" x=3 z=2.7 time=0.7]
 #dachou
-「チンパンから話は聞いたわ、いったいどういうことかしら？」[p]
+「意外と大したことなかったわ、なんかご褒美よこしなさいよね。」[p]
 
 #enchouNormal
-「やれやれ、せめて気絶ぐらいまでは持って行ってくれると思っていたんだが、[l][r]
-私の過大評価だったようだな。」[p]
-
-[show name="cinpanNormal" x=1 z=2.8 time=0.7]
-#cinpanNormal
-「はっ、あんたの手先なんかに負けるかよ。」[p]
-
-#enchouNormal
-「ふぉっふぉっふぉ、威勢がいいのは相変わらずじゃのぅ、[l][r]
-仕方ないわしが手を下すとしよう。」[p]
+「ふぉっふぉっふぉ、わかったわかった、何か用意しておくよ」[p]
 
 [hide name="dachou" time=0.3]
-[show name="kame" x=4 z=2.7 time=0.7]
+[show name="usagi" x=0.5 z=2.8]
+#usagi
+「園長さん、チンパンちゃん見なかった？」[p]
+
+#enchouNormal
+園長「む、チンパンか、・・・まだ森の中にいるのかもしれないな」[p]
+
+[hide name="usagi" time=0.2 ]
+[show name="tokage" x=1 z=2.9 time=0.7]
+#tokage
+「何言ってるんだよ園長、チンパンは俺らが・・・」[p]
+
+[hide name="tokage" time=0.2 ]
+#cinpanNormal
+「俺らがなんだって？」[p]
+
+[show name="cinpanNormal" x=4 z=3 time=0.7]
+#
+横の茂みからチンパンが姿を表す。[p]
+
+[hide name="tokage" time=0.2]
+[show name="usagi" x=2 z=2.8]
+#usagi
+「チンパンちゃん！？どうしたのその怪我！」[p]
+
+#
+ウサギ姫がチンパンに駆け寄る。[p]
+
+[hide name="cinpanNormal" time=0.2]
+[show name="kame" x=4 z=2.6 time=0.7]
 #kame
-「話を聞くまではチンパンちゃんに手出しはさせないわ」[p]
+「・・・随分と仲がいいのね。」[p]
+
+#usagi
+「当たり前じゃない！私たち親友だもの！」[p]
+
+#
+満面の笑顔で答えるウサギ姫[p]
+
+[hide name="usagi" time=0.2 ]
+[show name="tokage" x=1 z=2.9 time=0.7]
+#tokage
+「は？ウサギ姫はチンパンにさらわれたんじゃなかったのか？」[p]
+
+[hide name="kame" time=0.3]
+[show name="cinpanNormal" x=4 z=2.8 time=0.7]
+#cinpanNormal
+「あんたらはその老害に利用されたのさ、私はあいつから姫を助けただけさ・・・。」[p]
+
+#tokage
+「え、え～っと？どういうことなんだ？」[p]
+
+[hide name="cinpanNormal" time=0.3]
+[show name="kame" x=4 z=2.6 time=0.7]
+#kame
+「・・・園長さん説明してもらえるかしら？」[p]
+
+#enchouNormal
+「いや、そのだな・・・。」[p]
+
+[hide name="tokage" time=0.3]
+[show name="momonga" x=1 z=2.9 time=0.7]
+#momonga
+「も、も、もしかして・・・、騙してたんですか？」[p]
 
 #
 勇者4人が園長と対峙する。[p]
 
 #enchouNormal
-「やれやれ、先に君たちと戦わなければいけないのか。」[p]
+「・・・バレてしまったか」[p]
+
+[hide name="kame" time=0.3]
+[show name="cinpanNormal" x=4 z=3 time=0.7]
+#cinpanNormal
+「ほれみろ、これがこいつの本性さ」[p]
 
 [hide name="cinpanNormal" time=0.3]
+[hide name="momonga" time=0.3]
+[show name="tokage" x=1 z=2.9 time=0.7]
+#tokage
+「え？あ、お、え？」[p]
+
+[hide name="cinpanNormal" time=0.3]
+[show name="dachou" x=4 z=2.7 time=0.7]
+#dachou
+「とりあえず話を聞こうじゃないの？」[p]
+
+
+
+
+#enchouNormal
+「やれやれ、また君たちと戦わなければいけないのか。」[p]
+
+[hide name="tokage" time=0.3]
 [show name="momonga" x=1 z=2.6 time=0.7]
 #momonga
-「私たち園長さんには一回勝ってるんです、[l][r]
-負けるわけにはいきませんよ！」[p]
+「ううぅ、戦うしかないんですね、でも私たち園長さんには一回勝ってるんです！」[p]
 
 #enchouNormal
 「ふぉっふぉっふぉ、あの時のワシが本気なわけがないだろう・・・。」[p]
 [hide name="momonga" time=0]
+[hide name="dachou" time=0]
 [hide name="kame" time=0]
 [show name="enchouNormal" x=0 z=2.5 ]
 

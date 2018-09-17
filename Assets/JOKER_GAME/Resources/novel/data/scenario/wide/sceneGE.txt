@@ -7,7 +7,7 @@
 [chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
 [chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
 [chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=momonga storage=momonga scale="0.7" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
 [chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
 [chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
 [chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
@@ -41,17 +41,19 @@
 
 [show name=tokage x=1.3 z=2.9 time=0.7]
 #tokage
-「さぁ、観念して全部説明しろ！どういうことなんだ！」[p]
+「さぁ、観念して全部説明しろ！どういうことなんだ！ほんとにわからん！」[p]
 
 [show name=kame x=4 z=2.8 time=0.7]
 #kame
 「まぁまぁ、トカゲちゃん落ち着いて？」[p]
 
-#tokage
-「おいおい、俺らはこいつに利用されてたんだぞ？」[p]
+[hide name="tokage" time=0.3]
+[show name="dachou" x=1 z=2.9 time=0.7]
+#dachou
+「あのねぇ、私らはこいつに利用されてたのよ？」[p]
 
 #kame
-「きっと園長ちゃんにも事情がったのよね。ねぇ？」[p]
+「きっと園長ちゃんにも事情があったのよね。・・・ねえ？・・・ねぇ？・・・そうなのよねぇ？」[p]
 ;トカゲ立ち絵消える
 
 [show name=enchouNormal x=-4 z=2.7 time=0.7]
@@ -73,7 +75,7 @@
 ;キャラ立ち絵消える
 [hide name="enchouNormal" time=0.5]
 [hide name="kame" time=0.5]
-[hide name="tokage" time=0.5]
+[hide name="dachou" time=0.5]
 ;黒幕
 ;[bg_new name=black storage="black" z=4.9]
 ;[bg_show name=black ]
@@ -88,24 +90,24 @@
 ;[bg_show name=tree z=4.8]
 
 ;[showmessage]
-[show name="momonga" x=1 z=2.9 ]
-#momonga
-「まとめると・・・、[p]
-ウサギ姫さんとの散歩中に手をつなごうとしたらそこをチンパンさんに防がれてしまって泣く泣く動物園に逃げ帰ってきたと・・・・。」[p]
-
-[show name="dachou" x=4 z=2.8 time=0.7]
+[show name="dachou" x=1 z=2.9 ]
 #dachou
-「なんか、ふたを開けるとみっともないうえにみじめな話ね・・・。」[p]
+「まとめると・・・、[p]
+ウサギ姫との散歩中に手をつなごうとしたらそこをチンパンにブロックされて泣く泣く動物園に逃げ帰ってきたと・・・・」[p]
 
-[hide name="momonga" time=0.3]
+[show name="kame" x=4 z=2.8 time=0.7]
+#kame
+「なんだか、ふたを開けるとみっともないうえにみじめな話ねぇ・・・」[p]
+
+[hide name="kame" time=0.3]
 [hide name="dachou" time=0.3]
 #
-もはや怒る気力もなくただただ呆れる４にんであった。[p]
+もはや怒る気力もなくただただ呆れる４人であった。[p]
 
 ;左に表示
 [show name="usagi" x=1 z=2.9]
 #usagi
-「なぁ～んだ、ただ私と手をつなぎたいだけだったの？」[p]
+「それならそうと言ってくれればいいのに～！」[p]
 
 #
 近くの茂みからチンパンとウサギ姫があらわれた[p]
@@ -121,7 +123,7 @@
 
 [show name=enchouNormal x=-4 z=2.8 time=0]
 #enchouNormal
-お、おお、姫・・・いや、天使か？[p]
+「あぁ～～～～～～～～～～！！え、あ、まじ天使？いや女神か？」[p]
 
 #
 しっかりと握手を交わすウサギ姫と園長[p]
@@ -129,9 +131,9 @@
 ;要調整
 [show name=usagi z=2.7 time=0 ]
 #usagi
-私をここまで育ててくれたのは園長さんでしょ？[l][r]
+「私をここまで育ててくれたのは園長さんでしょ？[l][r]
 ここの動物園のみんな園長さんにはとっても感謝してるんだよ？[l][r]
-ほら、いつものやさしい園長に戻って！[l]みんなまってるよ！[p]
+ほら、いつものやさしい園長に戻って！[l]みんなまってるよ！」[p]
 
 #
 そうしてウサギ姫に引かれながら園長は動物園へと戻っていった[p]
@@ -140,25 +142,25 @@
 
 [show name=cinpanNormal x=-3 z=2.9 time=0.7]
 #cinpanNormal
-ほら、わたしらもいくぞ[p]
+「ほら、わたしらもいくぞ」[p]
 
 [show name="tokage" x=1.3 z=2.8 time=0.7]
 #tokage
-やれやれ、結局煮え切らない終わり方だなぁ、働き損な気がするぜ・・・。[p]
+「う、う～ん？結局なにがどうなったんだ？働き損な気がするぜ・・・。」[p]
 
 [show name="kame" x=4 z=2.7 time=0.7]
 #kame
-まぁまぁ、たまにはいいんじゃない？久しぶりに野生に戻った気がしたわ～[p]
+「まぁまぁ、たまにはいいんじゃない？久しぶりに野生に戻った気がしたわ～」[p]
 
 [hide name="kame" time=0.3]
 [show name="dachou" x=4 z=2.7 time=0.7]
 #dachou
-あー、その気持ちはわかるかも、全力出すなんて久しぶりだったから・・・[p]
+「あー、その気持ちはわかるかも、全力出すなんて久しぶりだったから・・・」[p]
 
 [hide name="tokage" time=0.3]
 [show name="momonga" x=1 z=2.6 time=0.7]
 #momonga
-わたしは初めてのことがいっぱいで楽しかったです！[p]
+「えっと、えっと、わたしは初めてのことがいっぱいで楽しかったです！」[p]
 
 #
  [r]
@@ -173,7 +175,6 @@
 この動物園はさらに繁盛し,[l][r]
 さまざまな事件が起こったが、[l][r]
 それはまた、別のお話・・・。[p][r]
-;[hidemessage]
 
 ;[bg_show name=black z=4.7]
 ;黒幕

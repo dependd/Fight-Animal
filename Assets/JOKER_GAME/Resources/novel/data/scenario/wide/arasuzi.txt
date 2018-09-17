@@ -7,7 +7,7 @@
 [chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
 [chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
 [chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=momonga storage=momonga scale="0.7" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
 [chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
 [chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
 [chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
@@ -29,15 +29,19 @@
 世界で一番人気がある動物園があった。[l][r]
 その動物園は動物たちが全員女の子の姿をしているのだ！[l][p]
 
+[show name="usagi" x=0 z=0]
 そんな動物たちの中でも一番人気の動物がウサギだった。[l][r]
 彼女はウサギ姫と呼ばれ、園長からも気に入られていた。[p]
 
+[hide name="usagi"]
 ある日、ウサギ姫と園長は森に散歩へ出かけた。[l][r]
 しばらくすると園長がけがをして帰ってきた。[p]
 
+[show name="cinpanNormal" x=0 z=0]
 園長はウサギ姫がチンパンにさらわれたとみんなに伝えた。[l][r]
 そして、ウサギ姫を取り戻すために４人の勇者（アニマル）[r]が集められた。[p]
 
+[hide name="cinpanNormal"]
 [show name="enchouNormal" x=3 z=3]
 #enchouNormal
 「ウサギ姫の無事は君たちにかかっている。何としても助け出してきてくれぃ！」[p]
@@ -48,19 +52,19 @@
 
 カメ、
 ;立ち絵の表示
-[show name=kame x=-4 z=4]
+[show name=kame x=-4.5 z=1]
 
 トカゲ、
 ;立ち絵の表示
-[show name=tokage x=-1 z=3]
+[show name=tokage x=-1 z=2]
 
 ダチョウ、
 ;立ち絵の表示
-[show name=dachou x=1 z=2]
+[show name=dachou x=1.5 z=3]
 
 モモンガ[r]
 ;立ち絵の表示
-[show name=momonga x=4 z=1]
+[show name=momonga x=4.5 z=1]
 
 の４人は森へと向かうのであった・・・。[p]
 

@@ -9,7 +9,7 @@
 [chara_new name=kame storage=kame scale="0.5" x=-4 y=-2 z=4 jname=カメ jcolor="#337799" ]
 [chara_new name=tokage storage=tokage scale="0.5" x=-1 y=-2 z=4 jname=トカゲ jcolor="#993333" ]
 [chara_new name=dachou storage=dachou scale="0.6" x=1 y=-3 z=4 jname=ダチョウ jcolor="#997733" ]
-[chara_new name=momonga storage=momonga scale="0.5" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
+[chara_new name=momonga storage=momonga scale="0.7" x=4 y=-2.1 z=4 jname=モモンガ jcolor="#339977" ]
 [chara_new name=usagi storage=usagi scale="0.5" x=-1 y=-1.6 z=4 jname=ウサギ姫 jcolor="#997979" ]
 [chara_new name=cinpanFight storage=cinpanFight scale="0.8" x=4 y=-1.5 z=4 jname=チンパン jcolor="#999999" ]
 [chara_new name=cinpanNormal storage=cinpanNormal scale="0.8" x=4 y=-2.8 z=4 jname=チンパン jcolor="#999999" ]
@@ -32,17 +32,17 @@
 #tokage
 「まったく見つからない・・・。」[p]
 
-[show name="momonga" x=3.3 z=2.9 time=0.7]
+[show name="momonga" x=4.3 z=2.9 time=0.7]
 #momonga
 「空から見ても全く分からないです・・・。」[p]
 
 [hide name="momonga" time=0.3]
-[show name="kame" x=3 z=2.8 time=0.7]
+[show name="kame" x=4 z=2.8 time=0.7]
 #kame
-「参ったわねぇ・・。」[p]
+「参ったわねぇ・・・。」[p]
 
 [hide name="tokage" time=0.3]
-[show name="dachou" x=1 z=2.7 time=0.7]
+[show name="dachou" x=1 z=2.9 time=0.7]
 #dachou
 「いや、この気配・・・来るわよ。」[p][r]
 
@@ -52,7 +52,7 @@
 [stopbgm time=1 wait=true ]
 
 [playbgm storage="battle" time=1 ]
-[show name="cinpanNormal" x=-4 time=0.7]
+[show name="cinpanNormal" x=-3.5 time=0.7]
 [showmessage]
 
 #
@@ -61,26 +61,26 @@
 #cinpanNormal
 「お前らがあの老害の差し金か？」[p]
 
-[show name="kame" x=3 z=3 time=0.7]
+[show name="kame" x=4 z=2.8 time=0.7]
 #kame
 「老害？園長のことかしら。」[p]
 
 #cinpanNormal
 「ああ、そうだ、あの老害にウサギ姫を渡すわけにはいかない。」[p]
 
-[show name="tokage" x=1.3 z=2.9 time=0.7]
+[show name="tokage" x=1.7 z=3.1 time=0.7]
 #tokage
 「要するに戦うしかないってことだろ？じゃあさっさとやろうぜ！」[p]
 
 [hide name="kame" time=0.3]
-[show name="momonga" x=3.3 z=2.8 time=0.7]
+[show name="momonga" x=4.3 z=2.8 time=0.7]
 #momonga
 「うぅ、戦うしかないんですね。」[p]
 
 [hide name="tokage" time=0.3]
-[show name="dachou" x=1 z=2.7 time=0.7]
+[show name="dachou" x=1.3 z=3.1 time=0.7]
 #dachou
-「はぁ、めんどくさいわねぇ・・。」[p]
+「はぁ、めんどくさいわねぇ・・・。」[p]
 
 #
 全員が戦闘態勢になる[p]][r]

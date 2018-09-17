@@ -22,9 +22,11 @@ public class PlayMovie : MonoBehaviour {
     public IEnumerator PlayOnMovie()
     {
         image.color = new Color(255, 255, 255, 255);
+        mPlayer.time = 0.0f;
         mPlayer.Play();
         yield return new WaitForSeconds(0.5f);
         image.color = new Color(255, 255, 255, 0);
+        
     }
     public void CharaMovies()
     {

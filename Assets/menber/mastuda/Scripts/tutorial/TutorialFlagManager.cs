@@ -311,19 +311,10 @@ public class TutorialFlagManager : SingletonMonoBehaviour<TutorialFlagManager> {
     }
     private void ReStart()
     {
-        if (BattleManager.Instance.nowBattleScene == 1)
-        {
-            var tinpan = GameObject.Find("tinpan");
-            var charaAnimation = tinpan.GetComponent<CharaAnimation>();
-            StartCoroutine(charaAnimation.TransfromAnim());
-            text.ChengeScenarioText("チンパンが本性をあらわした!!");
-        }
-        else
-        {
             noteFrequency.GetComponent<NoteFrequency>().enabled = true;
             StartCoroutine(countDown.CountdownCoroutine());
             text.ChengeScenarioText("");
-        }
+        
     }
     private void TouchFlag(bool i)
     {

@@ -45,18 +45,6 @@ public class CharaAnimation : MonoBehaviour
     {
         animator.SetBool("Down", true);
     }
-    public IEnumerator TransfromAnim()
-    {
-        
-        animator.SetBool("Trasform", true);
-        yield return new WaitForSeconds(5.0f);
-        var Tinpan = GameObject.Find("tinpan");
-        sprite = Tinpan.GetComponent<SpriteRenderer>();
-        sprite.color = new Color(255,255,255,255);
-        var countDown = GameObject.Find("CountDown");
-        var CD = countDown.GetComponent<CountDown>();
-        StartCoroutine(CD.CountdownCoroutine());
-    }
     public void AttackEffect(string name)
     {   
         //引数の名前で誰の攻撃は判別
